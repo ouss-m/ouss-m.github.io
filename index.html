@@ -3,296 +3,287 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Oussama Malass test | Career Portfolio</title>
+  <meta name="description" content="Oussama Malass - Computer Science Student & Cybersecurity Enthusiast. Career Portfolio." />
+  <title>Oussama Malass | Career Portfolio</title>
   <link rel="stylesheet" href="style.css" />
+  <!-- Font Awesome for subtle, professional icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 </head>
 <body>
+  <header class="hero">
+    <nav>
+      <div class="nav-container">
+        <a href="#" class="logo">Oussama <span>Malass</span></a>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#goals">Goals</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#reflection">Reflection</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="mobile-menu-btn" aria-label="Toggle menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </nav>
 
-<header class="hero">
-  <nav>
-    <h2>Oussama Malass</h2>
-    <div>
-      <a href="#about">About</a>
-      <a href="#goals">Goals</a>
-      <a href="#skills">Skills</a>
-      <a href="#experience">Experience</a>
-      <a href="#reflection">Reflection</a>
-      <a href="#contact">Contact</a>
+    <div class="hero-content">
+      <img src="assets/profile.jpg" alt="Professional headshot of Oussama Malass" class="profile-img" />
+      <h1>Oussama Malass</h1>
+      <p class="tagline">Computer Science Student | Cybersecurity & Bug Bounty Hunter</p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-primary">Get In Touch</a>
+        <a href="#goals" class="btn btn-outline">View My Goals</a>
+      </div>
     </div>
-  </nav>
+  </header>
 
-  <div class="hero-content">
-    <img src="assets/profile.jpg" alt="Professional photo of Oussama Malass" class="profile-img" />
-    <h1>Oussama Malass</h1>
-    <p>Computer Science Student | Cybersecurity & Bug Bounty Hunter</p>
-    <a class="btn" href="#contact">Contact Me</a>
-  </div>
-</header>
+  <main>
+    <section id="about" class="section">
+      <div class="section-header">
+        <h2><i class="fas fa-user"></i> About Me</h2>
+      </div>
+      <div class="about-content">
+        <p>
+          I am a dedicated Computer Science student at Beirut Arab University (BAU), deeply passionate about cybersecurity, ethical hacking, and web application security. As an active bug bounty hunter on HackerOne, I responsibly identify and report critical security vulnerabilities, helping global organizations strengthen their digital defenses.
+        </p>
+        <p>
+          My mission is to continuously refine my technical, communication, and professional skills to build a resilient and impactful career in cybersecurity.
+        </p>
+      </div>
+      
+      <div class="info-grid">
+        <div class="info-item">
+          <i class="fas fa-graduation-cap"></i>
+          <strong>Program:</strong> Computer Science
+        </div>
+        <div class="info-item">
+          <i class="fas fa-university"></i>
+          <strong>University:</strong> Beirut Arab University (BAU)
+        </div>
+        <div class="info-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <strong>Location:</strong> Tripoli, Lebanon
+        </div>
+        <div class="info-item">
+          <i class="fas fa-envelope"></i>
+          <strong>Email:</strong> malassouss@gmail.com
+        </div>
+        <div class="info-item">
+          <i class="fas fa-phone"></i>
+          <strong>Phone:</strong> 70 276 166
+        </div>
+        <div class="info-item">
+          <i class="fab fa-linkedin"></i>
+          <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/oussama-malass/" target="_blank" rel="noopener">View Profile</a>
+        </div>
+      </div>
+    </section>
 
-<main>
+    <section id="goals" class="section bg-light">
+      <div class="section-header">
+        <h2><i class="fas fa-bullseye"></i> Professional Development Plan</h2>
+      </div>
+      <div class="goals-grid">
+        <div class="card goal-card long-term">
+          <h3>Long-Term Vision</h3>
+          <p>To establish myself as a leading international bug bounty hunter and eventually found a cybersecurity firm that proactively protects organizations and their users from evolving digital threats.</p>
+        </div>
+        <div class="card-grid">
+          <div class="card">
+            <h3>Short-Term Goal 1</h3>
+            <p>Graduate with a strong academic foundation and practical expertise in Computer Science.</p>
+          </div>
+          <div class="card">
+            <h3>Short-Term Goal 2</h3>
+            <p>Enhance my reputation and ranking on HackerOne, particularly within the Lebanese cybersecurity community.</p>
+          </div>
+          <div class="card">
+            <h3>Short-Term Goal 3</h3>
+            <p>Secure a challenging cybersecurity internship or junior role at a reputable tech company.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<section id="about" class="section">
-  <h2>About Me</h2>
-  <p>
-    I am a Computer Science student at Beirut Arab University (BAU), interested in cybersecurity,
-    ethical hacking, and web application security. I am currently active as a bug bounty hunter on
-    HackerOne, where I report security vulnerabilities responsibly to help organizations improve
-    their security posture.
-  </p>
-  <p>
-    My goal is to keep developing my technical, communication, and professional skills in order to
-    build a strong career in cybersecurity.
-  </p>
-</section>
+    <section id="skills" class="section">
+      <div class="section-header">
+        <h2><i class="fas fa-cogs"></i> Skills & Competencies</h2>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <i class="fas fa-comment-dots"></i>
+          <h3>Communication</h3>
+          <p>I articulate complex security findings through clear, structured vulnerability reports—including executive summaries, reproducible steps, business impact, and actionable remediation advice.</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-puzzle-piece"></i>
+          <h3>Problem Solving</h3>
+          <p>I deconstruct intricate web application behaviors, identify logic flaws, test edge cases, and develop practical proof-of-concepts to demonstrate real-world risk.</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-clock"></i>
+          <h3>Time Management</h3>
+          <p>Balancing rigorous university coursework with continuous cybersecurity research and bug bounty hunting has honed my ability to prioritize and manage time effectively.</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-users"></i>
+          <h3>Teamwork & Networking</h3>
+          <p>I actively engage with the global security community, exchanging knowledge with fellow hackers and incorporating feedback to continuously improve my methodologies.</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-flag"></i>
+          <h3>Leadership</h3>
+          <p>I take full ownership of my professional development, setting ambitious goals and working autonomously to carve a path toward a leadership role in cybersecurity.</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-shield-alt"></i>
+          <h3>Technical Proficiency</h3>
+          <p>Experienced in web application testing, vulnerability analysis, responsible disclosure, reconnaissance, Burp Suite, HTTP request/response analysis, and professional bug bounty report writing.</p>
+        </div>
+      </div>
+    </section>
 
-<section class="section">
-  <h2>Personal Information</h2>
-  <div class="info-grid">
-    <div><strong>Program:</strong> Computer Science</div>
-    <div><strong>University:</strong> BAU</div>
-    <div><strong>Location:</strong> Tripoli, Lebanon</div>
-    <div><strong>Email:</strong> malassouss@gmail.com</div>
-    <div><strong>Phone:</strong> 70 276 166</div>
-    <div><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/oussama-malass/" target="_blank">View Profile</a></div>
-  </div>
-</section>
+    <section id="education" class="section bg-light">
+      <div class="section-header">
+        <h2><i class="fas fa-book-open"></i> Education</h2>
+      </div>
+      <div class="card">
+        <h3>Bachelor of Science in Computer Science</h3>
+        <p><strong>Beirut Arab University (BAU)</strong> | 3-Year Program</p>
+        <p><strong>Relevant Coursework:</strong> Programming Fundamentals, Web Development, Database Systems, Computer Networks, Software Engineering, Operating Systems, Data Structures & Algorithms, and Cybersecurity Principles.</p>
+      </div>
+    </section>
 
-<section id="goals" class="section">
-  <h2>Professional Development Plan</h2>
+    <section id="experience" class="section">
+      <div class="section-header">
+        <h2><i class="fas fa-briefcase"></i> Professional Experience</h2>
+      </div>
+      <div class="card">
+        <h3>Bug Bounty Hunter</h3>
+        <p><strong>HackerOne</strong> | April 2024 – Present</p>
+        <p>I proactively identify, analyze, and responsibly disclose security vulnerabilities for organizations running bug bounty programs. My work involves deep-dive web application testing, writing detailed professional reports, articulating real-world impact, and collaborating with security teams to remediate critical issues.</p>
+      </div>
 
-  <div class="card">
-    <h3>Long-Term Goal</h3>
-    <p>
-      My long-term goal is to become one of the top bug bounty hunters internationally and eventually
-      establish a cybersecurity company that helps organizations protect their systems and users.
-    </p>
-  </div>
+      <div class="card project-card">
+        <h3>Key Project Contribution</h3>
+        <p><strong>Web Cache Vulnerability Scanner</strong></p>
+        <p>Contributed to an open-source initiative to enhance methodologies around web cache vulnerabilities, helping automate the detection of complex caching flaws.</p>
+        <a class="btn btn-primary" href="https://github.com/Hackmanit/Web-Cache-Vulnerability-Scanner" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i> View Project
+        </a>
+      </div>
+    </section>
 
-  <div class="cards">
-    <div class="card">
-      <h3>Short-Term Goal 1</h3>
-      <p>Graduate from university with strong academic and practical knowledge in Computer Science.</p>
-    </div>
+    <section id="certification" class="section bg-light">
+      <div class="section-header">
+        <h2><i class="fas fa-certificate"></i> Training & Certification</h2>
+      </div>
+      <div class="card">
+        <h3>Cyber Security Training</h3>
+        <p><strong>SemiColon</strong> | August 2025</p>
+        <p>Intensive training program covering modern cybersecurity methodologies, ethical hacking techniques, and defensive strategies.</p>
+      </div>
+    </section>
 
-    <div class="card">
-      <h3>Short-Term Goal 2</h3>
-      <p>Improve my ranking and professional reputation on HackerOne, especially within Lebanon.</p>
-    </div>
+    <section id="cover-letter" class="section">
+      <div class="section-header">
+        <h2><i class="fas fa-file-alt"></i> Cover Letter</h2>
+      </div>
+      <div class="card cover-letter">
+        <p>Dear Hiring Manager,</p>
+        <p>
+          I am writing to express my strong interest in a cybersecurity internship or junior analyst role. As a Computer Science student at Beirut Arab University with a deep passion for ethical hacking and web security, I have dedicated my extracurricular time to becoming an active bug bounty hunter on HackerOne.
+        </p>
+        <p>
+          Through this hands-on experience, I have developed a pragmatic skillset in dissecting web applications, identifying critical vulnerabilities, and communicating technical impact in a clear, professional manner to diverse stakeholders. I am eager to bring my discipline, curiosity, and proactive mindset to a forward-thinking security team.
+        </p>
+        <p>
+          I am committed to continuous learning and am excited about the opportunity to contribute to real-world security operations.
+        </p>
+        <p>
+          Sincerely,<br />
+          <strong>Oussama Malass</strong>
+        </p>
+      </div>
+    </section>
 
-    <div class="card">
-      <h3>Short-Term Goal 3</h3>
-      <p>Apply for cybersecurity internships or junior security roles in reputable companies.</p>
-    </div>
-  </div>
-</section>
+    <section id="reflection" class="section bg-light">
+      <div class="section-header">
+        <h2><i class="fas fa-brain"></i> Work-Based Learning Reflection</h2>
+      </div>
+      <div class="reflection-content">
+        <p>
+          My work-based learning journey has been immersed in the dynamic field of cybersecurity—encompassing bug bounty research, vulnerability analysis, and active collaboration with skilled hackers in the global security community. This exposure has been instrumental in bridging the gap between academic theory and the practical demands of the industry.
+        </p>
+        <p>
+          A key observation was that elite security researchers don't rely on technical prowess alone. They excel in articulating complex vulnerabilities, writing meticulous reports, communicating respectfully with diverse teams, and gracefully accepting feedback from triagers and peers. This holistic approach is what I have actively cultivated.
+        </p>
+        <p>
+          This experience significantly sharpened my networking, research, communication, and problem-solving abilities. It also solidified my commitment to a cybersecurity career, as I witnessed firsthand how this field creates tangible value by protecting users, companies, and digital infrastructure.
+        </p>
+      </div>
+    </section>
 
-<section id="skills" class="section">
-  <h2>Skills</h2>
+    <section id="wrn-assignments" class="section">
+      <div class="section-header">
+        <h2><i class="fas fa-tasks"></i> WRN Assignments & Artifacts</h2>
+      </div>
+      <div class="cards">
+        <div class="card artifact-card">
+          <h3>Skills Diamond</h3>
+          <p>Visual representation of my core competencies and strengths.</p>
+          <img src="assets/SkillsDiamond.png" alt="Skills Diamond Diagram" class="artifact-img" loading="lazy">
+        </div>
+        <div class="card artifact-card">
+          <h3>Learning Style Graphic</h3>
+          <p>Infographic detailing my multimodal learning approach.</p>
+          <img src="assets/LearningStyle.png" alt="Learning Style Infographic" class="artifact-img" loading="lazy">
+        </div>
+        <div class="card artifact-card">
+          <h3>Communication Comic</h3>
+          <p>Illustrating the critical contrast between effective and poor communication.</p>
+          <img src="assets/CommunicationComic.png" alt="Communication Comic Strip" class="artifact-img" loading="lazy">
+        </div>
+        <div class="card artifact-card">
+          <h3>LinkedIn Profile</h3>
+          <p>My professional online presence and networking hub.</p>
+          <a class="btn btn-primary" href="https://www.linkedin.com/in/oussama-malass/" target="_blank" rel="noopener">
+            <i class="fab fa-linkedin"></i> View Profile
+          </a>
+        </div>
+      </div>
+    </section>
 
-  <div class="cards">
-    <div class="card">
-      <h3>Communication</h3>
-      <p>
-        I communicate security findings clearly through structured vulnerability reports, including
-        summaries, steps to reproduce, impact, and recommendations.
-      </p>
-    </div>
+    <section id="awards" class="section bg-light">
+      <div class="section-header">
+        <h2><i class="fas fa-trophy"></i> Awards & Recognition</h2>
+      </div>
+      <div class="card award-card">
+        <h3>Bug Bounty Hunter Recognition</h3>
+        <p>Awarded by <strong>SemiColon</strong> for the discovery of critical security vulnerabilities in globally recognized platforms.</p>
+        <img src="assets/award.jpg" alt="Bug Bounty Recognition Award Certificate" class="award-img" loading="lazy">
+      </div>
+    </section>
 
-    <div class="card">
-      <h3>Problem Solving</h3>
-      <p>
-        I analyze complex web application behavior, identify weaknesses, test edge cases, and develop
-        practical proof-of-concepts.
-      </p>
-    </div>
+    <section id="contact" class="section contact-section">
+      <div class="section-header">
+        <h2><i class="fas fa-paper-plane"></i> Let's Connect</h2>
+      </div>
+      <p>I am always open to discussing new opportunities, cybersecurity research, or potential collaborations.</p>
+      <div class="contact-grid">
+        <a href="mailto:malassouss@gmail.com" class="contact-link"><i class="fas fa-envelope"></i> malassouss@gmail.com</a>
+        <a href="tel:+96170276166" class="contact-link"><i class="fas fa-phone"></i> 70 276 166</a>
+        <a href="https://www.linkedin.com/in/oussama-malass/" target="_blank" rel="noopener" class="contact-link"><i class="fab fa-linkedin"></i> linkedin.com/in/oussama-malass</a>
+      </div>
+    </section>
+  </main>
 
-    <div class="card">
-      <h3>Time Management</h3>
-      <p>
-        I manage university responsibilities while continuously learning cybersecurity and working on
-        bug bounty research.
-      </p>
-    </div>
+  <footer>
+    <p>© 2026 Oussama Malass. Crafted with focus and dedication.</p>
+  </footer>
 
-    <div class="card">
-      <h3>Teamwork & Networking</h3>
-      <p>
-        I learn from the cybersecurity community, exchange knowledge with other hackers, and use
-        feedback to improve my methodology.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Leadership</h3>
-      <p>
-        I take initiative in my learning path, set professional goals, and work independently toward
-        building a cybersecurity career.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Technical Skills</h3>
-      <p>
-        Web application testing, vulnerability analysis, responsible disclosure, recon, Burp Suite,
-        HTTP request analysis, and bug bounty reporting.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <h2>Education</h2>
-  <div class="card">
-    <h3>Computer Science</h3>
-    <p><strong>University:</strong> Beirut Arab University (BAU)</p>
-    <p><strong>Years:</strong> 3 years</p>
-    <p>
-      <strong>Relevant Courses:</strong> Programming, Web Development, Databases, Computer Networks,
-      Software Engineering, Operating Systems, Data Structures, and Cybersecurity fundamentals.
-    </p>
-  </div>
-</section>
-
-<section id="experience" class="section">
-  <h2>Experience</h2>
-  <div class="card">
-    <h3>Bug Bounty Hunter</h3>
-    <p><strong>Platform:</strong> HackerOne</p>
-    <p><strong>Date:</strong> April 17, 2024 – Present</p>
-    <p>
-      I identify and responsibly report security vulnerabilities to companies through bug bounty
-      programs. My work includes testing web applications, writing professional reports, explaining
-      real-world impact, and helping organizations fix security issues.
-    </p>
-  </div>
-</section>
-
-<section class="section">
-  <h2>Project / Work Sample</h2>
-  <div class="card">
-    <h3>Hacking Tools and Methodologies</h3>
-    <p>
-      I contributed to improving knowledge and methodology around web cache vulnerabilities,
-      including work related to a web cache vulnerability scanner.
-    </p>
-    <a class="btn" href="https://github.com/Hackmanit/Web-Cache-Vulnerability-Scanner" target="_blank">
-      View Project
-    </a>
-  </div>
-</section>
-
-<section class="section">
-  <h2>Certificate / Training</h2>
-  <div class="card">
-    <h3>Cyber Security Course</h3>
-    <p><strong>Organization:</strong> SemiColon</p>
-    <p><strong>Date:</strong> August 12, 2025</p>
-  </div>
-</section>
-
-<section class="section">
-  <h2>Cover Letter</h2>
-  <div class="card">
-    <p>Dear Hiring Manager,</p>
-    <p>
-      I am writing to express my interest in a cybersecurity internship or junior cybersecurity role.
-      I am a Computer Science student at BAU with a strong interest in ethical hacking, web security,
-      and responsible vulnerability disclosure.
-    </p>
-    <p>
-      Through my work as a bug bounty hunter on HackerOne, I have developed practical experience in
-      analyzing web applications, identifying security issues, writing professional vulnerability
-      reports, and communicating technical impact clearly.
-    </p>
-    <p>
-      I am motivated to keep learning, contribute to a professional security team, and grow into a
-      strong cybersecurity specialist.
-    </p>
-    <p>
-      Sincerely,<br />
-      Oussama Malass
-    </p>
-  </div>
-</section>
-
-<section id="reflection" class="section">
-  <h2>Work-Based Learning Reflection</h2>
-  <p>
-    My work-based learning experience was mainly connected to cybersecurity activities, bug bounty
-    research, and communicating with skilled hackers in the security community. Through this exposure,
-    I learned how real cybersecurity work requires continuous learning, patience, discipline, and
-    strong communication.
-  </p>
-  <p>
-    I observed that successful hackers do not only depend on technical knowledge. They also need to
-    explain vulnerabilities clearly, write professional reports, communicate respectfully with
-    companies, and accept feedback from triagers and other security professionals.
-  </p>
-  <p>
-    This experience helped me improve my networking, research, communication, and problem-solving
-    skills. It also made me more dedicated to cybersecurity as a career path because I saw how this
-    field can create real value by protecting users, companies, and digital systems.
-  </p>
-</section>
-
-<section class="section">
-  <h2>WRN Assignments</h2>
-
-  <div class="cards">
-
-    <div class="card">
-      <h3>LinkedIn Profile</h3>
-      <p>My professional LinkedIn profile.</p>
-      <a class="btn" href="https://www.linkedin.com/in/oussama-malass/" target="_blank">
-        View Profile
-      </a>
-    </div>
-    
-    <div class="card">
-      <h3>Skills Diamond</h3>
-      <p>This visual represents my core skills and strengths.</p>
-      <img src="SkillsDiamond.png" alt="Skills Diamond" style="width:100%; border-radius:10px; margin-top:10px;">
-    </div>
-
-    <div class="card">
-      <h3>Learning Style Graphic</h3>
-      <p>This infographic explains how I learn best using multiple methods.</p>
-      <img src="LearningStyle.png" alt="Learning Style" style="width:100%; border-radius:10px; margin-top:10px;">
-    </div>
-
-    <div class="card">
-      <h3>Communication Comic</h3>
-      <p>This comic demonstrates the difference between good and poor communication.</p>
-      <img src="CommunicationComic.png" alt="Communication Comic" style="width:100%; border-radius:10px; margin-top:10px;">
-    </div>
-
-  </div>
-</section>
-
-<section class="section">
-  <h2>Awards & Recognition</h2>
-  <div class="card">
-    <h3>Bug Bounty Hunter Recognition Award</h3>
-    <p>
-      Recognition Award from SemiColon for discovering security vulnerabilities in top global
-      platforms.
-    </p>
-    <img src="assets/award.jpg" alt="Bug bounty recognition award" class="award-img" />
-  </div>
-</section>
-
-<section id="contact" class="section">
-  <h2>Contact</h2>
-  <p><strong>Email:</strong> <a href="mailto:malassouss@gmail.com">malassouss@gmail.com</a></p>
-  <p><strong>Phone:</strong> 70 276 166</p>
-  <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/oussama-malass/" target="_blank">linkedin.com/in/oussama-malass</a></p>
-</section>
-
-</main>
-
-<footer>
-  <p>© 2026 Oussama Malass | Career Portfolio</p>
-</footer>
-
+  <script src="script.js"></script>
 </body>
 </html>
