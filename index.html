@@ -3,241 +3,292 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Career Portfolio</title>
-  <style>
-    * { box-sizing: border-box; scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f4f6f8;
-      color: #222;
-      line-height: 1.6;
-    }
-    header {
-      background: #1f2937;
-      color: white;
-      padding: 50px 20px;
-      text-align: center;
-    }
-    header h1 { margin: 0; font-size: 42px; }
-    header p { font-size: 18px; margin-top: 10px; }
-    nav {
-      background: #111827;
-      padding: 12px;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 10px;
-      font-size: 14px;
-    }
-    section {
-      max-width: 1000px;
-      margin: 25px auto;
-      background: white;
-      padding: 30px;
-      border-radius: 14px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-    }
-    h2 {
-      color: #1f2937;
-      border-bottom: 2px solid #e5e7eb;
-      padding-bottom: 8px;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 15px;
-    }
-    .card {
-      background: #f9fafb;
-      padding: 18px;
-      border-radius: 12px;
-      border: 1px solid #e5e7eb;
-    }
-    .btn {
-      display: inline-block;
-      background: #2563eb;
-      color: white;
-      padding: 10px 16px;
-      border-radius: 8px;
-      text-decoration: none;
-      margin-top: 10px;
-    }
-    footer {
-      text-align: center;
-      padding: 25px;
-      color: #555;
-    }
-  </style>
+  <title>Oussama Malass | Career Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
 
-<header>
-  <h1>Your Full Name</h1>
-  <p>Career Portfolio | Program of Study</p>
+<header class="hero">
+  <nav>
+    <h2>Oussama Malass</h2>
+    <div>
+      <a href="#about">About</a>
+      <a href="#goals">Goals</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#reflection">Reflection</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <div class="hero-content">
+    <img src="assets/profile.jpg" alt="Professional photo of Oussama Malass" class="profile-img" />
+    <h1>Oussama Malass</h1>
+    <p>Computer Science Student | Cybersecurity & Bug Bounty Hunter</p>
+    <a class="btn" href="#contact">Contact Me</a>
+  </div>
 </header>
 
-<nav>
-  <a href="#about">About</a>
-  <a href="#plan">Plan</a>
-  <a href="#cv">CV</a>
-  <a href="#cover">Cover Letter</a>
-  <a href="#skills">Skills</a>
-  <a href="#reflection">Reflection</a>
-  <a href="#assignments">Assignments</a>
-  <a href="#contact">Contact</a>
-</nav>
+<main>
 
-<section id="about">
+<section id="about" class="section">
   <h2>About Me</h2>
   <p>
-    My name is <strong>Your Full Name</strong>. I am studying <strong>Your Program/Major</strong>.
-    This portfolio presents my professional development, skills, work-based learning reflection,
-    and career preparation documents.
+    I am a Computer Science student at Beirut Arab University (BAU), interested in cybersecurity,
+    ethical hacking, and web application security. I am currently active as a bug bounty hunter on
+    HackerOne, where I report security vulnerabilities responsibly to help organizations improve
+    their security posture.
   </p>
-  <p><strong>Email:</strong> your.email@example.com</p>
-  <p><strong>Phone:</strong> +961 XX XXX XXX</p>
+  <p>
+    My goal is to keep developing my technical, communication, and professional skills in order to
+    build a strong career in cybersecurity.
+  </p>
 </section>
 
-<section id="plan">
+<section class="section">
+  <h2>Personal Information</h2>
+  <div class="info-grid">
+    <div><strong>Program:</strong> Computer Science</div>
+    <div><strong>University:</strong> BAU</div>
+    <div><strong>Location:</strong> Tripoli, Lebanon</div>
+    <div><strong>Email:</strong> malassouss@gmail.com</div>
+    <div><strong>Phone:</strong> 70 276 166</div>
+    <div><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/oussama-malass/" target="_blank">View Profile</a></div>
+  </div>
+</section>
+
+<section id="goals" class="section">
   <h2>Professional Development Plan</h2>
 
   <div class="card">
     <h3>Long-Term Goal</h3>
     <p>
-      My long-term goal is to develop my professional skills and find a suitable job or internship
-      in my field after graduation.
+      My long-term goal is to become one of the top bug bounty hunters internationally and eventually
+      establish a cybersecurity company that helps organizations protect their systems and users.
     </p>
   </div>
 
-  <div class="grid">
+  <div class="cards">
     <div class="card">
       <h3>Short-Term Goal 1</h3>
-      <p>Improve my communication and teamwork skills.</p>
+      <p>Graduate from university with strong academic and practical knowledge in Computer Science.</p>
     </div>
+
     <div class="card">
       <h3>Short-Term Goal 2</h3>
-      <p>Prepare a professional CV and cover letter.</p>
+      <p>Improve my ranking and professional reputation on HackerOne, especially within Lebanon.</p>
     </div>
+
     <div class="card">
       <h3>Short-Term Goal 3</h3>
-      <p>Apply to internship or job opportunities related to my field.</p>
+      <p>Apply for cybersecurity internships or junior security roles in reputable companies.</p>
     </div>
   </div>
 </section>
 
-<section id="cv">
-  <h2>CV</h2>
-  <p>
-    This section will include my professional CV with my education, skills, experience,
-    and contact information.
-  </p>
-  <a class="btn" href="#" target="_blank">View My CV</a>
-</section>
-
-<section id="cover">
-  <h2>Cover Letter</h2>
-  <p>
-    Dear Hiring Manager,
-  </p>
-  <p>
-    I am writing to express my interest in an opportunity related to my field of study.
-    I am motivated, responsible, and willing to learn. Through my education and work readiness
-    training, I have developed communication, teamwork, problem-solving, and time-management skills.
-  </p>
-  <p>
-    Thank you for your time and consideration.
-  </p>
-  <p>
-    Sincerely,<br />
-    Your Full Name
-  </p>
-</section>
-
-<section id="skills">
+<section id="skills" class="section">
   <h2>Skills</h2>
 
-  <div class="grid">
+  <div class="cards">
     <div class="card">
       <h3>Communication</h3>
-      <p>I can communicate clearly, listen actively, and ask for clarification when needed.</p>
+      <p>
+        I communicate security findings clearly through structured vulnerability reports, including
+        summaries, steps to reproduce, impact, and recommendations.
+      </p>
     </div>
-    <div class="card">
-      <h3>Teamwork</h3>
-      <p>I can cooperate with others, respect different ideas, and work toward shared goals.</p>
-    </div>
-    <div class="card">
-      <h3>Responsibility</h3>
-      <p>I take responsibility for my tasks and try to complete work on time.</p>
-    </div>
+
     <div class="card">
       <h3>Problem Solving</h3>
-      <p>I can identify problems, think of possible solutions, and take action.</p>
+      <p>
+        I analyze complex web application behavior, identify weaknesses, test edge cases, and develop
+        practical proof-of-concepts.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Time Management</h3>
+      <p>
+        I manage university responsibilities while continuously learning cybersecurity and working on
+        bug bounty research.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Teamwork & Networking</h3>
+      <p>
+        I learn from the cybersecurity community, exchange knowledge with other hackers, and use
+        feedback to improve my methodology.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Leadership</h3>
+      <p>
+        I take initiative in my learning path, set professional goals, and work independently toward
+        building a cybersecurity career.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Technical Skills</h3>
+      <p>
+        Web application testing, vulnerability analysis, responsible disclosure, recon, Burp Suite,
+        HTTP request analysis, and bug bounty reporting.
+      </p>
     </div>
   </div>
 </section>
 
-<section id="reflection">
+<section class="section">
+  <h2>Education</h2>
+  <div class="card">
+    <h3>Computer Science</h3>
+    <p><strong>University:</strong> Beirut Arab University (BAU)</p>
+    <p><strong>Years:</strong> 3 years</p>
+    <p>
+      <strong>Relevant Courses:</strong> Programming, Web Development, Databases, Computer Networks,
+      Software Engineering, Operating Systems, Data Structures, and Cybersecurity fundamentals.
+    </p>
+  </div>
+</section>
+
+<section id="experience" class="section">
+  <h2>Experience</h2>
+  <div class="card">
+    <h3>Bug Bounty Hunter</h3>
+    <p><strong>Platform:</strong> HackerOne</p>
+    <p><strong>Date:</strong> April 17, 2024 – Present</p>
+    <p>
+      I identify and responsibly report security vulnerabilities to companies through bug bounty
+      programs. My work includes testing web applications, writing professional reports, explaining
+      real-world impact, and helping organizations fix security issues.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Project / Work Sample</h2>
+  <div class="card">
+    <h3>Hacking Tools and Methodologies</h3>
+    <p>
+      I contributed to improving knowledge and methodology around web cache vulnerabilities,
+      including work related to a web cache vulnerability scanner.
+    </p>
+    <a class="btn" href="https://github.com/Hackmanit/Web-Cache-Vulnerability-Scanner" target="_blank">
+      View Project
+    </a>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Certificate / Training</h2>
+  <div class="card">
+    <h3>Cyber Security Course</h3>
+    <p><strong>Organization:</strong> SemiColon</p>
+    <p><strong>Date:</strong> August 12, 2025</p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Cover Letter</h2>
+  <div class="card">
+    <p>Dear Hiring Manager,</p>
+    <p>
+      I am writing to express my interest in a cybersecurity internship or junior cybersecurity role.
+      I am a Computer Science student at BAU with a strong interest in ethical hacking, web security,
+      and responsible vulnerability disclosure.
+    </p>
+    <p>
+      Through my work as a bug bounty hunter on HackerOne, I have developed practical experience in
+      analyzing web applications, identifying security issues, writing professional vulnerability
+      reports, and communicating technical impact clearly.
+    </p>
+    <p>
+      I am motivated to keep learning, contribute to a professional security team, and grow into a
+      strong cybersecurity specialist.
+    </p>
+    <p>
+      Sincerely,<br />
+      Oussama Malass
+    </p>
+  </div>
+</section>
+
+<section id="reflection" class="section">
   <h2>Work-Based Learning Reflection</h2>
   <p>
-    Through work-based learning activities, I learned more about the skills needed in the workplace.
-    I observed that employers value communication, responsibility, teamwork, respect, and time management.
+    My work-based learning experience was mainly connected to cybersecurity activities, bug bounty
+    research, and communicating with skilled hackers in the security community. Through this exposure,
+    I learned how real cybersecurity work requires continuous learning, patience, discipline, and
+    strong communication.
   </p>
   <p>
-    These activities helped me understand my strengths and areas I need to improve.
-    They also helped me think more clearly about my career goals and the steps I should take
-    to become more prepared for work.
+    I observed that successful hackers do not only depend on technical knowledge. They also need to
+    explain vulnerabilities clearly, write professional reports, communicate respectfully with
+    companies, and accept feedback from triagers and other security professionals.
+  </p>
+  <p>
+    This experience helped me improve my networking, research, communication, and problem-solving
+    skills. It also made me more dedicated to cybersecurity as a career path because I saw how this
+    field can create real value by protecting users, companies, and digital systems.
   </p>
 </section>
 
-<section id="assignments">
+<section class="section">
   <h2>WRN Assignments</h2>
-
-  <div class="grid">
-    <div class="card">
-      <h3>Skills Diamond</h3>
-      <p>Add your YouRock.jobs skills diamond here.</p>
-    </div>
-    <div class="card">
-      <h3>Learning Style Graphic</h3>
-      <p>Add your Canva learning style visual here.</p>
-    </div>
-    <div class="card">
-      <h3>Communication Comic</h3>
-      <p>Add good and poor communication comic strips here.</p>
-    </div>
-    <div class="card">
-      <h3>Customer Service Video</h3>
-      <p>Add your customer service video link here.</p>
-    </div>
+  <div class="cards">
     <div class="card">
       <h3>LinkedIn Profile</h3>
-      <p>Add your LinkedIn profile link here.</p>
+      <p>My professional LinkedIn profile is available online.</p>
+      <a class="btn" href="https://www.linkedin.com/in/oussama-malass/" target="_blank">View LinkedIn</a>
+    </div>
+
+    <div class="card">
+      <h3>Skills Diamond</h3>
+      <p>To be added when completed.</p>
+    </div>
+
+    <div class="card">
+      <h3>Learning Style Graphic</h3>
+      <p>To be added when completed.</p>
+    </div>
+
+    <div class="card">
+      <h3>Communication Comic</h3>
+      <p>To be added when completed.</p>
+    </div>
+
+    <div class="card">
+      <h3>Customer Service Video</h3>
+      <p>To be added when completed.</p>
     </div>
   </div>
 </section>
 
-<section id="extras">
-  <h2>Extras</h2>
-  <p>
-    This section can include certificates, awards, projects, trainings, workshops, or work samples.
-  </p>
+<section class="section">
+  <h2>Awards & Recognition</h2>
+  <div class="card">
+    <h3>Bug Bounty Hunter Recognition Award</h3>
+    <p>
+      Recognition Award from SemiColon for discovering security vulnerabilities in top global
+      platforms.
+    </p>
+    <img src="assets/award.jpg" alt="Bug bounty recognition award" class="award-img" />
+  </div>
 </section>
 
-<section id="contact">
+<section id="contact" class="section">
   <h2>Contact</h2>
-  <p><strong>Email:</strong> your.email@example.com</p>
-  <p><strong>LinkedIn:</strong> Add your LinkedIn URL</p>
+  <p><strong>Email:</strong> <a href="mailto:malassouss@gmail.com">malassouss@gmail.com</a></p>
+  <p><strong>Phone:</strong> 70 276 166</p>
+  <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/oussama-malass/" target="_blank">linkedin.com/in/oussama-malass</a></p>
 </section>
+
+</main>
 
 <footer>
-  <p>© 2026 Oussama Malass — Career Portfolio</p>
+  <p>© 2026 Oussama Malass | Career Portfolio</p>
 </footer>
 
 </body>
