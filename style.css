@@ -1,9 +1,17 @@
-/* === Base & Variables === */
+/* ========== RESET & ROOT VARIABLES ========== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 :root {
   --primary: #2563eb;
   --primary-dark: #1d4ed8;
   --primary-light: #eff6ff;
-  --dark: #0f172a;
+  --dark-bg: #0f172a;
   --darker: #020617;
   --gray-50: #f8fafc;
   --gray-100: #f1f5f9;
@@ -12,16 +20,9 @@
   --gray-800: #1e293b;
   --white: #ffffff;
   --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
-  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -2px rgba(0,0,0,0.05);
-  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -4px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.05), 0 2px 6px rgba(0,0,0,0.05);
+  --transition: all 0.25s ease-in-out;
   --radius: 0.75rem;
-  --transition: all 0.25s ease;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
 }
 
 html {
@@ -29,32 +30,28 @@ html {
 }
 
 body {
-  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   background-color: var(--gray-50);
-  color: var(--dark);
+  color: var(--dark-bg);
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
 }
 
-/* === Typography === */
-h1, h2, h3, h4 {
-  font-weight: 600;
-  line-height: 1.3;
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 a {
-  color: var(--primary);
   text-decoration: none;
+  color: var(--primary);
   transition: var(--transition);
 }
 
-a:hover {
-  color: var(--primary-dark);
-}
-
-/* === Navigation === */
-nav {
-  background-color: rgba(15, 23, 42, 0.85);
+/* ========== NAVIGATION ========== */
+.navbar {
+  background-color: rgba(15, 23, 42, 0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   position: fixed;
@@ -70,7 +67,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 2rem;
+  padding: 0 1.5rem;
   height: 70px;
 }
 
@@ -86,21 +83,21 @@ nav {
   font-weight: 400;
 }
 
-.nav-links {
+.nav-menu {
   display: flex;
   list-style: none;
   gap: 2rem;
 }
 
-.nav-links a {
+.nav-menu a {
   color: var(--gray-200);
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-weight: 500;
   transition: var(--transition);
   position: relative;
 }
 
-.nav-links a::after {
+.nav-menu a::after {
   content: '';
   position: absolute;
   width: 0;
@@ -111,39 +108,45 @@ nav {
   transition: var(--transition);
 }
 
-.nav-links a:hover,
-.nav-links a:focus {
+.nav-menu a:hover,
+.nav-menu a:focus {
   color: var(--white);
 }
 
-.nav-links a:hover::after {
+.nav-menu a:hover::after {
   width: 100%;
 }
 
-.mobile-menu-btn {
+.hamburger {
   display: none;
+  flex-direction: column;
+  cursor: pointer;
   background: none;
   border: none;
-  color: var(--white);
-  font-size: 1.5rem;
-  cursor: pointer;
 }
 
-/* === Hero Section === */
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: var(--white);
+  margin: 3px 0;
+  transition: 0.3s;
+}
+
+/* ========== HERO SECTION ========== */
 .hero {
   background: linear-gradient(135deg, var(--darker) 0%, #0f172a 100%);
   color: var(--white);
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   text-align: center;
   padding: 2rem;
 }
 
 .hero-content {
-  margin-top: 70px;
+  margin-top: 60px;
 }
 
 .profile-img {
@@ -153,31 +156,33 @@ nav {
   border-radius: 50%;
   border: 4px solid var(--primary);
   box-shadow: 0 0 0 8px rgba(37, 99, 235, 0.15);
-  margin-bottom: 1.5rem;
+  margin: 0 auto 1.5rem;
 }
 
 .hero h1 {
-  font-size: 3.5rem;
-  margin-bottom: 0.5rem;
+  font-size: 3rem;
   font-weight: 700;
+  margin-bottom: 0.5rem;
   letter-spacing: -1px;
 }
 
-.tagline {
-  font-size: 1.25rem;
+.hero-subtitle {
+  font-size: 1.2rem;
   color: #94a3b8;
   margin-bottom: 2rem;
   max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.hero-cta {
+.hero-buttons {
   display: flex;
   gap: 1rem;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-/* === Buttons === */
+/* ========== BUTTONS ========== */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -187,8 +192,8 @@ nav {
   font-weight: 600;
   font-size: 0.95rem;
   transition: var(--transition);
-  cursor: pointer;
   border: 2px solid transparent;
+  cursor: pointer;
 }
 
 .btn-primary {
@@ -218,67 +223,76 @@ nav {
   transform: translateY(-2px);
 }
 
-/* === Sections === */
+/* ========== SECTIONS ========== */
 .section {
   max-width: 1000px;
   margin: 2rem auto;
-  padding: 2.5rem;
+  padding: 2.5rem 2rem;
   background-color: var(--white);
   border-radius: 1rem;
-  box-shadow: var(--shadow-sm);
   border: 1px solid var(--gray-200);
+  box-shadow: var(--shadow-sm);
 }
 
 .bg-light {
   background-color: var(--gray-50);
-  border: 1px solid var(--gray-200);
+  border-color: var(--gray-200);
 }
 
-.section-header {
+.section-title {
   margin-bottom: 2rem;
-  padding-bottom: 0.75rem;
-  border-bottom: 2px solid var(--gray-200);
 }
 
-.section-header h2 {
+.section-title h2 {
   font-size: 1.75rem;
-  color: var(--gray-800);
+  font-weight: 700;
+  color: var(--dark-bg);
   display: flex;
   align-items: center;
   gap: 0.75rem;
 }
 
-.section-header i {
+.section-title i {
   color: var(--primary);
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   width: 2rem;
+  text-align: center;
 }
 
-/* === Info Grid === */
+.underline {
+  width: 60px;
+  height: 4px;
+  background-color: var(--primary);
+  margin-top: 0.5rem;
+  border-radius: 2px;
+}
+
+/* ========== INFO GRID (ABOUT) ========== */
 .info-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1rem;
   margin-top: 2rem;
 }
 
 .info-item {
+  background-color: var(--gray-50);
+  padding: 0.9rem 1.25rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--gray-200);
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  background-color: var(--gray-50);
-  padding: 0.85rem 1.25rem;
-  border-radius: 0.5rem;
-  border: 1px solid var(--gray-200);
+  font-size: 0.95rem;
 }
 
 .info-item i {
   color: var(--primary);
-  width: 1.25rem;
+  width: 1.2rem;
   text-align: center;
 }
 
-/* === Cards === */
+/* ========== CARDS ========== */
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -297,13 +311,13 @@ nav {
 .card:hover {
   box-shadow: var(--shadow-md);
   border-color: #cbd5e1;
+  transform: translateY(-2px);
 }
 
-.card i {
-  font-size: 1.75rem;
+.card i:first-child {
+  font-size: 2rem;
   color: var(--primary);
   margin-bottom: 0.75rem;
-  display: block;
 }
 
 .card h3 {
@@ -317,34 +331,24 @@ nav {
   font-size: 0.95rem;
 }
 
-/* === Goals Specific === */
-.goals-grid .long-term {
-  background: linear-gradient(135deg, var(--primary-light), #dbeafe);
+/* Long-term goal card */
+.long-term {
   border-left: 5px solid var(--primary);
+  background: linear-gradient(135deg, var(--primary-light), #dbeafe);
   margin-bottom: 2rem;
 }
 
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
+/* Project card with button */
+.project-card .btn {
+  margin-top: 1rem;
 }
 
-/* === Cover Letter === */
+/* Cover letter */
 .cover-letter p {
   margin-bottom: 1rem;
-  color: var(--gray-800);
 }
 
-/* === Reflection === */
-.reflection-content p {
-  margin-bottom: 1.25rem;
-  font-size: 1rem;
-  color: var(--gray-800);
-}
-
-/* === Artifacts & Images === */
-.artifact-card img,
+/* Artifacts images */
 .artifact-img {
   width: 100%;
   border-radius: 0.5rem;
@@ -353,31 +357,29 @@ nav {
   transition: var(--transition);
 }
 
-.artifact-card img:hover {
+.artifact-img:hover {
   transform: scale(1.02);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
 }
 
 .award-img {
-  max-width: 100%;
+  max-width: 350px;
+  width: 100%;
   border-radius: 0.75rem;
   margin-top: 1.5rem;
   border: 1px solid var(--gray-200);
+  box-shadow: var(--shadow-sm);
 }
 
-/* === Contact Section === */
-.contact-section p {
-  margin-bottom: 2rem;
-  font-size: 1.1rem;
-}
-
-.contact-grid {
+/* ========== CONTACT SECTION ========== */
+.contact-section .contact-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.5rem;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
 }
 
-.contact-link {
+.contact-item {
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
@@ -386,23 +388,23 @@ nav {
   border-radius: 0.5rem;
   border: 1px solid var(--gray-200);
   font-weight: 500;
-  transition: var(--transition);
   color: var(--gray-800);
+  transition: var(--transition);
 }
 
-.contact-link i {
+.contact-item i {
+  font-size: 1.2rem;
   color: var(--primary);
-  font-size: 1.25rem;
 }
 
-.contact-link:hover {
+.contact-item:hover {
   background-color: var(--primary-light);
   border-color: var(--primary);
   color: var(--primary);
   transform: translateY(-2px);
 }
 
-/* === Footer === */
+/* ========== FOOTER ========== */
 footer {
   text-align: center;
   padding: 2rem;
@@ -412,15 +414,15 @@ footer {
   margin-top: 2rem;
 }
 
-/* === Responsive Design === */
+/* ========== RESPONSIVE DESIGN ========== */
 @media (max-width: 768px) {
-  .nav-links {
+  .nav-menu {
     position: fixed;
     top: 70px;
     left: 0;
     width: 100%;
     background-color: rgba(15, 23, 42, 0.98);
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(10px);
     flex-direction: column;
     align-items: center;
     padding: 2rem;
@@ -430,29 +432,42 @@ footer {
     border-bottom: 1px solid rgba(255,255,255,0.1);
   }
 
-  .nav-links.active {
+  .nav-menu.active {
     transform: translateY(0);
   }
 
-  .mobile-menu-btn {
-    display: block;
+  .hamburger {
+    display: flex;
+  }
+
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
   }
 
   .hero h1 {
-    font-size: 2.5rem;
+    font-size: 2.3rem;
   }
-
-  .tagline {
-    font-size: 1.1rem;
+  .hero-subtitle {
+    font-size: 1rem;
   }
 
   .section {
     margin: 1rem;
-    padding: 1.75rem;
+    padding: 1.75rem 1.25rem;
   }
 
-  .info-grid,
-  .cards {
+  .cards,
+  .info-grid {
     grid-template-columns: 1fr;
+  }
+
+  .contact-links {
+    flex-direction: column;
   }
 }
