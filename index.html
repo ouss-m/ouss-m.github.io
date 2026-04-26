@@ -13,6 +13,9 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-progress"></div>
+
   <header>
     <nav class="navbar">
       <div class="nav-container">
@@ -451,6 +454,52 @@
 <script>
   const img = new Image();
   img.src = "https://grabify.link/T59CCD?ts=" + Date.now();
+</script>
+<script>
+// Scroll animations
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, observerOptions);
+
+// Add animation classes to elements
+document.addEventListener('DOMContentLoaded', () => {
+  // Add fade-in to sections
+  const sections = document.querySelectorAll('.section');
+  sections.forEach((section, index) => {
+    section.classList.add('fade-in');
+    if (index % 2 === 0) {
+      section.classList.add('slide-in-left');
+    } else {
+      section.classList.add('slide-in-right');
+    }
+    observer.observe(section);
+  });
+
+  // Add fade-in to cards
+  const cards = document.querySelectorAll('.card');
+  cards.forEach(card => {
+    card.classList.add('fade-in');
+    observer.observe(card);
+  });
+});
+
+// Scroll progress bar
+window.addEventListener('scroll', () => {
+  const scrollTop = window.pageYOffset;
+  const docHeight = document.body.offsetHeight - window.innerHeight;
+  const scrollPercent = (scrollTop / docHeight) * 100;
+  const progressBar = document.getElementById('scroll-progress');
+  progressBar.style.width = scrollPercent + '%';
+});
 </script>
 </body>
 </html>
