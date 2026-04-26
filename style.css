@@ -32,6 +32,8 @@
 
 html {
   scroll-behavior: smooth;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -41,6 +43,8 @@ body {
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
 }
 
 /* ========== SCROLL PROGRESS ========== */
@@ -174,13 +178,17 @@ a {
   background: radial-gradient(ellipse at 30% 50%, var(--dark-bg) 0%, var(--darker) 100%);
   color: var(--white);
   min-height: 100vh;
+  min-height: 100dvh; /* Dynamic viewport height for mobile */
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 2rem;
+  padding: 2rem 1rem; /* Reduced horizontal padding */
   position: relative;
   overflow: hidden;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .hero::before {
@@ -193,6 +201,8 @@ a {
   background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.03)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.03)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.02)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
   opacity: 0.5;
   pointer-events: none;
+  width: 100%;
+  height: 100%;
 }
 
 .hero-content {
@@ -200,6 +210,9 @@ a {
   position: relative;
   z-index: 1;
   animation: fadeInUp 1s ease-out;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 @keyframes fadeInUp {
@@ -732,6 +745,12 @@ a {
 
 /* ========== RESPONSIVE ========== */
 @media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+  }
+
   .nav-menu {
     position: fixed;
     top: 70px;
@@ -762,6 +781,13 @@ a {
 
   .hero h1 { font-size: 2.6rem; }
   .hero-subtitle { font-size: 1rem; }
+  .hero {
+    padding: 1rem 0.5rem; /* Even less padding on mobile */
+    min-height: 100vh; /* Fallback for older browsers */
+  }
+  .hero-content {
+    margin-top: 40px; /* Less top margin on mobile */
+  }
 
   .section {
     margin: 1rem;
