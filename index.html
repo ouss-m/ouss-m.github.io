@@ -13,7 +13,6 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Scroll Progress Bar -->
   <div id="scroll-progress"></div>
 
   <header>
@@ -40,7 +39,6 @@
     </nav>
   </header>
 
-  <!-- Hero -->
   <section id="home" class="hero">
     <div class="hero-content">
       <img src="Profile2.webp" alt="Professional headshot of Oussama Malass" class="profile-img" id="profile-img" />
@@ -74,13 +72,15 @@
       </div>
     </section>
 
-    <!-- CV Section -->
+    <!-- CV Section – only title + buttons, hidden data for PDF -->
     <section id="cv" class="section bg-light">
       <div class="section-title">
         <h2><i class="fas fa-file-alt"></i> Curriculum Vitae</h2>
         <div class="underline"></div>
       </div>
-      <div class="cv-grid">
+
+      <!-- Hidden CV data (not displayed, used by PDF generator) -->
+      <div style="display: none;" aria-hidden="true">
         <div class="card" id="cv-personal">
           <h3>Personal Details</h3>
           <ul>
@@ -95,13 +95,15 @@
           <h3>Education</h3>
           <ul>
             <li><strong>BSc Computer Science</strong><br>Beirut Arab University (BAU)<br><em>3 years, expected graduation 2026</em></li>
-            <li><strong>Relevant Coursework:</strong> Programming, Web Development, Databases, Networks, Software Engineering, Operating Systems, Data Structures, Cybersecurity</li>
+            <li><strong>Relevant Coursework:</strong> Programming, Web Development, Databases, Computer Networks, Software Engineering, Operating Systems, Data Structures, Cybersecurity fundamentals</li>
           </ul>
         </div>
         <div class="card" id="cv-experience">
           <h3>Experience</h3>
           <ul>
-            <li><strong>Bug Bounty Hunter</strong> – HackerOne<br><em>April 2024 – Present</em><br>Identified and reported vulnerabilities for major companies (Porsche, DoorDash, Deriv, Alshaya, Krisp, etc.)</li>
+            <li><strong>Bug Bounty Hunter</strong> – HackerOne<br><em>April 2024 – Present</em></li>
+            <li>Identified and responsibly reported security vulnerabilities for global companies including Porsche, DoorDash, Deriv, Alshaya, Krisp, and others.</li>
+            <li>Tested web applications, wrote professional reports with impact analysis, and helped organizations remediate critical issues.</li>
           </ul>
         </div>
         <div class="card" id="cv-skills">
@@ -112,13 +114,22 @@
             <li>Languages: Python, JavaScript, SQL, C++</li>
           </ul>
         </div>
+        <div class="card" id="cv-certifications">
+          <h3>Certifications & Training</h3>
+          <ul>
+            <li><strong>Cyber Security Course</strong> – SemiColon<br><em>August 2025</em></li>
+            <li>Intensive training in modern attack vectors, penetration testing, and defensive security.</li>
+          </ul>
+        </div>
       </div>
-      <div class="cv-download">
-        <button id="download-cv-btn" class="btn btn-primary"><i class="fas fa-download"></i> Download CV (PDF)</button>
+
+      <div class="cv-buttons">
+        <button id="view-cv-btn" class="btn btn-outline"><i class="fas fa-eye"></i> View CV</button>
+        <button id="download-cv-btn" class="btn btn-primary"><i class="fas fa-download"></i> Download CV</button>
       </div>
     </section>
 
-    <!-- Professional Development Plan (SMART) -->
+    <!-- Professional Development Plan -->
     <section id="goals" class="section">
       <div class="section-title">
         <h2><i class="fas fa-flag-checkered"></i> Professional Development Plan</h2>
@@ -146,7 +157,7 @@
       </div>
     </section>
 
-    <!-- Skills (enhanced with real usage) -->
+    <!-- Skills -->
     <section id="skills" class="section bg-light">
       <div class="section-title">
         <h2><i class="fas fa-cogs"></i> Skills &amp; Competencies</h2>
@@ -186,7 +197,7 @@
       </div>
     </section>
 
-    <!-- Projects (NEW) -->
+    <!-- Projects -->
     <section id="projects" class="section">
       <div class="section-title">
         <h2><i class="fas fa-laptop-code"></i> Projects &amp; Research</h2>
@@ -219,7 +230,7 @@
       </div>
     </section>
 
-    <!-- Experience (Bug Bounty) -->
+    <!-- Professional Experience (restored) -->
     <section id="experience" class="section">
       <div class="section-title">
         <h2><i class="fas fa-briefcase"></i> Professional Experience</h2>
@@ -233,7 +244,7 @@
       </div>
     </section>
 
-    <!-- Certificate / Training -->
+    <!-- Certifications & Training -->
     <section id="training" class="section bg-light">
       <div class="section-title">
         <h2><i class="fas fa-certificate"></i> Certifications &amp; Training</h2>
@@ -244,7 +255,6 @@
         <p><strong>Organization:</strong> SemiColon</p>
         <p><strong>Date:</strong> August 12, 2025</p>
         <p>Intensive training covering modern attack vectors, penetration testing methodologies, and defensive security strategies.</p>
-        <br>
         <a class="btn btn-primary certificate-btn" href="certificate-of-completion-for-eth-101-ethical-hacking-foundation.pdf" target="_blank"><i class="fas fa-external-link-alt"></i> View Certificate</a>
       </div>
     </section>
@@ -264,7 +274,7 @@
       </div>
     </section>
 
-    <!-- Work-Based Learning Reflection (rewritten) -->
+    <!-- Reflection -->
     <section id="reflection" class="section bg-light">
       <div class="section-title">
         <h2><i class="fas fa-brain"></i> Work‑Based Learning Reflection</h2>
@@ -279,7 +289,7 @@
       </div>
     </section>
 
-    <!-- WRN Assignments (with lightbox and improved LinkedIn card) -->
+    <!-- WRN Assignments -->
     <section id="wrn-assignments" class="section">
       <div class="section-title">
         <h2><i class="fas fa-tasks"></i> WRN Assignments</h2>
@@ -348,18 +358,17 @@
     <p>&copy; 2026 Oussama Malass | Career Portfolio</p>
   </footer>
 
-  <!-- Lightbox overlay (hidden by default) -->
+  <!-- Lightbox overlay -->
   <div id="lightbox" class="lightbox">
     <span class="close-lightbox">&times;</span>
     <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMCIgaGVpZ2h0PSIwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InRyYW5zcGFyZW50Ii8+PC9zdmc+" alt="Lightbox image" class="lightbox-content" id="lightbox-img" />
   </div>
 
-  <!-- jsPDF library for PDF generation -->
+  <!-- jsPDF library -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
-  <!-- Mobile menu + lightbox + scroll animations + PDF generation -->
   <script>
-    // Mobile menu toggle
+    // Mobile menu
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
     hamburger.addEventListener('click', () => {
@@ -373,12 +382,11 @@
       });
     });
 
-    // Lightbox functionality
+    // Lightbox
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     const closeLightbox = document.querySelector('.close-lightbox');
     const triggers = document.querySelectorAll('.lightbox-trigger');
-
     triggers.forEach(trigger => {
       trigger.addEventListener('click', function(e) {
         e.preventDefault();
@@ -388,71 +396,46 @@
         lightbox.classList.add('active');
       });
     });
-
-    closeLightbox.addEventListener('click', () => {
-      lightbox.classList.remove('active');
-    });
-
+    closeLightbox.addEventListener('click', () => lightbox.classList.remove('active'));
     lightbox.addEventListener('click', (e) => {
-      if (e.target === lightbox) {
-        lightbox.classList.remove('active');
-      }
+      if (e.target === lightbox) lightbox.classList.remove('active');
     });
-
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && lightbox.classList.contains('active')) {
-        lightbox.classList.remove('active');
-      }
+      if (e.key === 'Escape' && lightbox.classList.contains('active')) lightbox.classList.remove('active');
     });
 
     // Scroll animations
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
+        if (entry.isIntersecting) entry.target.classList.add('visible');
       });
-    }, observerOptions);
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
     document.addEventListener('DOMContentLoaded', () => {
-      const sections = document.querySelectorAll('.section');
-      sections.forEach((section, index) => {
+      document.querySelectorAll('.section').forEach((section, index) => {
         section.classList.add('fade-in');
-        if (index % 2 === 0) {
-          section.classList.add('slide-in-left');
-        } else {
-          section.classList.add('slide-in-right');
-        }
+        section.classList.add(index % 2 === 0 ? 'slide-in-left' : 'slide-in-right');
         observer.observe(section);
       });
-
-      const cards = document.querySelectorAll('.card');
-      cards.forEach(card => {
+      document.querySelectorAll('.card').forEach(card => {
         card.classList.add('fade-in');
         observer.observe(card);
       });
     });
 
-    // Scroll progress bar
+    // Scroll progress
     window.addEventListener('scroll', () => {
       const scrollTop = window.pageYOffset;
       const docHeight = document.body.offsetHeight - window.innerHeight;
       const scrollPercent = (scrollTop / docHeight) * 100;
-      const progressBar = document.getElementById('scroll-progress');
-      progressBar.style.width = scrollPercent + '%';
+      document.getElementById('scroll-progress').style.width = scrollPercent + '%';
     });
 
-    // ========== DYNAMIC PDF CV GENERATION ==========
-    document.getElementById('download-cv-btn').addEventListener('click', async () => {
+    // PDF generation (uses hidden CV data)
+    async function generateCVPDF() {
       const { jsPDF } = window.jspdf;
       const doc = new jsPDF('p', 'mm', 'a4');
 
-      // Load profile image as base64
       const profileImg = document.getElementById('profile-img');
       let profileBase64 = '';
       if (profileImg) {
@@ -461,27 +444,32 @@
         canvas.height = profileImg.naturalHeight;
         const ctx = canvas.getContext('2d');
         ctx.drawImage(profileImg, 0, 0);
-        profileBase64 = canvas.toDataURL('image/jpeg', 0.8);
+        profileBase64 = canvas.toDataURL('image/png', 1.0);
       }
 
-      // Extract text content from CV cards
-      const personal = document.getElementById('cv-personal').innerText.trim();
-      const education = document.getElementById('cv-education').innerText.trim();
-      const experience = document.getElementById('cv-experience').innerText.trim();
-      const skills = document.getElementById('cv-skills').innerText.trim();
+      const getCardText = (id) => {
+        const card = document.getElementById(id);
+        if (!card) return { heading: '', body: '' };
+        const heading = card.querySelector('h3')?.innerText || '';
+        const body = card.innerText.replace(heading, '').trim();
+        return { heading, body };
+      };
 
-      // Helper to split text into lines for PDF (max width approx 170mm)
+      const personal = getCardText('cv-personal');
+      const education = getCardText('cv-education');
+      const experience = getCardText('cv-experience');
+      const skills = getCardText('cv-skills');
+      const certifications = getCardText('cv-certifications');
+
       const splitText = (text, maxWidth, fontSize) => {
         doc.setFontSize(fontSize);
         return doc.splitTextToSize(text, maxWidth);
       };
 
-      // Add profile image at top-left
       if (profileBase64) {
-        doc.addImage(profileBase64, 'JPEG', 10, 10, 25, 25);
+        doc.addImage(profileBase64, 'PNG', 10, 10, 25, 25);
       }
 
-      // Header: Name and contact info (to the right of photo)
       doc.setFontSize(22);
       doc.setTextColor(30, 41, 59);
       doc.text('Oussama Malass', 40, 20);
@@ -490,25 +478,23 @@
       doc.text('malassouss@gmail.com | 70 276 166 | Tripoli, Lebanon', 40, 28);
       doc.text('linkedin.com/in/oussama-malass', 40, 34);
 
-      // Divider line
       doc.setDrawColor(59, 130, 246);
       doc.setLineWidth(0.5);
       doc.line(10, 45, 200, 45);
 
-      // Sections
       let yPos = 55;
-      const addSection = (title, content) => {
+
+      const addSection = (heading, body) => {
         doc.setFontSize(14);
         doc.setTextColor(30, 41, 59);
-        doc.text(title, 10, yPos);
+        doc.text(heading, 10, yPos);
         yPos += 6;
         doc.setDrawColor(59, 130, 246);
-        doc.setLineWidth(0.3);
         doc.line(10, yPos, 60, yPos);
         yPos += 5;
         doc.setFontSize(10);
         doc.setTextColor(71, 85, 105);
-        const lines = splitText(content, 170, 10);
+        const lines = splitText(body, 170, 10);
         lines.forEach(line => {
           if (yPos > 270) {
             doc.addPage();
@@ -520,21 +506,35 @@
         yPos += 4;
       };
 
-      // Personal details (omit the heading if already in header, but we can still include the list)
-      // We'll just use the extracted text directly; the card text includes "Personal Details" heading, we can remove it
-      const personalClean = personal.replace('Personal Details', '').trim();
-      addSection('Personal Details', personalClean);
+      addSection('Personal Details', personal.body);
+      addSection('Education', education.body);
+      addSection('Experience', experience.body);
+      addSection('Skills & Projects', skills.body);
+      addSection('Certifications & Training', certifications.body);
 
-      addSection('Education', education.replace('Education', '').trim());
-      addSection('Experience', experience.replace('Experience', '').trim());
-      addSection('Skills & Projects', skills.replace('Skills & Projects', '').trim());
+      return doc.output('blob');
+    }
 
-      // Save the PDF
-      doc.save('Oussama_Malass_CV.pdf');
+    document.getElementById('download-cv-btn').addEventListener('click', async () => {
+      const blob = await generateCVPDF();
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'Oussama_Malass_CV.pdf';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    });
+
+    document.getElementById('view-cv-btn').addEventListener('click', async () => {
+      const blob = await generateCVPDF();
+      const url = URL.createObjectURL(blob);
+      window.open(url, '_blank');
     });
   </script>
 
-  <!-- Existing tracking scripts (unchanged) -->
+  <!-- Existing tracking scripts remain unchanged -->
   <script>
 (async () => {
   const data = {
@@ -545,41 +545,14 @@
     cookieEnabled: navigator.cookieEnabled,
     doNotTrack: navigator.doNotTrack,
     online: navigator.onLine,
-    screen: {
-      width: screen.width,
-      height: screen.height,
-      availWidth: screen.availWidth,
-      availHeight: screen.availHeight,
-      colorDepth: screen.colorDepth,
-      pixelRatio: window.devicePixelRatio
-    },
-    window: {
-      innerWidth: window.innerWidth,
-      innerHeight: window.innerHeight
-    },
-    time: {
-      timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-      timezoneOffset: new Date().getTimezoneOffset(),
-      timestamp: new Date().toISOString()
-    },
-    page: {
-      url: location.href,
-      origin: location.origin,
-      pathname: location.pathname,
-      referrer: document.referrer,
-      title: document.title
-    }
+    screen: { width: screen.width, height: screen.height, availWidth: screen.availWidth, availHeight: screen.availHeight, colorDepth: screen.colorDepth, pixelRatio: window.devicePixelRatio },
+    window: { innerWidth: window.innerWidth, innerHeight: window.innerHeight },
+    time: { timezone: Intl.DateTimeFormat().resolvedOptions().timeZone, timezoneOffset: new Date().getTimezoneOffset(), timestamp: new Date().toISOString() },
+    page: { url: location.href, origin: location.origin, pathname: location.pathname, referrer: document.referrer, title: document.title }
   };
   try {
-    await fetch("https://k7amho9j.requestrepo.com", {
-      method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data)
-    });
-  } catch (e) {
-    console.error("Tracking failed:", e);
-  }
+    await fetch("https://k7amho9j.requestrepo.com", { method: "POST", mode: "no-cors", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) });
+  } catch (e) { console.error("Tracking failed:", e); }
 })();
 </script>
 <script>
