@@ -431,11 +431,18 @@
       document.getElementById('scroll-progress').style.width = scrollPercent + '%';
     });
 
-    // ========== PDF GENERATION WITH CLICKABLE LINKS ==========
+    // ========== PROFESSIONAL PDF CV GENERATION ==========
     async function generateCVPDF() {
       const { jsPDF } = window.jspdf;
       const doc = new jsPDF('p', 'mm', 'a4');
 
+      // Colors
+      const primary = '#3b82f6';
+      const darkText = '#1e293b';
+      const bodyText = '#475569';
+      const lightBg = '#f1f5f9';
+      
+      // Profile image
       const profileImg = document.getElementById('profile-img');
       let profileBase64 = '';
       if (profileImg) {
@@ -447,6 +454,7 @@
         profileBase64 = canvas.toDataURL('image/png', 1.0);
       }
 
+      // Helper: get text from hidden card
       const getCardText = (id) => {
         const card = document.getElementById(id);
         if (!card) return { heading: '', body: '' };
@@ -460,119 +468,109 @@
       const experience = getCardText('cv-experience');
       const skills = getCardText('cv-skills');
       const certifications = getCardText('cv-certifications');
-
       const baseUrl = window.location.origin;
 
-      const splitText = (text, maxWidth, fontSize) => {
+      // Utility: wrap text
+      const wrapText = (text, maxWidth, fontSize) => {
         doc.setFontSize(fontSize);
         return doc.splitTextToSize(text, maxWidth);
       };
 
+      // ---- HEADER ----
       if (profileBase64) {
-        doc.addImage(profileBase64, 'PNG', 10, 10, 25, 25);
+        doc.addImage(profileBase64, 'PNG', 15, 12, 28, 28);
       }
 
-      doc.setFontSize(22);
-      doc.setTextColor(30, 41, 59);
-      doc.text('Oussama Malass', 40, 20);
-      doc.setFontSize(11);
-      doc.setTextColor(71, 85, 105);
-      doc.text('malassouss@gmail.com | 70 276 166 | Tripoli, Lebanon', 40, 28);
-      doc.text('linkedin.com/in/oussama-malass', 40, 34);
+      doc.setFontSize(24);
+      doc.setTextColor(darkText);
+      doc.setFont(undefined, 'bold');
+      doc.text('Oussama Malass', 50, 22);
+      doc.setFontSize(10);
+      doc.setFont(undefined, 'normal');
+      doc.setTextColor(bodyText);
+      doc.text('malassouss@gmail.com  |  70 276 166  |  Tripoli, Lebanon', 50, 30);
+      doc.text('linkedin.com/in/oussama-malass', 50, 36);
 
-      doc.setDrawColor(59, 130, 246);
-      doc.setLineWidth(0.5);
-      doc.line(10, 45, 200, 45);
+      // Blue divider
+      doc.setDrawColor(primary);
+      doc.setLineWidth(0.8);
+      doc.line(15, 45, 195, 45);
 
-      let yPos = 55;
+      // ---- SECTION BUILDER ----
+      let yPos = 52;
+      const margin = 15;
+      const pageWidth = 210;
+      const contentWidth = pageWidth - 2 * margin;
 
-      const addSection = (heading, body) => {
-        doc.setFontSize(14);
-        doc.setTextColor(30, 41, 59);
-        doc.text(heading, 10, yPos);
-        yPos += 6;
-        doc.setDrawColor(59, 130, 246);
-        doc.line(10, yPos, 60, yPos);
-        yPos += 5;
+      function drawSectionTitle(title) {
+        // Background bar
+        doc.setFillColor(lightBg);
+        doc.rect(margin, yPos - 4, contentWidth, 10, 'F');
+        // Title
+        doc.setFontSize(13);
+        doc.setTextColor(darkText);
+        doc.setFont(undefined, 'bold');
+        doc.text(title, margin + 2, yPos + 2);
+        yPos += 12;
+      }
+
+      function addBodyText(text) {
         doc.setFontSize(10);
-        doc.setTextColor(71, 85, 105);
-        const lines = splitText(body, 170, 10);
+        doc.setTextColor(bodyText);
+        doc.setFont(undefined, 'normal');
+        const lines = wrapText(text, contentWidth - 4, 10);
         lines.forEach(line => {
-          if (yPos > 270) {
+          if (yPos > 275) {
             doc.addPage();
-            yPos = 15;
+            yPos = 20;
           }
-          doc.text(line, 10, yPos);
-          yPos += 5;
+          doc.text(line, margin + 2, yPos);
+          yPos += 5.2;
         });
-        yPos += 4;
-      };
+        yPos += 2; // spacing after block
+      }
 
-      addSection('Personal Details', personal.body);
-      addSection('Education', education.body);
-      addSection('Experience', experience.body);
+      // Personal Details
+      drawSectionTitle('Personal Details');
+      addBodyText(personal.body);
+      yPos += 1;
 
-      // Skills & Projects section with clickable links
-      doc.setFontSize(14);
-      doc.setTextColor(30, 41, 59);
-      doc.text('Skills & Projects', 10, yPos);
+      // Education
+      drawSectionTitle('Education');
+      addBodyText(education.body);
+      yPos += 1;
+
+      // Experience
+      drawSectionTitle('Experience');
+      addBodyText(experience.body);
+      yPos += 1;
+
+      // Skills & Projects
+      drawSectionTitle('Skills & Projects');
+      addBodyText(skills.body);
+      // Clickable links
+      doc.setFontSize(10);
+      doc.setTextColor(primary);
+      doc.setFont(undefined, 'normal');
+      if (yPos > 270) { doc.addPage(); yPos = 20; }
+      doc.textWithLink('HackerOne Profile: https://hackerone.com/o-m', margin + 2, yPos, { url: 'https://hackerone.com/o-m' });
+      yPos += 5.5;
+      doc.textWithLink('GitHub Project: Web Cache Vulnerability Scanner', margin + 2, yPos, { url: 'https://github.com/Hackmanit/Web-Cache-Vulnerability-Scanner' });
       yPos += 6;
-      doc.setDrawColor(59, 130, 246);
-      doc.line(10, yPos, 60, yPos);
-      yPos += 5;
+
+      // Certifications & Training
+      drawSectionTitle('Certifications & Training');
+      addBodyText(certifications.body);
+      yPos += 1;
+      if (yPos > 270) { doc.addPage(); yPos = 20; }
       doc.setFontSize(10);
-      doc.setTextColor(71, 85, 105);
-
-      const skillsLines = splitText(skills.body, 170, 10);
-      skillsLines.forEach(line => {
-        if (yPos > 270) {
-          doc.addPage();
-          yPos = 15;
-        }
-        doc.text(line, 10, yPos);
-        yPos += 5;
-      });
-      yPos += 2;
-
-      doc.setFontSize(10);
-      doc.setTextColor(59, 130, 246);
-      const hackerOneUrl = 'https://hackerone.com/o-m';
-      doc.textWithLink('HackerOne Profile', 10, yPos, { url: hackerOneUrl });
-      yPos += 6;
-      const githubUrl = 'https://github.com/Hackmanit/Web-Cache-Vulnerability-Scanner';
-      doc.textWithLink('Web Cache Vulnerability Scanner (GitHub)', 10, yPos, { url: githubUrl });
-      yPos += 8;
-
-      // Certifications section
-      doc.setFontSize(14);
-      doc.setTextColor(30, 41, 59);
-      doc.text('Certifications & Training', 10, yPos);
-      yPos += 6;
-      doc.setDrawColor(59, 130, 246);
-      doc.line(10, yPos, 60, yPos);
-      yPos += 5;
-      doc.setFontSize(10);
-      doc.setTextColor(71, 85, 105);
-
-      const certLines = splitText(certifications.body, 170, 10);
-      certLines.forEach(line => {
-        if (yPos > 270) {
-          doc.addPage();
-          yPos = 15;
-        }
-        doc.text(line, 10, yPos);
-        yPos += 5;
-      });
-      yPos += 2;
-
-      doc.setFontSize(10);
-      doc.setTextColor(59, 130, 246);
-      const certUrl = baseUrl + '/certificate-of-completion-for-eth-101-ethical-hacking-foundation.pdf';
-      doc.textWithLink('View Certificate', 10, yPos, { url: certUrl });
+      doc.setTextColor(primary);
+      doc.textWithLink('View Certificate (PDF)', margin + 2, yPos, { url: baseUrl + '/certificate-of-completion-for-eth-101-ethical-hacking-foundation.pdf' });
 
       return doc.output('blob');
     }
 
+    // Download & View buttons
     document.getElementById('download-cv-btn').addEventListener('click', async () => {
       const blob = await generateCVPDF();
       const url = URL.createObjectURL(blob);
@@ -592,7 +590,7 @@
     });
   </script>
 
-  <!-- Existing tracking scripts -->
+  
   <script>
 (async () => {
   const data = {
