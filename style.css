@@ -55,6 +55,22 @@ body {
   min-height: 100dvh;
 }
 
+/* ========== CV DOWNLOAD BUTTON ========== */
+.cv-download {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.cv-download .btn {
+  padding: 0.9rem 2.2rem;
+  font-size: 1rem;
+}
+
+/* ========== CERTIFICATE BUTTON ========== */
+.certificate-btn {
+  margin-top: 1.2rem;
+}
+
 /* ========== SCROLL PROGRESS ========== */
 #scroll-progress {
   position: fixed;
