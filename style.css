@@ -55,7 +55,6 @@ body {
   min-height: 100dvh;
 }
 
-/* ========== SCROLL PROGRESS ========== */
 #scroll-progress {
   position: fixed;
   top: 0;
@@ -466,7 +465,7 @@ a {
   display: flex;
   justify-content: center;
   gap: 1rem;
-  margin-top: 0; /* no extra top margin needed */
+  margin-top: 0;
 }
 
 .cv-buttons .btn {
@@ -474,15 +473,19 @@ a {
   font-size: 1rem;
 }
 
-.cv-buttons .btn-outline {
+.btn-outline-dark {
+  background-color: transparent;
   color: var(--dark-bg);
-  border-color: var(--gray-300);
+  border: 2px solid var(--gray-800);
+  box-shadow: none;
 }
 
-.cv-buttons .btn-outline:hover {
-  background-color: rgba(0,0,0,0.05);
-  border-color: var(--gray-600);
-  color: var(--dark-bg);
+.btn-outline-dark:hover {
+  background-color: var(--dark-bg);
+  border-color: var(--dark-bg);
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
 /* ========== CARDS ========== */
