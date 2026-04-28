@@ -124,7 +124,7 @@
       </div>
 
       <div class="cv-buttons">
-        <button id="view-cv-btn" class="btn btn-outline"><i class="fas fa-eye"></i> View CV</button>
+        <button id="view-cv-btn" class="btn btn-outline-dark"><i class="fas fa-eye"></i> View CV</button>
         <button id="download-cv-btn" class="btn btn-primary"><i class="fas fa-download"></i> Download CV</button>
       </div>
     </section>
@@ -230,7 +230,7 @@
       </div>
     </section>
 
-    <!-- Professional Experience (restored) -->
+    <!-- Professional Experience -->
     <section id="experience" class="section">
       <div class="section-title">
         <h2><i class="fas fa-briefcase"></i> Professional Experience</h2>
@@ -431,7 +431,7 @@
       document.getElementById('scroll-progress').style.width = scrollPercent + '%';
     });
 
-    // PDF generation (uses hidden CV data)
+    // ========== PDF GENERATION WITH CLICKABLE LINKS ==========
     async function generateCVPDF() {
       const { jsPDF } = window.jspdf;
       const doc = new jsPDF('p', 'mm', 'a4');
@@ -460,6 +460,8 @@
       const experience = getCardText('cv-experience');
       const skills = getCardText('cv-skills');
       const certifications = getCardText('cv-certifications');
+
+      const baseUrl = window.location.origin;
 
       const splitText = (text, maxWidth, fontSize) => {
         doc.setFontSize(fontSize);
@@ -509,8 +511,64 @@
       addSection('Personal Details', personal.body);
       addSection('Education', education.body);
       addSection('Experience', experience.body);
-      addSection('Skills & Projects', skills.body);
-      addSection('Certifications & Training', certifications.body);
+
+      // Skills & Projects section with clickable links
+      doc.setFontSize(14);
+      doc.setTextColor(30, 41, 59);
+      doc.text('Skills & Projects', 10, yPos);
+      yPos += 6;
+      doc.setDrawColor(59, 130, 246);
+      doc.line(10, yPos, 60, yPos);
+      yPos += 5;
+      doc.setFontSize(10);
+      doc.setTextColor(71, 85, 105);
+
+      const skillsLines = splitText(skills.body, 170, 10);
+      skillsLines.forEach(line => {
+        if (yPos > 270) {
+          doc.addPage();
+          yPos = 15;
+        }
+        doc.text(line, 10, yPos);
+        yPos += 5;
+      });
+      yPos += 2;
+
+      doc.setFontSize(10);
+      doc.setTextColor(59, 130, 246);
+      const hackerOneUrl = 'https://hackerone.com/o-m';
+      doc.textWithLink('HackerOne Profile', 10, yPos, { url: hackerOneUrl });
+      yPos += 6;
+      const githubUrl = 'https://github.com/Hackmanit/Web-Cache-Vulnerability-Scanner';
+      doc.textWithLink('Web Cache Vulnerability Scanner (GitHub)', 10, yPos, { url: githubUrl });
+      yPos += 8;
+
+      // Certifications section
+      doc.setFontSize(14);
+      doc.setTextColor(30, 41, 59);
+      doc.text('Certifications & Training', 10, yPos);
+      yPos += 6;
+      doc.setDrawColor(59, 130, 246);
+      doc.line(10, yPos, 60, yPos);
+      yPos += 5;
+      doc.setFontSize(10);
+      doc.setTextColor(71, 85, 105);
+
+      const certLines = splitText(certifications.body, 170, 10);
+      certLines.forEach(line => {
+        if (yPos > 270) {
+          doc.addPage();
+          yPos = 15;
+        }
+        doc.text(line, 10, yPos);
+        yPos += 5;
+      });
+      yPos += 2;
+
+      doc.setFontSize(10);
+      doc.setTextColor(59, 130, 246);
+      const certUrl = baseUrl + '/certificate-of-completion-for-eth-101-ethical-hacking-foundation.pdf';
+      doc.textWithLink('View Certificate', 10, yPos, { url: certUrl });
 
       return doc.output('blob');
     }
@@ -534,7 +592,7 @@
     });
   </script>
 
-  <!-- Existing tracking scripts remain unchanged -->
+  <!-- Existing tracking scripts -->
   <script>
 (async () => {
   const data = {
