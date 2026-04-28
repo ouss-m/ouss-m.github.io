@@ -55,22 +55,6 @@ body {
   min-height: 100dvh;
 }
 
-/* ========== CV DOWNLOAD BUTTON ========== */
-.cv-download {
-  margin-top: 2rem;
-  text-align: center;
-}
-
-.cv-download .btn {
-  padding: 0.9rem 2.2rem;
-  font-size: 1rem;
-}
-
-/* ========== CERTIFICATE BUTTON ========== */
-.certificate-btn {
-  margin-top: 1.2rem;
-}
-
 /* ========== SCROLL PROGRESS ========== */
 #scroll-progress {
   position: fixed;
@@ -203,14 +187,14 @@ a {
   color: var(--white);
   min-height: 100vh;
   min-height: 100svh;
-  min-height: 100dvh; /* Dynamic viewport height for mobile */
+  min-height: 100dvh;
   height: 100svh;
   height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 2rem 1rem; /* Reduced horizontal padding */
+  padding: 2rem 1rem;
   position: relative;
   overflow: hidden;
   width: 100%;
@@ -243,14 +227,8 @@ a {
 }
 
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .profile-img {
@@ -304,6 +282,17 @@ a {
   justify-content: center;
   flex-wrap: wrap;
   animation: fadeInUp 1s ease-out 0.6s both;
+}
+
+.hero-buttons .btn-outline {
+  color: var(--white);
+  border-color: rgba(255,255,255,0.25);
+}
+
+.hero-buttons .btn-outline:hover {
+  background-color: rgba(255,255,255,0.05);
+  border-color: var(--white);
+  color: var(--white);
 }
 
 /* ========== BUTTONS ========== */
@@ -472,25 +461,28 @@ a {
   font-size: 1.1rem;
 }
 
-/* ========== CV SECTION ========== */
-.cv-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 2rem;
+/* ========== CV BUTTONS ========== */
+.cv-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 0; /* no extra top margin needed */
 }
 
-.cv-grid .card ul {
-  list-style: none;
-  padding-left: 0;
+.cv-buttons .btn {
+  padding: 0.85rem 2rem;
+  font-size: 1rem;
 }
 
-.cv-grid .card ul li {
-  margin-bottom: 0.6rem;
+.cv-buttons .btn-outline {
+  color: var(--dark-bg);
+  border-color: var(--gray-300);
 }
 
-.cv-download {
-  text-align: center;
+.cv-buttons .btn-outline:hover {
+  background-color: rgba(0,0,0,0.05);
+  border-color: var(--gray-600);
+  color: var(--dark-bg);
 }
 
 /* ========== CARDS ========== */
@@ -558,7 +550,6 @@ a {
   line-height: 1.6;
 }
 
-/* Long-term goal card */
 .long-term {
   border-left: 5px solid var(--primary);
   background: linear-gradient(135deg, var(--primary-light), #eff6ff);
@@ -578,19 +569,16 @@ a {
   z-index: -1;
 }
 
-/* Project card button spacing */
 .project-card .btn {
   margin-top: 1rem;
 }
 
-/* Cover letter */
 .cover-letter p {
   margin-bottom: 1rem;
   font-size: 1rem;
   line-height: 1.7;
 }
 
-/* Reflection */
 .reflection-text p {
   margin-bottom: 1.2rem;
   font-size: 1rem;
@@ -669,14 +657,6 @@ a {
 
 .close-lightbox:hover {
   color: var(--primary);
-}
-
-/* ========== CONTACT ========== */
-.contact-section .contact-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  margin-top: 1.5rem;
 }
 
 /* ========== CONTACT ========== */
@@ -809,21 +789,19 @@ a {
   .hero h1 { font-size: 2.6rem; }
   .hero-subtitle { font-size: 1rem; }
   .hero {
-    padding: 1rem 0.5rem; /* Even less padding on mobile */
-    min-height: 100vh; /* Fallback for older browsers */
+    padding: 1rem 0.5rem;
+    min-height: 100vh;
   }
-  .hero-content {
-    margin-top: 40px; /* Less top margin on mobile */
-  }
+  .hero-content { margin-top: 40px; }
 
   .section {
     margin: 1rem;
     padding: 1.8rem 1.2rem;
   }
 
-  .cv-grid,
   .cards,
-  .info-grid {
+  .info-grid,
+  .cv-grid {
     grid-template-columns: 1fr;
   }
 
