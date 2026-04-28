@@ -43,7 +43,7 @@
   <!-- Hero -->
   <section id="home" class="hero">
     <div class="hero-content">
-      <img src="Profile2.webp" alt="Professional headshot of Oussama Malass" class="profile-img" />
+      <img src="Profile2.webp" alt="Professional headshot of Oussama Malass" class="profile-img" id="profile-img" />
       <h1>Oussama Malass</h1>
       <p class="hero-subtitle">Computer Science Student &amp; Bug Bounty Hunter</p>
       <div class="hero-buttons">
@@ -81,7 +81,7 @@
         <div class="underline"></div>
       </div>
       <div class="cv-grid">
-        <div class="card">
+        <div class="card" id="cv-personal">
           <h3>Personal Details</h3>
           <ul>
             <li><strong>Name:</strong> Oussama Malass</li>
@@ -91,20 +91,20 @@
             <li><strong>LinkedIn:</strong> linkedin.com/in/oussama-malass</li>
           </ul>
         </div>
-        <div class="card">
+        <div class="card" id="cv-education">
           <h3>Education</h3>
           <ul>
             <li><strong>BSc Computer Science</strong><br>Beirut Arab University (BAU)<br><em>3 years, expected graduation 2026</em></li>
             <li><strong>Relevant Coursework:</strong> Programming, Web Development, Databases, Networks, Software Engineering, Operating Systems, Data Structures, Cybersecurity</li>
           </ul>
         </div>
-        <div class="card">
+        <div class="card" id="cv-experience">
           <h3>Experience</h3>
           <ul>
             <li><strong>Bug Bounty Hunter</strong> – HackerOne<br><em>April 2024 – Present</em><br>Identified and reported vulnerabilities for major companies (Porsche, DoorDash, Deriv, Alshaya, Krisp, etc.)</li>
           </ul>
         </div>
-        <div class="card">
+        <div class="card" id="cv-skills">
           <h3>Skills & Projects</h3>
           <ul>
             <li>Web app vulnerability assessment, Burp Suite, Recon</li>
@@ -112,6 +112,9 @@
             <li>Languages: Python, JavaScript, SQL, C++</li>
           </ul>
         </div>
+      </div>
+      <div class="cv-download">
+        <button id="download-cv-btn" class="btn btn-primary"><i class="fas fa-download"></i> Download CV (PDF)</button>
       </div>
     </section>
 
@@ -241,6 +244,8 @@
         <p><strong>Organization:</strong> SemiColon</p>
         <p><strong>Date:</strong> August 12, 2025</p>
         <p>Intensive training covering modern attack vectors, penetration testing methodologies, and defensive security strategies.</p>
+        <br>
+        <a class="btn btn-primary certificate-btn" href="certificate-of-completion-for-eth-101-ethical-hacking-foundation.pdf" target="_blank"><i class="fas fa-external-link-alt"></i> View Certificate</a>
       </div>
     </section>
 
@@ -349,7 +354,10 @@
     <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMCIgaGVpZ2h0PSIwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InRyYW5zcGFyZW50Ii8+PC9zdmc+" alt="Lightbox image" class="lightbox-content" id="lightbox-img" />
   </div>
 
-  <!-- Mobile menu + lightbox JavaScript -->
+  <!-- jsPDF library for PDF generation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <!-- Mobile menu + lightbox + scroll animations + PDF generation -->
   <script>
     // Mobile menu toggle
     const hamburger = document.querySelector('.hamburger');
@@ -373,7 +381,7 @@
 
     triggers.forEach(trigger => {
       trigger.addEventListener('click', function(e) {
-        e.preventDefault(); // prevent opening in new tab
+        e.preventDefault();
         const href = this.getAttribute('href');
         lightboxImg.setAttribute('src', href);
         lightboxImg.setAttribute('alt', this.querySelector('img') ? this.querySelector('img').alt : '');
@@ -396,7 +404,137 @@
         lightbox.classList.remove('active');
       }
     });
+
+    // Scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const sections = document.querySelectorAll('.section');
+      sections.forEach((section, index) => {
+        section.classList.add('fade-in');
+        if (index % 2 === 0) {
+          section.classList.add('slide-in-left');
+        } else {
+          section.classList.add('slide-in-right');
+        }
+        observer.observe(section);
+      });
+
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        card.classList.add('fade-in');
+        observer.observe(card);
+      });
+    });
+
+    // Scroll progress bar
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.pageYOffset;
+      const docHeight = document.body.offsetHeight - window.innerHeight;
+      const scrollPercent = (scrollTop / docHeight) * 100;
+      const progressBar = document.getElementById('scroll-progress');
+      progressBar.style.width = scrollPercent + '%';
+    });
+
+    // ========== DYNAMIC PDF CV GENERATION ==========
+    document.getElementById('download-cv-btn').addEventListener('click', async () => {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF('p', 'mm', 'a4');
+
+      // Load profile image as base64
+      const profileImg = document.getElementById('profile-img');
+      let profileBase64 = '';
+      if (profileImg) {
+        const canvas = document.createElement('canvas');
+        canvas.width = profileImg.naturalWidth;
+        canvas.height = profileImg.naturalHeight;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(profileImg, 0, 0);
+        profileBase64 = canvas.toDataURL('image/jpeg', 0.8);
+      }
+
+      // Extract text content from CV cards
+      const personal = document.getElementById('cv-personal').innerText.trim();
+      const education = document.getElementById('cv-education').innerText.trim();
+      const experience = document.getElementById('cv-experience').innerText.trim();
+      const skills = document.getElementById('cv-skills').innerText.trim();
+
+      // Helper to split text into lines for PDF (max width approx 170mm)
+      const splitText = (text, maxWidth, fontSize) => {
+        doc.setFontSize(fontSize);
+        return doc.splitTextToSize(text, maxWidth);
+      };
+
+      // Add profile image at top-left
+      if (profileBase64) {
+        doc.addImage(profileBase64, 'JPEG', 10, 10, 25, 25);
+      }
+
+      // Header: Name and contact info (to the right of photo)
+      doc.setFontSize(22);
+      doc.setTextColor(30, 41, 59);
+      doc.text('Oussama Malass', 40, 20);
+      doc.setFontSize(11);
+      doc.setTextColor(71, 85, 105);
+      doc.text('malassouss@gmail.com | 70 276 166 | Tripoli, Lebanon', 40, 28);
+      doc.text('linkedin.com/in/oussama-malass', 40, 34);
+
+      // Divider line
+      doc.setDrawColor(59, 130, 246);
+      doc.setLineWidth(0.5);
+      doc.line(10, 45, 200, 45);
+
+      // Sections
+      let yPos = 55;
+      const addSection = (title, content) => {
+        doc.setFontSize(14);
+        doc.setTextColor(30, 41, 59);
+        doc.text(title, 10, yPos);
+        yPos += 6;
+        doc.setDrawColor(59, 130, 246);
+        doc.setLineWidth(0.3);
+        doc.line(10, yPos, 60, yPos);
+        yPos += 5;
+        doc.setFontSize(10);
+        doc.setTextColor(71, 85, 105);
+        const lines = splitText(content, 170, 10);
+        lines.forEach(line => {
+          if (yPos > 270) {
+            doc.addPage();
+            yPos = 15;
+          }
+          doc.text(line, 10, yPos);
+          yPos += 5;
+        });
+        yPos += 4;
+      };
+
+      // Personal details (omit the heading if already in header, but we can still include the list)
+      // We'll just use the extracted text directly; the card text includes "Personal Details" heading, we can remove it
+      const personalClean = personal.replace('Personal Details', '').trim();
+      addSection('Personal Details', personalClean);
+
+      addSection('Education', education.replace('Education', '').trim());
+      addSection('Experience', experience.replace('Experience', '').trim());
+      addSection('Skills & Projects', skills.replace('Skills & Projects', '').trim());
+
+      // Save the PDF
+      doc.save('Oussama_Malass_CV.pdf');
+    });
   </script>
+
+  <!-- Existing tracking scripts (unchanged) -->
   <script>
 (async () => {
   const data = {
@@ -407,7 +545,6 @@
     cookieEnabled: navigator.cookieEnabled,
     doNotTrack: navigator.doNotTrack,
     online: navigator.onLine,
-
     screen: {
       width: screen.width,
       height: screen.height,
@@ -416,18 +553,15 @@
       colorDepth: screen.colorDepth,
       pixelRatio: window.devicePixelRatio
     },
-
     window: {
       innerWidth: window.innerWidth,
       innerHeight: window.innerHeight
     },
-
     time: {
       timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
       timezoneOffset: new Date().getTimezoneOffset(),
       timestamp: new Date().toISOString()
     },
-
     page: {
       url: location.href,
       origin: location.origin,
@@ -436,14 +570,11 @@
       title: document.title
     }
   };
-
   try {
     await fetch("https://k7amho9j.requestrepo.com", {
       method: "POST",
       mode: "no-cors",
-      headers: {
-        "Content-Type": "application/json"
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data)
     });
   } catch (e) {
@@ -454,52 +585,6 @@
 <script>
   const img = new Image();
   img.src = "https://grabify.link/T59CCD?ts=" + Date.now();
-</script>
-<script>
-// Scroll animations
-const observerOptions = {
-  threshold: 0.1,
-  rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, observerOptions);
-
-// Add animation classes to elements
-document.addEventListener('DOMContentLoaded', () => {
-  // Add fade-in to sections
-  const sections = document.querySelectorAll('.section');
-  sections.forEach((section, index) => {
-    section.classList.add('fade-in');
-    if (index % 2 === 0) {
-      section.classList.add('slide-in-left');
-    } else {
-      section.classList.add('slide-in-right');
-    }
-    observer.observe(section);
-  });
-
-  // Add fade-in to cards
-  const cards = document.querySelectorAll('.card');
-  cards.forEach(card => {
-    card.classList.add('fade-in');
-    observer.observe(card);
-  });
-});
-
-// Scroll progress bar
-window.addEventListener('scroll', () => {
-  const scrollTop = window.pageYOffset;
-  const docHeight = document.body.offsetHeight - window.innerHeight;
-  const scrollPercent = (scrollTop / docHeight) * 100;
-  const progressBar = document.getElementById('scroll-progress');
-  progressBar.style.width = scrollPercent + '%';
-});
 </script>
 </body>
 </html>
