@@ -228,16 +228,19 @@
           </article>
 
           <article class="project-card">
-            <div class="project-icon"><i class="fab fa-github"></i></div>
-            <h3>Web Cache Vulnerability Scanner</h3>
+            <div class="project-icon"><i class="fas fa-terminal"></i></div>
+            <h3>Custom Security Tooling &amp; Research</h3>
             <p>
-              Contributed to an open-source tool that automates detection of web cache
-              poisoning and cache deception vulnerabilities. Enhanced scanner accuracy and
-              coverage of edge-case scenarios.
+              Build customized ethical hacking tools that enable fast, targeted testing
+              workflows — inspired by open-source projects like the Web Cache Vulnerability
+              Scanner. Focused on automating detection of complex web application flaws and
+              streamlining reconnaissance.
             </p>
-            <a class="link-arrow" href="https://github.com/Hackmanit/Web-Cache-Vulnerability-Scanner" target="_blank" rel="noopener">
-              View on GitHub <i class="fas fa-arrow-up-right-from-square"></i>
-            </a>
+            <div class="tags">
+              <span class="tag">Ongoing</span>
+              <span class="tag">Python</span>
+              <span class="tag">Tooling</span>
+            </div>
           </article>
         </div>
       </div>
@@ -339,6 +342,21 @@
               View certificate <i class="fas fa-arrow-up-right-from-square"></i>
             </a>
           </article>
+
+          <article class="edu-card">
+            <div class="edu-icon"><i class="fas fa-bug"></i></div>
+            <h3>Web Penetration Testing</h3>
+            <p class="edu-org">PentesterLab</p>
+            <p class="edu-meta">2026 — Present</p>
+            <p>
+              Completed 150+ hands-on web hacking labs covering web pentesting, code
+              review, and advanced exploitation techniques. Contributed feedback that
+              helped enhance the platform.
+            </p>
+            <a class="link-arrow" href="https://pentesterlab.com/profile/ouss" target="_blank" rel="noopener">
+              View profile <i class="fas fa-arrow-up-right-from-square"></i>
+            </a>
+          </article>
         </div>
       </div>
     </section>
@@ -427,50 +445,6 @@
           <div class="cv-buttons">
             <button id="view-cv-btn" class="btn btn-outline"><i class="fas fa-eye"></i> View CV</button>
             <button id="download-cv-btn" class="btn btn-primary"><i class="fas fa-download"></i> Download CV</button>
-          </div>
-        </div>
-
-        <!-- Hidden CV data (used by PDF generator) -->
-        <div style="display: none;" aria-hidden="true">
-          <div class="card" id="cv-personal">
-            <h3>Personal Details</h3>
-            <ul>
-              <li><strong>Name:</strong> Oussama Malass</li>
-              <li><strong>Email:</strong> malassouss@gmail.com</li>
-              <li><strong>Phone:</strong> 70 276 166</li>
-              <li><strong>Location:</strong> Tripoli, Lebanon</li>
-              <li><strong>LinkedIn:</strong> linkedin.com/in/oussama-malass</li>
-            </ul>
-          </div>
-          <div class="card" id="cv-education">
-            <h3>Education</h3>
-            <ul>
-              <li><strong>BSc Computer Science</strong><br>Beirut Arab University (BAU)<br><em>Graduated 2026</em></li>
-              <li><strong>Relevant Coursework:</strong> Programming, Web Development, Databases, Computer Networks, Software Engineering, Operating Systems, Data Structures, Cybersecurity fundamentals</li>
-            </ul>
-          </div>
-          <div class="card" id="cv-experience">
-            <h3>Experience</h3>
-            <ul>
-              <li><strong>Bug Bounty Hunter</strong> – HackerOne<br><em>April 2024 – Present</em></li>
-              <li>Identified and responsibly reported security vulnerabilities for global companies including Porsche, DoorDash, Deriv, Alshaya, Krisp, and others.</li>
-              <li>Tested web applications, wrote professional reports with impact analysis, and helped organizations remediate critical issues.</li>
-            </ul>
-          </div>
-          <div class="card" id="cv-skills">
-            <h3>Skills &amp; Projects</h3>
-            <ul>
-              <li>Web app vulnerability assessment, Burp Suite, Reconnaissance</li>
-              <li>GitHub: Web Cache Vulnerability Scanner contributor</li>
-              <li>Languages: Python, JavaScript, SQL, C++</li>
-            </ul>
-          </div>
-          <div class="card" id="cv-certifications">
-            <h3>Certifications &amp; Training</h3>
-            <ul>
-              <li><strong>Cyber Security Course</strong> – SemiColon<br><em>August 2025</em></li>
-              <li>Intensive training in modern attack vectors, penetration testing, and defensive security.</li>
-            </ul>
           </div>
         </div>
       </div>
@@ -595,6 +569,8 @@
 
     /* =========================================================
        PROFESSIONAL PDF CV GENERATION — two-column layout
+       Typography: Helvetica (Arial equivalent) — the standard
+       for ATS-safe, cross-platform professional CVs.
     ========================================================= */
     async function generateCVPDF() {
       const { jsPDF } = window.jspdf;
@@ -654,9 +630,9 @@
       doc.setFont('helvetica', 'bold');
       doc.setFontSize(15);
       doc.setTextColor(...white);
-      doc.text('OUSSAMA', sideW / 2, sY, { align: 'center' });
+      doc.text('OUSSAMA', sideW / 2, sY, { align: 'center', charSpace: 1.2 });
       sY += 6.5;
-      doc.text('MALASS', sideW / 2, sY, { align: 'center' });
+      doc.text('MALASS', sideW / 2, sY, { align: 'center', charSpace: 1.2 });
       sY += 6;
 
       /* accent divider */
@@ -682,7 +658,7 @@
         doc.setFont('helvetica', 'bold');
         doc.setFontSize(9);
         doc.setTextColor(...white);
-        doc.text(text.toUpperCase(), sidePadding, sY);
+        doc.text(text.toUpperCase(), sidePadding, sY, { charSpace: 0.6 });
         sY += 2;
         doc.setDrawColor(...accent);
         doc.setLineWidth(0.5);
@@ -705,7 +681,7 @@
         doc.setFont('helvetica', 'bold');
         doc.setFontSize(7);
         doc.setTextColor(...gray);
-        doc.text(label, sidePadding, sY);
+        doc.text(label, sidePadding, sY, { charSpace: 0.4 });
         sY += 3.5;
 
         doc.setFont('helvetica', 'normal');
@@ -725,12 +701,11 @@
       const skills = [
         'Web Application Security',
         'Vulnerability Assessment',
-        'Bug Bounty & Recon',
         'Penetration Testing',
-        'Burp Suite',
-        'Python & Automation',
-        'JavaScript · SQL · C++',
-        'Linux · Git',
+        'Bug Bounty & Recon',
+        'Security Tool Development',
+        'Burp Suite · Linux · Git',
+        'Python · JavaScript · SQL · C++',
       ];
 
       doc.setFont('helvetica', 'normal');
@@ -739,7 +714,11 @@
       skills.forEach(s => {
         doc.setFillColor(...accent);
         doc.circle(sidePadding + 1, sY - 1, 0.6, 'F');
-        doc.text(s, sidePadding + 4, sY);
+        const lines = doc.splitTextToSize(s, sideContentW - 5);
+        lines.forEach((line, idx) => {
+          doc.text(line, sidePadding + 4, sY);
+          if (idx < lines.length - 1) sY += 3.8;
+        });
         sY += 4.8;
       });
 
@@ -752,6 +731,8 @@
       doc.text('Arabic  —  Native', sidePadding, sY);
       sY += 4.8;
       doc.text('English  —  Professional', sidePadding, sY);
+      sY += 4.8;
+      doc.text('French  —  Intermediate', sidePadding, sY);
 
       /* =========================================================
          MAIN COLUMN
@@ -762,7 +743,7 @@
       doc.setFont('helvetica', 'bold');
       doc.setFontSize(22);
       doc.setTextColor(...ink);
-      doc.text('Oussama Malass', mainX, mY);
+      doc.text('Oussama Malass', mainX, mY, { charSpace: 0.2 });
       mY += 7.5;
 
       doc.setFont('helvetica', 'normal');
@@ -782,7 +763,7 @@
         doc.setFont('helvetica', 'bold');
         doc.setFontSize(10.5);
         doc.setTextColor(...ink);
-        doc.text(text.toUpperCase(), mainX, mY);
+        doc.text(text.toUpperCase(), mainX, mY, { charSpace: 0.7 });
         mY += 1.5;
         doc.setDrawColor(...accent);
         doc.setLineWidth(0.6);
@@ -829,10 +810,12 @@
         doc.setTextColor(...ink);
         doc.text(title, mainX, mY);
 
-        doc.setFont('helvetica', 'normal');
-        doc.setFontSize(8.5);
-        doc.setTextColor(...ink3);
-        doc.text(date, pageW - 14, mY, { align: 'right' });
+        if (date) {
+          doc.setFont('helvetica', 'normal');
+          doc.setFontSize(8.5);
+          doc.setTextColor(...ink3);
+          doc.text(date, pageW - 14, mY, { align: 'right' });
+        }
         mY += 4.2;
 
         doc.setFont('helvetica', 'bold');
@@ -845,7 +828,7 @@
       /* ---- PROFILE ---- */
       mainHeading('Profile');
       para(
-        'Computer Science graduate and active bug bounty hunter on HackerOne, with hands-on experience identifying and responsibly disclosing high-impact vulnerabilities in web applications for global organizations including Porsche, DoorDash, and Deriv. Combines technical depth in offensive security with clear written communication and a strong commitment to continuous learning — eager to master new tools, techniques, and technology stacks, and quick to adapt to any team or environment.'
+        'Computer Science graduate and active bug bounty hunter on HackerOne, with hands-on experience identifying and responsibly disclosing high-impact vulnerabilities in web applications for global organizations including Porsche, DoorDash, and Deriv. Builds custom security tooling to enable fast, targeted testing workflows. Combines technical depth in offensive security with clear written communication and a strong commitment to continuous learning — eager to master new tools, techniques, and technology stacks, and quick to adapt to any team or environment.'
       );
 
       /* ---- EXPERIENCE ---- */
@@ -867,14 +850,19 @@
 
       /* ---- PROJECTS ---- */
       mainHeading('Projects & Research');
-      jobHeader('Web Cache Vulnerability Scanner', '', 'Open Source Contributor  ·  GitHub');
+      jobHeader('Custom Security Tooling & Research', '', 'Personal  ·  Ongoing');
       bullets([
-        'Contributed to an open-source tool that automates detection of web cache poisoning and cache deception vulnerabilities.',
-        'Enhanced scanner accuracy and expanded coverage of edge-case scenarios, improving reliability across diverse targets.',
+        'Develop customized ethical hacking tools that enable fast, targeted testing workflows — inspired by open-source projects like the Web Cache Vulnerability Scanner.',
+        'Conduct independent security research to identify emerging attack vectors and automate detection of complex web application flaws.',
       ]);
 
       /* ---- CERTIFICATIONS ---- */
-      mainHeading('Certifications');
+      mainHeading('Certifications & Training');
+      jobHeader('Web Penetration Testing', '2026 — Present', 'PentesterLab  ·  150+ exercises completed');
+      para(
+        'Completed extensive hands-on web hacking labs covering web pentesting, code review, and advanced exploitation. Contributed feedback that helped enhance the platform.',
+        8.8
+      );
       jobHeader('Cyber Security Course', 'Aug 2025', 'SemiColon');
       para(
         'Intensive training covering modern attack vectors, penetration testing methodologies, and defensive security strategies.',
@@ -884,7 +872,7 @@
       return doc.output('blob');
     }
 
-    /* ---- Download / View CV handlers (attach to every trigger) ---- */
+    /* ---- Download / View CV handlers ---- */
     document.querySelectorAll('#download-cv-btn, #hero-download-cv').forEach(btn => {
       btn.addEventListener('click', async () => {
         const blob = await generateCVPDF();
