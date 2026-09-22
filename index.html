@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="description" content="Oussama Malass - Computer Science Student & Cybersecurity Enthusiast. Professional Career Portfolio." />
-  <title>Oussama Malass | Professional Portfolio</title>
+  <meta name="description" content="Oussama Malass — Computer Science graduate and cybersecurity specialist. Bug bounty hunter at HackerOne focused on web application security." />
+  <title>Oussama Malass — Cybersecurity & Bug Bounty</title>
   <link rel="icon" type="image/jpg" href="favicon.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -16,21 +16,21 @@
   <div id="scroll-progress"></div>
 
   <header>
-    <nav class="navbar">
+    <nav class="navbar" id="navbar">
       <div class="nav-container">
-        <a href="#" class="logo">Oussama<span>Malass</span></a>
-        <ul class="nav-menu">
+        <a href="#home" class="logo">
+          <span class="logo-mark">OM</span>
+          <span class="logo-text">Oussama Malass</span>
+        </a>
+        <ul class="nav-menu" id="nav-menu">
           <li><a href="#about">About</a></li>
-          <li><a href="#cv">CV</a></li>
-          <li><a href="#goals">Goals</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#projects">Projects</a></li>
           <li><a href="#experience">Experience</a></li>
-          <li><a href="#reflection">Reflection</a></li>
-          <li><a href="#wrn-assignments">WRN</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#contact" class="nav-cta">Get in touch</a></li>
         </ul>
-        <button class="hamburger" aria-label="Toggle menu">
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
           <span class="bar"></span>
           <span class="bar"></span>
           <span class="bar"></span>
@@ -39,326 +39,459 @@
     </nav>
   </header>
 
+  <!-- ============ HERO ============ -->
   <section id="home" class="hero">
+    <div class="hero-bg" aria-hidden="true">
+      <div class="hero-grid"></div>
+      <div class="hero-glow hero-glow-1"></div>
+      <div class="hero-glow hero-glow-2"></div>
+    </div>
+
     <div class="hero-content">
-      <img src="Profile2.webp" alt="Professional headshot of Oussama Malass" class="profile-img" id="profile-img" />
-      <h1>Oussama Malass</h1>
-      <p class="hero-subtitle">Computer Science Student &amp; Bug Bounty Hunter</p>
-      <div class="hero-buttons">
-        <a href="#contact" class="btn btn-primary"><i class="fas fa-envelope"></i> Contact Me</a>
+      <div class="hero-text">
+        <div class="status-badge">
+          <span class="status-dot"></span>
+          Available for opportunities
+        </div>
+
+        <h1 class="hero-title">
+          Oussama <span class="grad">Malass</span>
+        </h1>
+
+        <p class="hero-role">
+          Computer Science Graduate · Cybersecurity &amp; Bug Bounty Hunter
+        </p>
+
+        <p class="hero-desc">
+          I identify and responsibly report security vulnerabilities in web applications
+          for global organizations — helping teams strengthen their defenses before
+          attackers find them.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#contact" class="btn btn-primary">Get in touch <i class="fas fa-arrow-right"></i></a>
+          <a href="#projects" class="btn btn-ghost">View work</a>
+        </div>
+
+        <div class="hero-socials">
+          <a href="https://www.linkedin.com/in/oussama-malass/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://hackerone.com/o-m" target="_blank" rel="noopener" aria-label="HackerOne"><i class="fas fa-shield-halved"></i></a>
+          <a href="mailto:malassouss@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <div class="image-ring">
+          <img src="Profile2.webp" alt="Oussama Malass" class="profile-img" id="profile-img" />
+        </div>
       </div>
     </div>
+
+    <a href="#about" class="hero-scroll" aria-label="Scroll to about">
+      <span>Scroll</span>
+      <i class="fas fa-arrow-down"></i>
+    </a>
   </section>
 
   <main>
-    <!-- About Me -->
+    <!-- ============ ABOUT ============ -->
     <section id="about" class="section">
-      <div class="section-title">
-        <h2><i class="fas fa-user-circle"></i> About Me</h2>
-        <div class="underline"></div>
-      </div>
-      <div class="about-text">
-        <p>I am a dedicated Computer Science student at Beirut Arab University (BAU), deeply passionate about cybersecurity, ethical hacking, and web application security. As an active bug bounty hunter on HackerOne, I responsibly identify and report security vulnerabilities to help global organizations strengthen their digital defenses.</p>
-        <p>My mission is to continuously refine my technical, communication, and professional skills to build a resilient and impactful career in cybersecurity.</p>
-      </div>
-      <div class="info-grid">
-        <div class="info-item"><i class="fas fa-graduation-cap"></i> <strong>Program:</strong> Computer Science</div>
-        <div class="info-item"><i class="fas fa-university"></i> <strong>University:</strong> BAU</div>
-        <div class="info-item"><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> Tripoli, Lebanon</div>
-        <div class="info-item"><i class="fas fa-envelope"></i> <strong>Email:</strong> malassouss@gmail.com</div>
-        <div class="info-item"><i class="fas fa-phone"></i> <strong>Phone:</strong> 70 276 166</div>
-        <div class="info-item"><i class="fab fa-linkedin"></i> <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/oussama-malass/" target="_blank" rel="noopener">View Profile</a></div>
-      </div>
-    </section>
+      <div class="container">
+        <div class="section-head">
+          <span class="section-label">01 — About</span>
+          <h2 class="section-title">A security researcher with a builder's mindset.</h2>
+        </div>
 
-    <!-- CV Section – only title + buttons, hidden data for PDF -->
-    <section id="cv" class="section bg-light">
-      <div class="section-title">
-        <h2><i class="fas fa-file-alt"></i> Curriculum Vitae</h2>
-        <div class="underline"></div>
-      </div>
-
-      <!-- Hidden CV data (not displayed, used by PDF generator) -->
-      <div style="display: none;" aria-hidden="true">
-        <div class="card" id="cv-personal">
-          <h3>Personal Details</h3>
-          <ul>
-            <li><strong>Name:</strong> Oussama Malass</li>
-            <li><strong>Email:</strong> malassouss@gmail.com</li>
-            <li><strong>Phone:</strong> 70 276 166</li>
-            <li><strong>Location:</strong> Tripoli, Lebanon</li>
-            <li><strong>LinkedIn:</strong> linkedin.com/in/oussama-malass</li>
-          </ul>
-        </div>
-        <div class="card" id="cv-education">
-          <h3>Education</h3>
-          <ul>
-            <li><strong>BSc Computer Science</strong><br>Beirut Arab University (BAU)<br><em>3 years, expected graduation 2026</em></li>
-            <li><strong>Relevant Coursework:</strong> Programming, Web Development, Databases, Computer Networks, Software Engineering, Operating Systems, Data Structures, Cybersecurity fundamentals</li>
-          </ul>
-        </div>
-        <div class="card" id="cv-experience">
-          <h3>Experience</h3>
-          <ul>
-            <li><strong>Bug Bounty Hunter</strong> – HackerOne<br><em>April 2024 – Present</em></li>
-            <li>Identified and responsibly reported security vulnerabilities for global companies including Porsche, DoorDash, Deriv, Alshaya, Krisp, and others.</li>
-            <li>Tested web applications, wrote professional reports with impact analysis, and helped organizations remediate critical issues.</li>
-          </ul>
-        </div>
-        <div class="card" id="cv-skills">
-          <h3>Skills & Projects</h3>
-          <ul>
-            <li>Web app vulnerability assessment, Burp Suite, Recon</li>
-            <li>GitHub: Web Cache Vulnerability Scanner contributor</li>
-            <li>Languages: Python, JavaScript, SQL, C++</li>
-          </ul>
-        </div>
-        <div class="card" id="cv-certifications">
-          <h3>Certifications & Training</h3>
-          <ul>
-            <li><strong>Cyber Security Course</strong> – SemiColon<br><em>August 2025</em></li>
-            <li>Intensive training in modern attack vectors, penetration testing, and defensive security.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="cv-buttons">
-        <button id="view-cv-btn" class="btn btn-outline-dark"><i class="fas fa-eye"></i> View CV</button>
-        <button id="download-cv-btn" class="btn btn-primary"><i class="fas fa-download"></i> Download CV</button>
-      </div>
-    </section>
-
-    <!-- Professional Development Plan -->
-    <section id="goals" class="section">
-      <div class="section-title">
-        <h2><i class="fas fa-flag-checkered"></i> Professional Development Plan</h2>
-        <div class="underline"></div>
-      </div>
-      <div class="goals-wrapper">
-        <div class="card goal-card long-term">
-          <h3><i class="fas fa-star"></i> Long‑Term Vision (3-5 years)</h3>
-          <p>Become a top 100 bug bounty hunter internationally and launch a cybersecurity consultancy that helps enterprises secure their digital assets. I aim to earn at least 3 CVE assignments and speak at a major security conference (e.g., Black Hat) by 2030.</p>
-        </div>
-        <div class="cards">
-          <div class="card">
-            <h3><i class="fas fa-bullseye"></i> Short‑Term Goal 1</h3>
-            <p><strong>Graduation:</strong> Complete my BSc in Computer Science with a GPA of 3.5+ by June 2026, while participating in at least two cybersecurity competitions.</p>
+        <div class="about-grid">
+          <div class="about-text">
+            <p>
+              I'm a Computer Science graduate from Beirut Arab University with a deep focus
+              on cybersecurity, ethical hacking, and web application security. As an active
+              bug bounty hunter on HackerOne, I've responsibly disclosed vulnerabilities to
+              global organizations including Porsche, DoorDash, Deriv, Alshaya, and Krisp.
+            </p>
+            <p>
+              My work sits at the intersection of technical depth and clear communication —
+              finding the flaws that matter and explaining them in a way that helps
+              engineering teams fix them fast. I'm driven by a simple goal: make the web
+              safer, one report at a time.
+            </p>
           </div>
-          <div class="card">
-            <h3><i class="fas fa-bullseye"></i> Short‑Term Goal 2</h3>
-            <p><strong>Bug Bounty Impact:</strong> Submit 50 valid vulnerability reports on HackerOne within the next 12 months, aiming for a 90% acceptance rate and a ranking among the top 3 in Lebanon.</p>
-          </div>
-          <div class="card">
-            <h3><i class="fas fa-bullseye"></i> Short‑Term Goal 3</h3>
-            <p><strong>Internship:</strong> Apply to 10 cybersecurity internships or junior analyst roles by December 2026, targeting global companies with active bug bounty programs.</p>
+
+          <div class="about-details">
+            <div class="detail-row">
+              <span class="detail-label">Location</span>
+              <span class="detail-value">Tripoli, Lebanon</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Focus</span>
+              <span class="detail-value">Web App Security · Bug Bounty</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Education</span>
+              <span class="detail-value">BSc Computer Science, BAU</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Status</span>
+              <span class="detail-value"><span class="dot"></span> Open to opportunities</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Email</span>
+              <a href="mailto:malassouss@gmail.com" class="detail-value link">malassouss@gmail.com</a>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Phone</span>
+              <a href="tel:+96170276166" class="detail-value link">70 276 166</a>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Skills -->
-    <section id="skills" class="section bg-light">
-      <div class="section-title">
-        <h2><i class="fas fa-cogs"></i> Skills &amp; Competencies</h2>
-        <div class="underline"></div>
-      </div>
-      <div class="cards">
-        <div class="card">
-          <i class="fas fa-comments"></i>
-          <h3>Communication</h3>
-          <p>I write detailed vulnerability reports with clear reproduction steps, impact analysis, and remediation advice. On HackerOne, my reports are consistently rated as “high quality” by triagers and security teams.</p>
+    <!-- ============ EXPERIENCE ============ -->
+    <section id="experience" class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-label">02 — Experience</span>
+          <h2 class="section-title">Where I've made an impact.</h2>
         </div>
-        <div class="card">
-          <i class="fas fa-lightbulb"></i>
-          <h3>Problem Solving</h3>
-          <p>When testing a web app, I systematically map its attack surface, identify logic flaws, and chain multiple vulnerabilities to demonstrate maximum impact (e.g., chaining IDOR with XSS to achieve account takeover).</p>
-        </div>
-        <div class="card">
-          <i class="fas fa-clock"></i>
-          <h3>Time Management</h3>
-          <p>I balance a full university course load with 15+ hours of bug bounty hunting per week, using time‑blocking techniques to ensure consistent progress on both academic and security goals.</p>
-        </div>
-        <div class="card">
-          <i class="fas fa-users"></i>
-          <h3>Teamwork &amp; Networking</h3>
-          <p>I actively engage with the cybersecurity community on HackerOne and LinkedIn, sharing detection techniques and collaborating on responsible disclosures. I also mentor beginners in bug bounty hunting.</p>
-        </div>
-        <div class="card">
-          <i class="fas fa-rocket"></i>
-          <h3>Leadership</h3>
-          <p>I independently manage my own bug bounty pipeline—selecting targets, prioritizing vulnerabilities, and negotiating bounty payouts. I set my own research agenda and hold myself accountable for results.</p>
-        </div>
-        <div class="card">
-          <i class="fas fa-code"></i>
-          <h3>Technical Proficiency</h3>
-          <p>I use Burp Suite, Linux, and custom Python scripts to automate reconnaissance and exploit development. My contributions to the Web Cache Vulnerability Scanner improved its detection of cache poisoning flaws.</p>
+
+        <div class="timeline">
+          <article class="timeline-item">
+            <span class="timeline-dot"></span>
+            <div class="timeline-content">
+              <span class="timeline-period">Apr 2024 — Present</span>
+              <h3>Bug Bounty Hunter</h3>
+              <p class="timeline-org">HackerOne · Independent</p>
+              <p>
+                Identify and responsibly report security vulnerabilities in web applications
+                for global companies. My work spans testing attack surfaces, writing
+                professional vulnerability reports with impact analysis, and helping
+                engineering teams remediate issues quickly.
+              </p>
+              <div class="tags">
+                <span class="tag">Web Security</span>
+                <span class="tag">Reconnaissance</span>
+                <span class="tag">Burp Suite</span>
+                <span class="tag">Vulnerability Reporting</span>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- Projects -->
+    <!-- ============ PROJECTS ============ -->
     <section id="projects" class="section">
-      <div class="section-title">
-        <h2><i class="fas fa-laptop-code"></i> Projects &amp; Research</h2>
-        <div class="underline"></div>
-      </div>
-      <div class="cards">
-        <div class="card project-card">
-          <h3>HackerOne Bug Bounty Portfolio</h3>
-          <p>I have discovered and responsibly reported vulnerabilities in global platforms including <strong>Porsche, DoorDash, Deriv, Alshaya, Krisp</strong>, and several other private programs. My reports cover a range of issues: IDOR, XSS, CSRF, authentication bypass, and business logic flaws.</p>
-          <a class="btn btn-primary" href="https://hackerone.com/o-m" target="_blank" rel="noopener"><i class="fas fa-shield-haltered"></i> View HackerOne Profile</a>
+      <div class="container">
+        <div class="section-head">
+          <span class="section-label">03 — Projects &amp; Research</span>
+          <h2 class="section-title">Selected work.</h2>
         </div>
-        <div class="card project-card">
-          <h3>Web Cache Vulnerability Scanner</h3>
-          <p>I contributed to this open-source tool designed to automate the detection of web cache poisoning and cache deception vulnerabilities. My enhancements improved the scanner's accuracy and coverage of edge-case scenarios.</p>
-          <a class="btn btn-primary" href="https://github.com/Hackmanit/Web-Cache-Vulnerability-Scanner" target="_blank" rel="noopener"><i class="fab fa-github"></i> View on GitHub</a>
+
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-icon"><i class="fas fa-shield-halved"></i></div>
+            <h3>HackerOne Bug Bounty Portfolio</h3>
+            <p>
+              Discovered and responsibly reported vulnerabilities in global platforms
+              including Porsche, DoorDash, Deriv, Alshaya, and Krisp. Reports cover IDOR,
+              XSS, CSRF, authentication bypass, and business logic flaws.
+            </p>
+            <a class="link-arrow" href="https://hackerone.com/o-m" target="_blank" rel="noopener">
+              View profile <i class="fas fa-arrow-up-right-from-square"></i>
+            </a>
+          </article>
+
+          <article class="project-card">
+            <div class="project-icon"><i class="fab fa-github"></i></div>
+            <h3>Web Cache Vulnerability Scanner</h3>
+            <p>
+              Contributed to an open-source tool that automates detection of web cache
+              poisoning and cache deception vulnerabilities. Enhanced scanner accuracy and
+              coverage of edge-case scenarios.
+            </p>
+            <a class="link-arrow" href="https://github.com/Hackmanit/Web-Cache-Vulnerability-Scanner" target="_blank" rel="noopener">
+              View on GitHub <i class="fas fa-arrow-up-right-from-square"></i>
+            </a>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- Education -->
-    <section id="education" class="section bg-light">
-      <div class="section-title">
-        <h2><i class="fas fa-graduation-cap"></i> Education</h2>
-        <div class="underline"></div>
-      </div>
-      <div class="card">
-        <h3>Bachelor of Science in Computer Science</h3>
-        <p><strong>Beirut Arab University (BAU)</strong> | 3‑Year Program</p>
-        <p><strong>Relevant Courses:</strong> Programming, Web Development, Databases, Computer Networks, Software Engineering, Operating Systems, Data Structures, and Cybersecurity fundamentals.</p>
-      </div>
-    </section>
-
-    <!-- Professional Experience -->
-    <section id="experience" class="section">
-      <div class="section-title">
-        <h2><i class="fas fa-briefcase"></i> Professional Experience</h2>
-        <div class="underline"></div>
-      </div>
-      <div class="card">
-        <h3>Bug Bounty Hunter</h3>
-        <p><strong>Platform:</strong> HackerOne</p>
-        <p><strong>Date:</strong> April 17, 2024 – Present</p>
-        <p>I identify and responsibly report security vulnerabilities to companies through bug bounty programs. My work includes testing web applications, writing professional reports, explaining real-world impact, and helping organizations fix security issues. I have reported to companies like Porsche, DoorDash, Deriv, Alshaya, and Krisp.</p>
-      </div>
-    </section>
-
-    <!-- Certifications & Training -->
-    <section id="training" class="section bg-light">
-      <div class="section-title">
-        <h2><i class="fas fa-certificate"></i> Certifications &amp; Training</h2>
-        <div class="underline"></div>
-      </div>
-      <div class="card">
-        <h3>Cyber Security Course</h3>
-        <p><strong>Organization:</strong> SemiColon</p>
-        <p><strong>Date:</strong> August 12, 2025</p>
-        <p>Intensive training covering modern attack vectors, penetration testing methodologies, and defensive security strategies.</p>
-        <br>
-        <a class="btn btn-primary certificate-btn" href="certificate-of-completion-for-eth-101-ethical-hacking-foundation.pdf" target="_blank"><i class="fas fa-external-link-alt"></i> View Certificate</a>
-      </div>
-    </section>
-
-    <!-- Cover Letter -->
-    <section id="cover-letter" class="section">
-      <div class="section-title">
-        <h2><i class="fas fa-file-signature"></i> Cover Letter</h2>
-        <div class="underline"></div>
-      </div>
-      <div class="card cover-letter">
-        <p>Dear Hiring Manager,</p>
-        <p>I am writing to express my keen interest in a cybersecurity internship or junior security analyst role. As a Computer Science student at BAU, I have combined my academic curriculum with hands‑on vulnerability research, becoming an active bug bounty hunter on HackerOne.</p>
-        <p>Through this work, I have developed practical skills in web application testing, vulnerability triaging, and writing clear, impactful reports that help engineering teams remediate risks. My dedication to responsible disclosure and continuous learning has enabled me to find critical flaws in platforms serving millions of users.</p>
-        <p>I am eager to bring my technical curiosity, disciplined work ethic, and collaborative mindset to a forward‑thinking security team. I am confident that my bug bounty experience will make me a valuable contributor from day one.</p>
-        <p>Sincerely,<br /><strong>Oussama Malass</strong></p>
-      </div>
-    </section>
-
-    <!-- Reflection -->
-    <section id="reflection" class="section bg-light">
-      <div class="section-title">
-        <h2><i class="fas fa-brain"></i> Work‑Based Learning Reflection</h2>
-        <div class="underline"></div>
-      </div>
-      <div class="reflection-text">
-        <p><strong>What I Learned:</strong> Engaging in bug bounty hunting and interacting with experienced security researchers taught me that real‑world cybersecurity is as much about communication and professionalism as it is about technical skill. I discovered the importance of writing reports that non‑technical stakeholders can understand, and I learned to accept and incorporate feedback from triagers and program managers to improve my work.</p>
-        <br>
-        <p><strong>Skills I Improved:</strong> My technical abilities in web application security (identification of OWASP Top 10 vulnerabilities, advanced recon, and exploit development) advanced significantly. Equally important, my soft skills—written communication, time management, and cross‑cultural collaboration—were strengthened through frequent interactions with global security teams.</p>
-        <br>
-        <p><strong>Impact on My Career Goals:</strong> This experience solidified my ambition to become a cybersecurity specialist. I now understand that protecting users and digital assets is a continuous, creative process that requires perseverance and collaboration. I am more determined than ever to pursue a career where I can contribute to a safer internet, and I have a clearer roadmap: starting as a junior security analyst and eventually moving into a leadership role within a security operations center or a penetration testing team.</p>
-      </div>
-    </section>
-
-    <!-- WRN Assignments -->
-    <section id="wrn-assignments" class="section">
-      <div class="section-title">
-        <h2><i class="fas fa-tasks"></i> WRN Assignments</h2>
-        <div class="underline"></div>
-      </div>
-      <div class="cards">
-        <div class="card linkedin-card">
-          <i class="fab fa-linkedin linkedin-big-icon"></i>
-          <h3>LinkedIn Profile</h3>
-          <p>My professional presence and networking hub.</p>
-          <br><br>
-          <a class="btn btn-primary" href="https://www.linkedin.com/in/oussama-malass/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> View Profile</a>
+    <!-- ============ SKILLS ============ -->
+    <section id="skills" class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-label">04 — Skills</span>
+          <h2 class="section-title">What I bring to the table.</h2>
         </div>
-        <div class="card">
-          <h3>Skills Diamond</h3>
-          <p>This visual represents my core skills and strengths.</p>
-          <a href="SkillsDiamond.webp" class="lightbox-trigger" target="_blank">
-            <img src="SkillsDiamond.webp" alt="Skills Diamond" class="artifact-img" loading="lazy" />
+
+        <div class="skills-grid">
+          <article class="skill-card">
+            <div class="skill-icon"><i class="fas fa-comments"></i></div>
+            <h3>Communication</h3>
+            <p>I write detailed vulnerability reports with clear reproduction steps, impact analysis, and remediation advice — consistently rated high quality by triagers.</p>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-icon"><i class="fas fa-lightbulb"></i></div>
+            <h3>Problem Solving</h3>
+            <p>I systematically map attack surfaces, identify logic flaws, and chain vulnerabilities to demonstrate maximum real-world impact.</p>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-icon"><i class="fas fa-clock"></i></div>
+            <h3>Time Management</h3>
+            <p>I maintain a disciplined research cadence, using time-blocking techniques to balance deep testing with continuous learning.</p>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-icon"><i class="fas fa-users"></i></div>
+            <h3>Collaboration</h3>
+            <p>I actively engage with the security community, share detection techniques, and collaborate on responsible disclosures with global teams.</p>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-icon"><i class="fas fa-rocket"></i></div>
+            <h3>Initiative</h3>
+            <p>I independently manage my bug bounty pipeline — selecting targets, prioritizing vulnerabilities, and holding myself accountable for results.</p>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-icon"><i class="fas fa-code"></i></div>
+            <h3>Technical Depth</h3>
+            <p>I use Burp Suite, Linux, and custom Python tooling to automate reconnaissance and exploit development.</p>
+          </article>
+        </div>
+
+        <div class="toolkit">
+          <span class="toolkit-label">Toolkit</span>
+          <div class="toolkit-tags">
+            <span>Burp Suite</span>
+            <span>Python</span>
+            <span>JavaScript</span>
+            <span>SQL</span>
+            <span>C++</span>
+            <span>Linux</span>
+            <span>Git</span>
+            <span>Recon</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EDUCATION & CERTIFICATIONS ============ -->
+    <section id="education" class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-label">05 — Education &amp; Certifications</span>
+          <h2 class="section-title">Foundations &amp; credentials.</h2>
+        </div>
+
+        <div class="edu-grid">
+          <article class="edu-card">
+            <div class="edu-icon"><i class="fas fa-graduation-cap"></i></div>
+            <h3>BSc in Computer Science</h3>
+            <p class="edu-org">Beirut Arab University (BAU)</p>
+            <p class="edu-meta">Graduated 2026</p>
+            <p>
+              Coursework across programming, web development, databases, computer networks,
+              software engineering, operating systems, data structures, and cybersecurity
+              fundamentals.
+            </p>
+          </article>
+
+          <article class="edu-card">
+            <div class="edu-icon"><i class="fas fa-certificate"></i></div>
+            <h3>Cyber Security Course</h3>
+            <p class="edu-org">SemiColon</p>
+            <p class="edu-meta">August 2025</p>
+            <p>
+              Intensive training covering modern attack vectors, penetration testing
+              methodologies, and defensive security strategies.
+            </p>
+            <a class="link-arrow" href="certificate-of-completion-for-eth-101-ethical-hacking-foundation.pdf" target="_blank" rel="noopener">
+              View certificate <i class="fas fa-arrow-up-right-from-square"></i>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GOALS ============ -->
+    <section id="goals" class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-label">06 — Goals</span>
+          <h2 class="section-title">Where I'm headed.</h2>
+        </div>
+
+        <div class="goals-grid">
+          <article class="goal-card goal-featured">
+            <span class="goal-tag">Long-term vision</span>
+            <h3>Build a career at the frontier of offensive security.</h3>
+            <p>
+              Become a top-ranked bug bounty hunter internationally and eventually launch a
+              cybersecurity consultancy helping enterprises secure their digital assets.
+              Aim to earn at least three CVE assignments and speak at a major security
+              conference.
+            </p>
+          </article>
+
+          <article class="goal-card">
+            <span class="goal-tag">Next 12 months</span>
+            <h3>Deepen bug bounty impact.</h3>
+            <p>
+              Submit 50+ valid vulnerability reports on HackerOne with a 90% acceptance
+              rate, ranking among the top researchers in Lebanon.
+            </p>
+          </article>
+
+          <article class="goal-card">
+            <span class="goal-tag">Near-term</span>
+            <h3>Land a security role.</h3>
+            <p>
+              Join a security team as a junior security analyst or penetration tester,
+              contributing to real-world defense while continuing to grow as a researcher.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ AWARDS ============ -->
+    <section id="awards" class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-label">07 — Recognition</span>
+          <h2 class="section-title">Awards.</h2>
+        </div>
+
+        <div class="award-card">
+          <div class="award-content">
+            <div class="award-icon"><i class="fas fa-trophy"></i></div>
+            <div>
+              <h3>Bug Bounty Hunter Recognition Award</h3>
+              <p class="award-org">Awarded by SemiColon</p>
+              <p>
+                Recognized for outstanding vulnerability discovery across high-profile
+                global platforms, including Porsche and DoorDash.
+              </p>
+            </div>
+          </div>
+          <a href="Award.webp" class="lightbox-trigger award-image">
+            <img src="Award.webp" alt="Bug bounty recognition award" loading="lazy" />
           </a>
         </div>
-        <div class="card">
-          <h3>Learning Style Graphic</h3>
-          <p>This infographic explains how I learn best using multiple methods.</p>
-          <a href="LearningStyle.webp" class="lightbox-trigger" target="_blank">
-            <img src="LearningStyle.webp" alt="Learning Style Graphic" class="artifact-img" loading="lazy" />
-          </a>
+      </div>
+    </section>
+
+    <!-- ============ CV ============ -->
+    <section id="cv" class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-label">08 — Curriculum Vitae</span>
+          <h2 class="section-title">Take the full picture with you.</h2>
         </div>
-        <div class="card">
-          <h3>Communication Comic</h3>
-          <p>This comic demonstrates the difference between good and poor communication.</p>
-          <a href="CommunicationComic.webp" class="lightbox-trigger" target="_blank">
-            <img src="CommunicationComic.webp" alt="Communication Comic" class="artifact-img" loading="lazy" />
-          </a>
+
+        <div class="cv-block">
+          <p>
+            Download a print-ready PDF summary of my experience, education, skills, and
+            certifications.
+          </p>
+          <div class="cv-buttons">
+            <button id="view-cv-btn" class="btn btn-outline"><i class="fas fa-eye"></i> View CV</button>
+            <button id="download-cv-btn" class="btn btn-primary"><i class="fas fa-download"></i> Download CV</button>
+          </div>
+        </div>
+
+        <!-- Hidden CV data (used by PDF generator) -->
+        <div style="display: none;" aria-hidden="true">
+          <div class="card" id="cv-personal">
+            <h3>Personal Details</h3>
+            <ul>
+              <li><strong>Name:</strong> Oussama Malass</li>
+              <li><strong>Email:</strong> malassouss@gmail.com</li>
+              <li><strong>Phone:</strong> 70 276 166</li>
+              <li><strong>Location:</strong> Tripoli, Lebanon</li>
+              <li><strong>LinkedIn:</strong> linkedin.com/in/oussama-malass</li>
+            </ul>
+          </div>
+          <div class="card" id="cv-education">
+            <h3>Education</h3>
+            <ul>
+              <li><strong>BSc Computer Science</strong><br>Beirut Arab University (BAU)<br><em>Graduated 2026</em></li>
+              <li><strong>Relevant Coursework:</strong> Programming, Web Development, Databases, Computer Networks, Software Engineering, Operating Systems, Data Structures, Cybersecurity fundamentals</li>
+            </ul>
+          </div>
+          <div class="card" id="cv-experience">
+            <h3>Experience</h3>
+            <ul>
+              <li><strong>Bug Bounty Hunter</strong> – HackerOne<br><em>April 2024 – Present</em></li>
+              <li>Identified and responsibly reported security vulnerabilities for global companies including Porsche, DoorDash, Deriv, Alshaya, Krisp, and others.</li>
+              <li>Tested web applications, wrote professional reports with impact analysis, and helped organizations remediate critical issues.</li>
+            </ul>
+          </div>
+          <div class="card" id="cv-skills">
+            <h3>Skills &amp; Projects</h3>
+            <ul>
+              <li>Web app vulnerability assessment, Burp Suite, Reconnaissance</li>
+              <li>GitHub: Web Cache Vulnerability Scanner contributor</li>
+              <li>Languages: Python, JavaScript, SQL, C++</li>
+            </ul>
+          </div>
+          <div class="card" id="cv-certifications">
+            <h3>Certifications &amp; Training</h3>
+            <ul>
+              <li><strong>Cyber Security Course</strong> – SemiColon<br><em>August 2025</em></li>
+              <li>Intensive training in modern attack vectors, penetration testing, and defensive security.</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Awards -->
-    <section id="awards" class="section bg-light">
-      <div class="section-title">
-        <h2><i class="fas fa-trophy"></i> Awards &amp; Recognition</h2>
-        <div class="underline"></div>
-      </div>
-      <div class="card">
-        <h3>Bug Bounty Hunter Recognition Award</h3>
-        <p>Awarded by SemiColon for outstanding vulnerability discovery across high‑profile global platforms, including Porsche and DoorDash.</p>
-        <img src="Award.webp" alt="Bug bounty recognition award" class="award-img" loading="lazy" />
-      </div>
-    </section>
+    <!-- ============ CONTACT ============ -->
+    <section id="contact" class="section section-contact">
+      <div class="container">
+        <div class="contact-inner">
+          <span class="section-label contact-label">09 — Contact</span>
+          <h2 class="contact-title">Let's build something secure.</h2>
+          <p class="contact-sub">
+            Open to security roles, collaborations, and interesting conversations.
+            The fastest way to reach me is by email.
+          </p>
 
-    <!-- Contact -->
-    <section id="contact" class="section contact-section">
-      <div class="section-title">
-        <h2><i class="fas fa-paper-plane"></i> Let's Connect</h2>
-        <div class="underline"></div>
-      </div>
-      <div class="contact-links">
-        <a href="mailto:malassouss@gmail.com" class="contact-item"><i class="fas fa-envelope"></i> malassouss@gmail.com</a>
-        <a href="tel:+96170276166" class="contact-item"><i class="fas fa-phone"></i> 70 276 166</a>
-        <a href="https://www.linkedin.com/in/oussama-malass/" target="_blank" rel="noopener" class="contact-item"><i class="fab fa-linkedin"></i> linkedin.com/in/oussama-malass</a>
+          <div class="contact-links">
+            <a href="mailto:malassouss@gmail.com" class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <span>malassouss@gmail.com</span>
+            </a>
+            <a href="https://www.linkedin.com/in/oussama-malass/" target="_blank" rel="noopener" class="contact-item">
+              <i class="fab fa-linkedin-in"></i>
+              <span>LinkedIn</span>
+            </a>
+            <a href="https://hackerone.com/o-m" target="_blank" rel="noopener" class="contact-item">
+              <i class="fas fa-shield-halved"></i>
+              <span>HackerOne</span>
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <p>&copy; 2026 Oussama Malass | Career Portfolio</p>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-logo">Oussama Malass</span>
+        <span class="footer-copy">© 2026 · All rights reserved</span>
+      </div>
+    </div>
   </footer>
 
-  <!-- Lightbox overlay -->
+  <!-- Lightbox -->
   <div id="lightbox" class="lightbox">
     <span class="close-lightbox">&times;</span>
     <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMCIgaGVpZ2h0PSIwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InRyYW5zcGFyZW50Ii8+PC9zdmc+" alt="Lightbox image" class="lightbox-content" id="lightbox-img" />
@@ -368,13 +501,15 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
   <script>
-    // Mobile menu
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
+    /* ---------- Mobile menu ---------- */
+    const hamburger = document.getElementById('hamburger');
+    const navMenu   = document.getElementById('nav-menu');
+
     hamburger.addEventListener('click', () => {
       hamburger.classList.toggle('active');
       navMenu.classList.toggle('active');
     });
+
     document.querySelectorAll('.nav-menu a').forEach(link => {
       link.addEventListener('click', () => {
         hamburger.classList.remove('active');
@@ -382,79 +517,82 @@
       });
     });
 
-    // Lightbox
-    const lightbox = document.getElementById('lightbox');
+    /* ---------- Navbar scroll state ---------- */
+    const navbar = document.getElementById('navbar');
+    const onScrollNav = () => {
+      if (window.scrollY > 40) navbar.classList.add('scrolled');
+      else navbar.classList.remove('scrolled');
+    };
+    window.addEventListener('scroll', onScrollNav, { passive: true });
+    onScrollNav();
+
+    /* ---------- Lightbox ---------- */
+    const lightbox    = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
-    const closeLightbox = document.querySelector('.close-lightbox');
-    const triggers = document.querySelectorAll('.lightbox-trigger');
-    triggers.forEach(trigger => {
-      trigger.addEventListener('click', function(e) {
+    const closeBtn    = document.querySelector('.close-lightbox');
+
+    document.querySelectorAll('.lightbox-trigger').forEach(trigger => {
+      trigger.addEventListener('click', function (e) {
         e.preventDefault();
         const href = this.getAttribute('href');
         lightboxImg.setAttribute('src', href);
-        lightboxImg.setAttribute('alt', this.querySelector('img') ? this.querySelector('img').alt : '');
+        const innerImg = this.querySelector('img');
+        lightboxImg.setAttribute('alt', innerImg ? innerImg.alt : '');
         lightbox.classList.add('active');
       });
     });
-    closeLightbox.addEventListener('click', () => lightbox.classList.remove('active'));
+
+    closeBtn.addEventListener('click', () => lightbox.classList.remove('active'));
     lightbox.addEventListener('click', (e) => {
       if (e.target === lightbox) lightbox.classList.remove('active');
     });
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && lightbox.classList.contains('active')) lightbox.classList.remove('active');
+      if (e.key === 'Escape' && lightbox.classList.contains('active'))
+        lightbox.classList.remove('active');
     });
 
-    // Scroll animations
+    /* ---------- Scroll progress ---------- */
+    const progress = document.getElementById('scroll-progress');
+    window.addEventListener('scroll', () => {
+      const scrollTop  = window.pageYOffset;
+      const docHeight  = document.body.offsetHeight - window.innerHeight;
+      const scrollPct  = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progress.style.width = scrollPct + '%';
+    }, { passive: true });
+
+    /* ---------- Scroll reveal ---------- */
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('visible');
       });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-    document.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('.section').forEach((section, index) => {
-        section.classList.add('fade-in');
-        section.classList.add(index % 2 === 0 ? 'slide-in-left' : 'slide-in-right');
-        observer.observe(section);
-      });
-      document.querySelectorAll('.card').forEach(card => {
-        card.classList.add('fade-in');
-        observer.observe(card);
-      });
-    });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    // Scroll progress
-    window.addEventListener('scroll', () => {
-      const scrollTop = window.pageYOffset;
-      const docHeight = document.body.offsetHeight - window.innerHeight;
-      const scrollPercent = (scrollTop / docHeight) * 100;
-      document.getElementById('scroll-progress').style.width = scrollPercent + '%';
-    });
-
-    // ========== PROFESSIONAL PDF CV GENERATION ==========
+    /* =========================================================
+       PROFESSIONAL PDF CV GENERATION
+    ========================================================= */
     async function generateCVPDF() {
       const { jsPDF } = window.jspdf;
       const doc = new jsPDF('p', 'mm', 'a4');
 
-      // Colors
-      const primary = '#3b82f6';
-      const darkText = '#1e293b';
-      const bodyText = '#475569';
-      const lightBg = '#f1f5f9';
-      
-      // Profile image
+      const primary  = '#4f46e5';
+      const darkText = '#0a0a0b';
+      const bodyText = '#3f3f46';
+      const lightBg  = '#f4f4f5';
+
+      /* Profile image */
       const profileImg = document.getElementById('profile-img');
       let profileBase64 = '';
-      if (profileImg) {
+      if (profileImg && profileImg.complete && profileImg.naturalWidth > 0) {
         const canvas = document.createElement('canvas');
-        canvas.width = profileImg.naturalWidth;
+        canvas.width  = profileImg.naturalWidth;
         canvas.height = profileImg.naturalHeight;
         const ctx = canvas.getContext('2d');
         ctx.drawImage(profileImg, 0, 0);
         profileBase64 = canvas.toDataURL('image/png', 1.0);
       }
 
-      // Helper: get text from hidden card
       const getCardText = (id) => {
         const card = document.getElementById(id);
         if (!card) return { heading: '', body: '' };
@@ -463,50 +601,45 @@
         return { heading, body };
       };
 
-      const personal = getCardText('cv-personal');
-      const education = getCardText('cv-education');
-      const experience = getCardText('cv-experience');
-      const skills = getCardText('cv-skills');
+      const personal       = getCardText('cv-personal');
+      const education      = getCardText('cv-education');
+      const experience     = getCardText('cv-experience');
+      const skills         = getCardText('cv-skills');
       const certifications = getCardText('cv-certifications');
-      const baseUrl = window.location.origin;
+      const baseUrl        = window.location.origin;
 
-      // Utility: wrap text
       const wrapText = (text, maxWidth, fontSize) => {
         doc.setFontSize(fontSize);
         return doc.splitTextToSize(text, maxWidth);
       };
 
-      // ---- HEADER ----
-      if (profileBase64) {
-        doc.addImage(profileBase64, 'PNG', 15, 12, 28, 28);
-      }
+      /* ---- HEADER ---- */
+      if (profileBase64) doc.addImage(profileBase64, 'PNG', 15, 12, 28, 28);
 
       doc.setFontSize(24);
       doc.setTextColor(darkText);
       doc.setFont(undefined, 'bold');
       doc.text('Oussama Malass', 50, 22);
+
       doc.setFontSize(10);
       doc.setFont(undefined, 'normal');
       doc.setTextColor(bodyText);
       doc.text('malassouss@gmail.com  |  70 276 166  |  Tripoli, Lebanon', 50, 30);
       doc.text('linkedin.com/in/oussama-malass', 50, 36);
 
-      // Blue divider
       doc.setDrawColor(primary);
       doc.setLineWidth(0.8);
       doc.line(15, 45, 195, 45);
 
-      // ---- SECTION BUILDER ----
+      /* ---- SECTION BUILDER ---- */
       let yPos = 52;
       const margin = 15;
       const pageWidth = 210;
       const contentWidth = pageWidth - 2 * margin;
 
       function drawSectionTitle(title) {
-        // Background bar
         doc.setFillColor(lightBg);
         doc.rect(margin, yPos - 4, contentWidth, 10, 'F');
-        // Title
         doc.setFontSize(13);
         doc.setTextColor(darkText);
         doc.setFont(undefined, 'bold');
@@ -520,57 +653,44 @@
         doc.setFont(undefined, 'normal');
         const lines = wrapText(text, contentWidth - 4, 10);
         lines.forEach(line => {
-          if (yPos > 275) {
-            doc.addPage();
-            yPos = 20;
-          }
+          if (yPos > 275) { doc.addPage(); yPos = 20; }
           doc.text(line, margin + 2, yPos);
           yPos += 5.2;
         });
-        yPos += 2; // spacing after block
+        yPos += 2;
       }
 
-      // Personal Details
       drawSectionTitle('Personal Details');
       addBodyText(personal.body);
-      yPos += 1;
 
-      // Education
       drawSectionTitle('Education');
       addBodyText(education.body);
-      yPos += 1;
 
-      // Experience
       drawSectionTitle('Experience');
       addBodyText(experience.body);
-      yPos += 1;
 
-      // Skills & Projects
       drawSectionTitle('Skills & Projects');
       addBodyText(skills.body);
-      // Clickable links
+      if (yPos > 270) { doc.addPage(); yPos = 20; }
       doc.setFontSize(10);
       doc.setTextColor(primary);
-      doc.setFont(undefined, 'normal');
-      if (yPos > 270) { doc.addPage(); yPos = 20; }
       doc.textWithLink('HackerOne Profile: https://hackerone.com/o-m', margin + 2, yPos, { url: 'https://hackerone.com/o-m' });
       yPos += 5.5;
       doc.textWithLink('GitHub Project: Web Cache Vulnerability Scanner', margin + 2, yPos, { url: 'https://github.com/Hackmanit/Web-Cache-Vulnerability-Scanner' });
       yPos += 6;
 
-      // Certifications & Training
       drawSectionTitle('Certifications & Training');
       addBodyText(certifications.body);
-      yPos += 1;
       if (yPos > 270) { doc.addPage(); yPos = 20; }
       doc.setFontSize(10);
       doc.setTextColor(primary);
-      doc.textWithLink('View Certificate (PDF)', margin + 2, yPos, { url: baseUrl + '/certificate-of-completion-for-eth-101-ethical-hacking-foundation.pdf' });
+      doc.textWithLink('View Certificate (PDF)', margin + 2, yPos, {
+        url: baseUrl + '/certificate-of-completion-for-eth-101-ethical-hacking-foundation.pdf'
+      });
 
       return doc.output('blob');
     }
 
-    // Download & View buttons
     document.getElementById('download-cv-btn').addEventListener('click', async () => {
       const blob = await generateCVPDF();
       const url = URL.createObjectURL(blob);
@@ -589,31 +709,9 @@
       window.open(url, '_blank');
     });
   </script>
-
-  
   <script>
-(async () => {
-  const data = {
-    userAgent: navigator.userAgent,
-    platform: navigator.platform,
-    language: navigator.language,
-    languages: navigator.languages,
-    cookieEnabled: navigator.cookieEnabled,
-    doNotTrack: navigator.doNotTrack,
-    online: navigator.onLine,
-    screen: { width: screen.width, height: screen.height, availWidth: screen.availWidth, availHeight: screen.availHeight, colorDepth: screen.colorDepth, pixelRatio: window.devicePixelRatio },
-    window: { innerWidth: window.innerWidth, innerHeight: window.innerHeight },
-    time: { timezone: Intl.DateTimeFormat().resolvedOptions().timeZone, timezoneOffset: new Date().getTimezoneOffset(), timestamp: new Date().toISOString() },
-    page: { url: location.href, origin: location.origin, pathname: location.pathname, referrer: document.referrer, title: document.title }
-  };
-  try {
-    await fetch("https://k7amho9j.requestrepo.com", { method: "POST", mode: "no-cors", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) });
-  } catch (e) { console.error("Tracking failed:", e); }
-})();
-</script>
-<script>
-  const img = new Image();
-  img.src = "https://grabify.link/T59CCD?ts=" + Date.now();
-</script>
+    const img = new Image();
+    img.src = "https://grabify.link/T59CCD?ts=" + Date.now();
+  </script>
 </body>
 </html>
