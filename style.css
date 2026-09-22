@@ -159,7 +159,7 @@ ul { list-style: none; }
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1.8rem;
 }
 
 .nav-menu a {
@@ -499,7 +499,7 @@ ul { list-style: none; }
 }
 
 /* =========================================================
-   SECTIONS (common)
+   SECTIONS
 ========================================================= */
 .section {
   padding: 7rem 0;
@@ -601,8 +601,79 @@ ul { list-style: none; }
   box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
 }
 
+/* ---- Continuous Learning block ---- */
+.about-exploring {
+  margin-top: 3.5rem;
+  padding: 2.25rem 2.5rem 2.25rem 3rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  position: relative;
+  overflow: hidden;
+  transition: var(--t);
+}
+
+.about-exploring::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--grad-accent);
+}
+
+.about-exploring:hover {
+  border-color: var(--line-2);
+  box-shadow: var(--shadow);
+}
+
+.about-exploring .section-label {
+  margin-bottom: 0.75rem;
+}
+
+.about-exploring h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  margin-bottom: 0.85rem;
+}
+
+.about-exploring p {
+  color: var(--ink-3);
+  font-size: 1rem;
+  line-height: 1.72;
+  max-width: 720px;
+  margin-bottom: 1.5rem;
+}
+
+.exploring-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.exploring-tags span {
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  border: 1px solid rgba(99, 102, 241, 0.18);
+  transition: var(--t);
+  cursor: default;
+}
+
+.exploring-tags span:hover {
+  background: var(--accent);
+  color: var(--white);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
 /* =========================================================
-   EXPERIENCE / TIMELINE
+   TIMELINE
 ========================================================= */
 .timeline {
   position: relative;
@@ -975,34 +1046,46 @@ ul { list-style: none; }
   transform: translateY(-4px);
 }
 
+/* ---- Featured (dark) card ---- */
 .goal-featured {
   grid-column: span 2;
   background: linear-gradient(135deg, #0a0a0b 0%, #1a1a2e 100%);
   border-color: transparent;
-  color: var(--white);
   position: relative;
   overflow: hidden;
+  isolation: isolate; /* new stacking context so ::before stays behind */
 }
 
 .goal-featured::before {
   content: '';
   position: absolute;
-  top: -100px; right: -100px;
-  width: 320px; height: 320px;
+  top: -120px; right: -120px;
+  width: 380px; height: 380px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.35), transparent 65%);
-  filter: blur(40px);
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.4), transparent 65%);
+  filter: blur(50px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Strong, unambiguous color overrides for the dark card */
+.goal-featured h3,
+.goal-featured h3 * {
+  color: #ffffff !important;
+}
+
+.goal-featured p,
+.goal-featured p * {
+  color: rgba(255, 255, 255, 0.82) !important;
 }
 
 .goal-featured .goal-tag {
-  background: rgba(255,255,255,0.08);
-  border-color: rgba(255,255,255,0.14);
-  color: rgba(255,255,255,0.85);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.95);
 }
 
-.goal-featured h3 { color: var(--white); }
-.goal-featured p  { color: rgba(255,255,255,0.7); }
-
+/* ---- Base goal card text ---- */
 .goal-tag {
   display: inline-block;
   font-family: var(--font-mono);
@@ -1016,6 +1099,7 @@ ul { list-style: none; }
   border: 1px solid rgba(99, 102, 241, 0.15);
   margin-bottom: 1.1rem;
   position: relative;
+  z-index: 1;
 }
 
 .goal-card h3 {
@@ -1025,6 +1109,7 @@ ul { list-style: none; }
   color: var(--ink);
   margin-bottom: 0.85rem;
   position: relative;
+  z-index: 1;
 }
 
 .goal-card p {
@@ -1032,6 +1117,7 @@ ul { list-style: none; }
   font-size: 0.98rem;
   line-height: 1.72;
   position: relative;
+  z-index: 1;
 }
 
 /* =========================================================
@@ -1322,7 +1408,6 @@ ul { list-style: none; }
 }
 
 @media (max-width: 900px) {
-  /* Navbar always light on mobile */
   .navbar {
     background: rgba(250, 250, 250, 0.92);
     backdrop-filter: blur(20px);
@@ -1372,6 +1457,8 @@ ul { list-style: none; }
   .section-head { margin-bottom: 2.75rem; }
 
   .image-ring { width: min(260px, 65vw); }
+
+  .about-exploring { padding: 1.75rem 1.5rem 1.75rem 1.75rem; }
 
   .timeline { padding-left: 2rem; }
   .timeline-dot { left: -2rem; width: 12px; height: 12px; }
