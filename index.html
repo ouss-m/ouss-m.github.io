@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="description" content="Oussama Malass — Computer Science graduate and cybersecurity specialist. Bug bounty hunter at HackerOne focused on web application security." />
+  <meta name="description" content="Oussama Malass — Computer Science graduate and cybersecurity specialist. Bug bounty hunter at HackerOne focused on web application security and AI-driven security testing." />
   <title>Oussama Malass — Cybersecurity & Bug Bounty</title>
   <link rel="icon" type="image/jpg" href="favicon.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -118,7 +118,9 @@
             <p>
               My work sits at the intersection of technical depth and clear communication —
               finding the flaws that matter and explaining them in a way that helps
-              engineering teams fix them fast. I learn quickly, adapt easily, and treat
+              engineering teams fix them fast. I also work hands-on with AI to enhance
+              security testing, building and configuring agents that stay strictly within
+              agreed scope and privacy boundaries. I learn quickly, adapt easily, and treat
               every new environment as an opportunity to grow.
             </p>
           </div>
@@ -130,7 +132,7 @@
             </div>
             <div class="detail-row">
               <span class="detail-label">Focus</span>
-              <span class="detail-value">Web App Security · Bug Bounty</span>
+              <span class="detail-value">Web App Security · AI-Driven Testing</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Education</span>
@@ -162,10 +164,11 @@
             comfortable being mentored or figuring it out on my own.
           </p>
           <div class="exploring-tags">
+            <span>AI-Driven Offensive Security</span>
             <span>Cloud Security</span>
             <span>Mobile App Security</span>
+            <span>Privacy-Aware Testing</span>
             <span>Advanced Exploit Development</span>
-            <span>DevSecOps</span>
             <span>Threat Modeling</span>
           </div>
         </div>
@@ -201,6 +204,28 @@
               </div>
             </div>
           </article>
+
+          <article class="timeline-item">
+            <span class="timeline-dot"></span>
+            <div class="timeline-content">
+              <span class="timeline-period">2025 — Present</span>
+              <h3>AI &amp; Security Engineering</h3>
+              <p class="timeline-org">Independent Research</p>
+              <p>
+                Work hands-on with AI to enhance cybersecurity testing and offensive
+                operations. Design, configure, and deploy skilled AI agents tailored to
+                each target's scope, industry, and privacy requirements — enabling faster,
+                more targeted vulnerability discovery without ever stepping outside the
+                agreed boundaries.
+              </p>
+              <div class="tags">
+                <span class="tag">AI Agents</span>
+                <span class="tag">Security Automation</span>
+                <span class="tag">Privacy &amp; Scope Control</span>
+                <span class="tag">Offensive Testing</span>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -225,6 +250,22 @@
             <a class="link-arrow" href="https://hackerone.com/o-m" target="_blank" rel="noopener">
               View profile <i class="fas fa-arrow-up-right-from-square"></i>
             </a>
+          </article>
+
+          <article class="project-card">
+            <div class="project-icon"><i class="fas fa-robot"></i></div>
+            <h3>AI-Driven Security Agents</h3>
+            <p>
+              Design and configure skilled AI agents for cyber security enhancement and
+              testing. Each agent is tailored to a company's preferred scope with built-in
+              privacy controls — respecting what can and cannot be tested while accelerating
+              targeted vulnerability discovery.
+            </p>
+            <div class="tags">
+              <span class="tag">AI</span>
+              <span class="tag">Automation</span>
+              <span class="tag">Scope-Aware</span>
+            </div>
           </article>
 
           <article class="project-card">
@@ -268,6 +309,12 @@
           </article>
 
           <article class="skill-card">
+            <div class="skill-icon"><i class="fas fa-robot"></i></div>
+            <h3>AI &amp; Security</h3>
+            <p>I design and configure AI agents for cyber security testing — tailored to each company's scope and preferences, with privacy-preserving workflows built in.</p>
+          </article>
+
+          <article class="skill-card">
             <div class="skill-icon"><i class="fas fa-clock"></i></div>
             <h3>Time Management</h3>
             <p>I maintain a disciplined research cadence, using time-blocking techniques to balance deep testing with continuous learning.</p>
@@ -277,12 +324,6 @@
             <div class="skill-icon"><i class="fas fa-users"></i></div>
             <h3>Collaboration</h3>
             <p>I actively engage with the security community, share detection techniques, and collaborate on responsible disclosures with global teams.</p>
-          </article>
-
-          <article class="skill-card">
-            <div class="skill-icon"><i class="fas fa-rocket"></i></div>
-            <h3>Initiative</h3>
-            <p>I independently manage my bug bounty pipeline — selecting targets, prioritizing vulnerabilities, and holding myself accountable for results.</p>
           </article>
 
           <article class="skill-card">
@@ -302,6 +343,7 @@
             <span>C++</span>
             <span>Linux</span>
             <span>Git</span>
+            <span>AI Agents</span>
             <span>Recon</span>
           </div>
         </div>
@@ -568,9 +610,10 @@
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
     /* =========================================================
-       PROFESSIONAL PDF CV GENERATION — two-column layout
-       Typography: Helvetica (Arial equivalent) — the standard
-       for ATS-safe, cross-platform professional CVs.
+       PROFESSIONAL PDF CV GENERATION
+       Typography: Helvetica — ATS-safe, cross-platform standard.
+       Layout: two-column (dark sidebar + white main).
+       Vertical rhythm: clear, breathable section separation.
     ========================================================= */
     async function generateCVPDF() {
       const { jsPDF } = window.jspdf;
@@ -703,6 +746,7 @@
         'Vulnerability Assessment',
         'Penetration Testing',
         'Bug Bounty & Recon',
+        'AI Security Agents',
         'Security Tool Development',
         'Burp Suite · Linux · Git',
         'Python · JavaScript · SQL · C++',
@@ -722,7 +766,7 @@
         sY += 4.8;
       });
 
-      /* ---- LANGUAGES at bottom of sidebar ---- */
+      /* ---- LANGUAGES ---- */
       sY += 4;
       sideHeading('Languages');
       doc.setFont('helvetica', 'normal');
@@ -738,6 +782,7 @@
          MAIN COLUMN
       ========================================================= */
       let mY = 22;
+      let isFirstSection = true;
 
       /* Big name/role header */
       doc.setFont('helvetica', 'bold');
@@ -755,20 +800,26 @@
       doc.setDrawColor(...lineSoft);
       doc.setLineWidth(0.4);
       doc.line(mainX, mY, pageW - 14, mY);
-      mY += 8;
+      mY += 10;
 
-      /* Main helpers */
+      /* ---------- MAIN COLUMN HELPERS ---------- */
+
       function mainHeading(text) {
-        if (mY > 275) { doc.addPage(); mY = 22; }
+        if (mY > 270) { doc.addPage(); mY = 22; isFirstSection = true; }
+
+        // Breathing room above each section (except the first)
+        if (!isFirstSection) mY += 4.5;
+        isFirstSection = false;
+
         doc.setFont('helvetica', 'bold');
         doc.setFontSize(10.5);
         doc.setTextColor(...ink);
         doc.text(text.toUpperCase(), mainX, mY, { charSpace: 0.7 });
-        mY += 1.5;
+        mY += 2;
         doc.setDrawColor(...accent);
         doc.setLineWidth(0.6);
         doc.line(mainX, mY, mainX + 10, mY);
-        mY += 5.5;
+        mY += 6.5;
       }
 
       function para(text, size = 9.2) {
@@ -781,7 +832,7 @@
           doc.text(line, mainX, mY);
           mY += 4.4;
         });
-        mY += 1.5;
+        mY += 2.5;
       }
 
       function bullets(items) {
@@ -799,7 +850,7 @@
             doc.text(line, mainX + 4, mY);
             mY += 4.4;
           });
-          mY += 1;
+          mY += 1.5;
         });
         mY += 1.5;
       }
@@ -816,23 +867,24 @@
           doc.setTextColor(...ink3);
           doc.text(date, pageW - 14, mY, { align: 'right' });
         }
-        mY += 4.2;
+        mY += 5;
 
         doc.setFont('helvetica', 'bold');
         doc.setFontSize(8.8);
         doc.setTextColor(...accent);
         doc.text(org, mainX, mY);
-        mY += 5.5;
+        mY += 6;
       }
 
-      /* ---- PROFILE ---- */
+      /* ---------- PROFILE ---------- */
       mainHeading('Profile');
       para(
-        'Computer Science graduate and active bug bounty hunter on HackerOne, with hands-on experience identifying and responsibly disclosing high-impact vulnerabilities in web applications for global organizations including Porsche, DoorDash, and Deriv. Builds custom security tooling to enable fast, targeted testing workflows. Combines technical depth in offensive security with clear written communication and a strong commitment to continuous learning — eager to master new tools, techniques, and technology stacks, and quick to adapt to any team or environment.'
+        'Computer Science graduate and active bug bounty hunter on HackerOne, with hands-on experience identifying and responsibly disclosing high-impact vulnerabilities in web applications for global organizations including Porsche, DoorDash, and Deriv. Experienced in leveraging AI to enhance cybersecurity testing — designing and configuring skilled agents that are scoped to each company\'s preferences while respecting privacy and program boundaries. Combines technical depth in offensive security with clear communication and a strong commitment to continuous learning.'
       );
 
-      /* ---- EXPERIENCE ---- */
+      /* ---------- EXPERIENCE ---------- */
       mainHeading('Experience');
+
       jobHeader('Bug Bounty Hunter', 'Apr 2024 — Present', 'HackerOne  ·  Independent');
       bullets([
         'Identified and responsibly disclosed security vulnerabilities in web applications for global companies including Porsche, DoorDash, Deriv, Alshaya, and Krisp.',
@@ -840,7 +892,14 @@
         'Authored professional vulnerability reports with clear reproduction steps, technical impact analysis, and remediation guidance — consistently rated high quality by triage teams.',
       ]);
 
-      /* ---- EDUCATION ---- */
+      jobHeader('AI & Security Engineering', '2025 — Present', 'Independent Research');
+      bullets([
+        'Design, configure, and deploy skilled AI agents for cybersecurity enhancement and offensive testing — each tailored to a target\'s scope, industry, and preferences.',
+        'Build privacy-preserving workflows that keep testing strictly within agreed boundaries, protecting company confidentiality while maximizing coverage.',
+        'Leverage AI to accelerate reconnaissance, targeted vulnerability discovery, and report drafting across diverse web application targets.',
+      ]);
+
+      /* ---------- EDUCATION ---------- */
       mainHeading('Education');
       jobHeader('BSc in Computer Science', 'Graduated 2026', 'Beirut Arab University (BAU)');
       para(
@@ -848,15 +907,16 @@
         8.8
       );
 
-      /* ---- PROJECTS ---- */
+      /* ---------- PROJECTS ---------- */
       mainHeading('Projects & Research');
-      jobHeader('Custom Security Tooling & Research', '', 'Personal  ·  Ongoing');
+      jobHeader('AI-Driven Security Agents', '', 'Personal  ·  Ongoing');
       bullets([
-        'Develop customized ethical hacking tools that enable fast, targeted testing workflows — inspired by open-source projects like the Web Cache Vulnerability Scanner.',
-        'Conduct independent security research to identify emerging attack vectors and automate detection of complex web application flaws.',
+        'Designed and configured AI agents for cybersecurity enhancement and testing, scoped to a company\'s preferred attack surface with privacy safeguards built in.',
+        'Built customized ethical hacking tools inspired by open-source projects such as the Web Cache Vulnerability Scanner, enabling fast, targeted testing workflows.',
+        'Conducted independent security research to identify emerging attack vectors and automate detection of complex web application flaws.',
       ]);
 
-      /* ---- CERTIFICATIONS ---- */
+      /* ---------- CERTIFICATIONS ---------- */
       mainHeading('Certifications & Training');
       jobHeader('Web Penetration Testing', '2026 — Present', 'PentesterLab  ·  150+ exercises completed');
       para(
