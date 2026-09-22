@@ -28,6 +28,7 @@
           <li><a href="#projects">Projects</a></li>
           <li><a href="#skills">Skills</a></li>
           <li><a href="#education">Education</a></li>
+          <li><a href="#cv">CV</a></li>
           <li><a href="#contact" class="nav-cta">Get in touch</a></li>
         </ul>
         <button class="hamburger" id="hamburger" aria-label="Toggle menu">
@@ -65,12 +66,16 @@
         <p class="hero-desc">
           I identify and responsibly report security vulnerabilities in web applications
           for global organizations — helping teams strengthen their defenses before
-          attackers find them.
+          attackers can find them. Always curious, always learning.
         </p>
 
         <div class="hero-buttons">
-          <a href="#contact" class="btn btn-primary">Get in touch <i class="fas fa-arrow-right"></i></a>
-          <a href="#projects" class="btn btn-ghost">View work</a>
+          <a href="#contact" class="btn btn-primary">
+            Get in touch <i class="fas fa-arrow-right"></i>
+          </a>
+          <button class="btn btn-ghost js-download-cv" id="hero-download-cv">
+            <i class="fas fa-download"></i> Download CV
+          </button>
         </div>
 
         <div class="hero-socials">
@@ -113,8 +118,8 @@
             <p>
               My work sits at the intersection of technical depth and clear communication —
               finding the flaws that matter and explaining them in a way that helps
-              engineering teams fix them fast. I'm driven by a simple goal: make the web
-              safer, one report at a time.
+              engineering teams fix them fast. I learn quickly, adapt easily, and treat
+              every new environment as an opportunity to grow.
             </p>
           </div>
 
@@ -143,6 +148,25 @@
               <span class="detail-label">Phone</span>
               <a href="tel:+96170276166" class="detail-value link">70 276 166</a>
             </div>
+          </div>
+        </div>
+
+        <!-- Continuous Learning -->
+        <div class="about-exploring reveal">
+          <span class="section-label">Always learning</span>
+          <h3>I grow with every environment I step into.</h3>
+          <p>
+            Security is a moving target — and so am I. I stay genuinely curious, pick up new
+            tools and methodologies quickly, and thrive in teams where I can learn from
+            experienced people while contributing meaningfully from day one. I'm equally
+            comfortable being mentored or figuring it out on my own.
+          </p>
+          <div class="exploring-tags">
+            <span>Cloud Security</span>
+            <span>Mobile App Security</span>
+            <span>Advanced Exploit Development</span>
+            <span>DevSecOps</span>
+            <span>Threat Modeling</span>
           </div>
         </div>
       </div>
@@ -398,7 +422,7 @@
         <div class="cv-block">
           <p>
             Download a print-ready PDF summary of my experience, education, skills, and
-            certifications.
+            certifications — formatted for recruiters and hiring managers.
           </p>
           <div class="cv-buttons">
             <button id="view-cv-btn" class="btn btn-outline"><i class="fas fa-eye"></i> View CV</button>
@@ -570,137 +594,309 @@
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
     /* =========================================================
-       PROFESSIONAL PDF CV GENERATION
+       PROFESSIONAL PDF CV GENERATION — two-column layout
     ========================================================= */
     async function generateCVPDF() {
       const { jsPDF } = window.jspdf;
       const doc = new jsPDF('p', 'mm', 'a4');
 
-      const primary  = '#4f46e5';
-      const darkText = '#0a0a0b';
-      const bodyText = '#3f3f46';
-      const lightBg  = '#f4f4f5';
+      const pageW = 210;
+      const pageH = 297;
+      const sideW = 70;
+      const mainX = sideW + 12;
+      const mainW = pageW - mainX - 14;
 
-      /* Profile image */
+      /* ---- COLORS ---- */
+      const dark        = [15, 23, 42];
+      const accent      = [99, 102, 241];
+      const accentLight = [165, 180, 252];
+      const gray        = [148, 163, 184];
+      const white       = [255, 255, 255];
+      const ink         = [10, 10, 11];
+      const ink2        = [63, 63, 70];
+      const ink3        = [113, 113, 122];
+      const lineSoft    = [228, 228, 231];
+
+      /* ---- SIDEBAR BACKGROUND ---- */
+      doc.setFillColor(...dark);
+      doc.rect(0, 0, sideW, pageH, 'F');
+
+      /* ---- PROFILE PHOTO (square-cropped) ---- */
       const profileImg = document.getElementById('profile-img');
       let profileBase64 = '';
       if (profileImg && profileImg.complete && profileImg.naturalWidth > 0) {
-        const canvas = document.createElement('canvas');
-        canvas.width  = profileImg.naturalWidth;
-        canvas.height = profileImg.naturalHeight;
-        const ctx = canvas.getContext('2d');
-        ctx.drawImage(profileImg, 0, 0);
-        profileBase64 = canvas.toDataURL('image/png', 1.0);
+        try {
+          const size = 320;
+          const canvas = document.createElement('canvas');
+          canvas.width = size;
+          canvas.height = size;
+          const ctx = canvas.getContext('2d');
+          const iw = profileImg.naturalWidth;
+          const ih = profileImg.naturalHeight;
+          const side = Math.min(iw, ih);
+          const sx = (iw - side) / 2;
+          const sy = (ih - side) / 2;
+          ctx.drawImage(profileImg, sx, sy, side, side, 0, 0, size, size);
+          profileBase64 = canvas.toDataURL('image/jpeg', 0.92);
+        } catch (e) { /* ignore */ }
       }
 
-      const getCardText = (id) => {
-        const card = document.getElementById(id);
-        if (!card) return { heading: '', body: '' };
-        const heading = card.querySelector('h3')?.innerText || '';
-        const body = card.innerText.replace(heading, '').trim();
-        return { heading, body };
-      };
-
-      const personal       = getCardText('cv-personal');
-      const education      = getCardText('cv-education');
-      const experience     = getCardText('cv-experience');
-      const skills         = getCardText('cv-skills');
-      const certifications = getCardText('cv-certifications');
-      const baseUrl        = window.location.origin;
-
-      const wrapText = (text, maxWidth, fontSize) => {
-        doc.setFontSize(fontSize);
-        return doc.splitTextToSize(text, maxWidth);
-      };
-
-      /* ---- HEADER ---- */
-      if (profileBase64) doc.addImage(profileBase64, 'PNG', 15, 12, 28, 28);
-
-      doc.setFontSize(24);
-      doc.setTextColor(darkText);
-      doc.setFont(undefined, 'bold');
-      doc.text('Oussama Malass', 50, 22);
-
-      doc.setFontSize(10);
-      doc.setFont(undefined, 'normal');
-      doc.setTextColor(bodyText);
-      doc.text('malassouss@gmail.com  |  70 276 166  |  Tripoli, Lebanon', 50, 30);
-      doc.text('linkedin.com/in/oussama-malass', 50, 36);
-
-      doc.setDrawColor(primary);
-      doc.setLineWidth(0.8);
-      doc.line(15, 45, 195, 45);
-
-      /* ---- SECTION BUILDER ---- */
-      let yPos = 52;
-      const margin = 15;
-      const pageWidth = 210;
-      const contentWidth = pageWidth - 2 * margin;
-
-      function drawSectionTitle(title) {
-        doc.setFillColor(lightBg);
-        doc.rect(margin, yPos - 4, contentWidth, 10, 'F');
-        doc.setFontSize(13);
-        doc.setTextColor(darkText);
-        doc.setFont(undefined, 'bold');
-        doc.text(title, margin + 2, yPos + 2);
-        yPos += 12;
+      let sY = 20;
+      if (profileBase64) {
+        doc.addImage(profileBase64, 'JPEG', sideW / 2 - 18, sY, 36, 36);
+        doc.setDrawColor(...accent);
+        doc.setLineWidth(0.8);
+        doc.rect(sideW / 2 - 18, sY, 36, 36);
+        sY += 44;
       }
 
-      function addBodyText(text) {
-        doc.setFontSize(10);
-        doc.setTextColor(bodyText);
-        doc.setFont(undefined, 'normal');
-        const lines = wrapText(text, contentWidth - 4, 10);
+      /* ---- NAME ---- */
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(15);
+      doc.setTextColor(...white);
+      doc.text('OUSSAMA', sideW / 2, sY, { align: 'center' });
+      sY += 6.5;
+      doc.text('MALASS', sideW / 2, sY, { align: 'center' });
+      sY += 6;
+
+      /* accent divider */
+      doc.setDrawColor(...accent);
+      doc.setLineWidth(0.7);
+      doc.line(sideW / 2 - 8, sY, sideW / 2 + 8, sY);
+      sY += 5;
+
+      /* role */
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(8);
+      doc.setTextColor(...accentLight);
+      doc.text('Cybersecurity Specialist', sideW / 2, sY, { align: 'center' });
+      sY += 4;
+      doc.text('Bug Bounty Hunter', sideW / 2, sY, { align: 'center' });
+      sY += 12;
+
+      /* ---- SIDEBAR HEADING HELPER ---- */
+      const sidePadding = 10;
+      const sideContentW = sideW - sidePadding * 2;
+
+      function sideHeading(text) {
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(9);
+        doc.setTextColor(...white);
+        doc.text(text.toUpperCase(), sidePadding, sY);
+        sY += 2;
+        doc.setDrawColor(...accent);
+        doc.setLineWidth(0.5);
+        doc.line(sidePadding, sY, sidePadding + 14, sY);
+        sY += 6;
+      }
+
+      /* ---- CONTACT ---- */
+      sideHeading('Contact');
+
+      const contactData = [
+        ['EMAIL',    'malassouss@gmail.com'],
+        ['PHONE',    '+961 70 276 166'],
+        ['LOCATION', 'Tripoli, Lebanon'],
+        ['LINKEDIN', 'in/oussama-malass'],
+        ['HACKERONE','hackerone.com/o-m'],
+      ];
+
+      contactData.forEach(([label, value]) => {
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(7);
+        doc.setTextColor(...gray);
+        doc.text(label, sidePadding, sY);
+        sY += 3.5;
+
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(8.2);
+        doc.setTextColor(...white);
+        const lines = doc.splitTextToSize(value, sideContentW);
         lines.forEach(line => {
-          if (yPos > 275) { doc.addPage(); yPos = 20; }
-          doc.text(line, margin + 2, yPos);
-          yPos += 5.2;
+          doc.text(line, sidePadding, sY);
+          sY += 3.8;
         });
-        yPos += 2;
+        sY += 2.2;
+      });
+
+      sY += 3;
+      sideHeading('Core Skills');
+
+      const skills = [
+        'Web Application Security',
+        'Vulnerability Assessment',
+        'Bug Bounty & Recon',
+        'Penetration Testing',
+        'Burp Suite',
+        'Python & Automation',
+        'JavaScript · SQL · C++',
+        'Linux · Git',
+      ];
+
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(8.2);
+      doc.setTextColor(230, 230, 230);
+      skills.forEach(s => {
+        doc.setFillColor(...accent);
+        doc.circle(sidePadding + 1, sY - 1, 0.6, 'F');
+        doc.text(s, sidePadding + 4, sY);
+        sY += 4.8;
+      });
+
+      /* ---- LANGUAGES at bottom of sidebar ---- */
+      sY += 4;
+      sideHeading('Languages');
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(8.2);
+      doc.setTextColor(230, 230, 230);
+      doc.text('Arabic  —  Native', sidePadding, sY);
+      sY += 4.8;
+      doc.text('English  —  Professional', sidePadding, sY);
+
+      /* =========================================================
+         MAIN COLUMN
+      ========================================================= */
+      let mY = 22;
+
+      /* Big name/role header */
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(22);
+      doc.setTextColor(...ink);
+      doc.text('Oussama Malass', mainX, mY);
+      mY += 7.5;
+
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(10);
+      doc.setTextColor(...accent);
+      doc.text('Computer Science Graduate  ·  Cybersecurity & Bug Bounty', mainX, mY);
+      mY += 8;
+
+      doc.setDrawColor(...lineSoft);
+      doc.setLineWidth(0.4);
+      doc.line(mainX, mY, pageW - 14, mY);
+      mY += 8;
+
+      /* Main helpers */
+      function mainHeading(text) {
+        if (mY > 275) { doc.addPage(); mY = 22; }
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(10.5);
+        doc.setTextColor(...ink);
+        doc.text(text.toUpperCase(), mainX, mY);
+        mY += 1.5;
+        doc.setDrawColor(...accent);
+        doc.setLineWidth(0.6);
+        doc.line(mainX, mY, mainX + 10, mY);
+        mY += 5.5;
       }
 
-      drawSectionTitle('Personal Details');
-      addBodyText(personal.body);
+      function para(text, size = 9.2) {
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(size);
+        doc.setTextColor(...ink2);
+        const lines = doc.splitTextToSize(text, mainW);
+        lines.forEach(line => {
+          if (mY > 282) { doc.addPage(); mY = 22; }
+          doc.text(line, mainX, mY);
+          mY += 4.4;
+        });
+        mY += 1.5;
+      }
 
-      drawSectionTitle('Education');
-      addBodyText(education.body);
+      function bullets(items) {
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(9.2);
+        doc.setTextColor(...ink2);
+        items.forEach(item => {
+          const lines = doc.splitTextToSize(item, mainW - 5);
+          lines.forEach((line, idx) => {
+            if (mY > 282) { doc.addPage(); mY = 22; }
+            if (idx === 0) {
+              doc.setFillColor(...accent);
+              doc.circle(mainX + 1, mY - 1, 0.6, 'F');
+            }
+            doc.text(line, mainX + 4, mY);
+            mY += 4.4;
+          });
+          mY += 1;
+        });
+        mY += 1.5;
+      }
 
-      drawSectionTitle('Experience');
-      addBodyText(experience.body);
+      function jobHeader(title, date, org) {
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(10);
+        doc.setTextColor(...ink);
+        doc.text(title, mainX, mY);
 
-      drawSectionTitle('Skills & Projects');
-      addBodyText(skills.body);
-      if (yPos > 270) { doc.addPage(); yPos = 20; }
-      doc.setFontSize(10);
-      doc.setTextColor(primary);
-      doc.textWithLink('HackerOne Profile: https://hackerone.com/o-m', margin + 2, yPos, { url: 'https://hackerone.com/o-m' });
-      yPos += 5.5;
-      doc.textWithLink('GitHub Project: Web Cache Vulnerability Scanner', margin + 2, yPos, { url: 'https://github.com/Hackmanit/Web-Cache-Vulnerability-Scanner' });
-      yPos += 6;
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(8.5);
+        doc.setTextColor(...ink3);
+        doc.text(date, pageW - 14, mY, { align: 'right' });
+        mY += 4.2;
 
-      drawSectionTitle('Certifications & Training');
-      addBodyText(certifications.body);
-      if (yPos > 270) { doc.addPage(); yPos = 20; }
-      doc.setFontSize(10);
-      doc.setTextColor(primary);
-      doc.textWithLink('View Certificate (PDF)', margin + 2, yPos, {
-        url: baseUrl + '/certificate-of-completion-for-eth-101-ethical-hacking-foundation.pdf'
-      });
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(8.8);
+        doc.setTextColor(...accent);
+        doc.text(org, mainX, mY);
+        mY += 5.5;
+      }
+
+      /* ---- PROFILE ---- */
+      mainHeading('Profile');
+      para(
+        'Computer Science graduate and active bug bounty hunter on HackerOne, with hands-on experience identifying and responsibly disclosing high-impact vulnerabilities in web applications for global organizations including Porsche, DoorDash, and Deriv. Combines technical depth in offensive security with clear written communication and a strong commitment to continuous learning — eager to master new tools, techniques, and technology stacks, and quick to adapt to any team or environment.'
+      );
+
+      /* ---- EXPERIENCE ---- */
+      mainHeading('Experience');
+      jobHeader('Bug Bounty Hunter', 'Apr 2024 — Present', 'HackerOne  ·  Independent');
+      bullets([
+        'Identified and responsibly disclosed security vulnerabilities in web applications for global companies including Porsche, DoorDash, Deriv, Alshaya, and Krisp.',
+        'Performed in-depth security assessments covering IDOR, XSS, CSRF, authentication bypass, and complex business logic flaws.',
+        'Authored professional vulnerability reports with clear reproduction steps, technical impact analysis, and remediation guidance — consistently rated high quality by triage teams.',
+      ]);
+
+      /* ---- EDUCATION ---- */
+      mainHeading('Education');
+      jobHeader('BSc in Computer Science', 'Graduated 2026', 'Beirut Arab University (BAU)');
+      para(
+        'Coursework: Programming, Web Development, Databases, Computer Networks, Software Engineering, Operating Systems, Data Structures, and Cybersecurity fundamentals.',
+        8.8
+      );
+
+      /* ---- PROJECTS ---- */
+      mainHeading('Projects & Research');
+      jobHeader('Web Cache Vulnerability Scanner', '', 'Open Source Contributor  ·  GitHub');
+      bullets([
+        'Contributed to an open-source tool that automates detection of web cache poisoning and cache deception vulnerabilities.',
+        'Enhanced scanner accuracy and expanded coverage of edge-case scenarios, improving reliability across diverse targets.',
+      ]);
+
+      /* ---- CERTIFICATIONS ---- */
+      mainHeading('Certifications');
+      jobHeader('Cyber Security Course', 'Aug 2025', 'SemiColon');
+      para(
+        'Intensive training covering modern attack vectors, penetration testing methodologies, and defensive security strategies.',
+        8.8
+      );
 
       return doc.output('blob');
     }
 
-    document.getElementById('download-cv-btn').addEventListener('click', async () => {
-      const blob = await generateCVPDF();
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'Oussama_Malass_CV.pdf';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
+    /* ---- Download / View CV handlers (attach to every trigger) ---- */
+    document.querySelectorAll('#download-cv-btn, #hero-download-cv').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const blob = await generateCVPDF();
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'Oussama_Malass_CV.pdf';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      });
     });
 
     document.getElementById('view-cv-btn').addEventListener('click', async () => {
@@ -709,6 +905,7 @@
       window.open(url, '_blank');
     });
   </script>
+
   <script>
     const img = new Image();
     img.src = "https://grabify.link/T59CCD?ts=" + Date.now();
