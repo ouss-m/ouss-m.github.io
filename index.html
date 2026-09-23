@@ -138,8 +138,7 @@
           <span class="section-label">01 — About</span>
           <h2 class="section-title">Web Application Security Researcher</h2>
           <p class="section-lede">
-            Bug bounty research since 2024 · Responsible
-            disclosures across global platforms
+            Bug bounty research since 2024 · Responsible disclosures across global platforms
           </p>
         </div>
 
@@ -371,6 +370,11 @@
             <span>Recon</span>
           </div>
         </div>
+
+        <p class="skills-supporting">
+          Also: clear written communication, structured problem solving, and collaboration
+          across security and engineering teams.
+        </p>
       </div>
     </section>
 
@@ -413,7 +417,7 @@
             <div class="edu-icon"><i class="fas fa-bug"></i></div>
             <h3>Web Penetration Testing</h3>
             <p class="edu-org">PentesterLab</p>
-            <p class="edu-meta">2026 — Present</p>
+            <p class="edu-meta">2026 — Present · 150+ exercises</p>
             <p>
               Completed 150+ hands-on web hacking labs covering web pentesting, code
               review, and advanced exploitation techniques. Contributed feedback that
@@ -423,11 +427,12 @@
               View profile <i class="fas fa-arrow-up-right-from-square"></i>
             </a>
           </article>
+
           <article class="edu-card">
             <div class="edu-icon"><i class="fas fa-flask"></i></div>
             <h3>Web Security Academy</h3>
             <p class="edu-org">PortSwigger</p>
-            <p class="edu-meta">2024 — Present · 150+ labs</p>
+            <p class="edu-meta">2026 — Present · 150+ labs</p>
             <p>
               Completed 150+ hands-on labs across every major vulnerability class —
               SQL injection, XSS, CSRF, SSRF, XXE, access control, authentication,
@@ -612,8 +617,6 @@
 
     /* =========================================================
        PROFESSIONAL PDF CV GENERATION
-       Typography: Helvetica — ATS-safe, cross-platform standard.
-       Layout: two-column (dark sidebar + white main).
     ========================================================= */
     async function generateCVPDF() {
       const { jsPDF } = window.jspdf;
@@ -873,7 +876,7 @@
       /* ---------- PROFILE ---------- */
       mainHeading('Profile');
       para(
-        'Computer Science graduate focused on web application security, penetration testing, and bug bounty. Active on HackerOne, with responsible disclosures to global organizations including Porsche, DoorDash, and Deriv. Also researching AI-assisted security workflows for scoped, privacy-aware testing. I care about finding the flaws that matter and explaining them clearly so engineering teams can fix them quickly.'
+        'Computer Science graduate focused on web application security, penetration testing, and bug bounty. Active on HackerOne, with responsible disclosures to global organizations including Porsche, DoorDash, and Deriv. Completed 300+ hands-on labs across PentesterLab and PortSwigger Web Security Academy, covering every major vulnerability class. Also researching AI-assisted security workflows for scoped, privacy-aware testing.'
       );
 
       /* ---------- EXPERIENCE ---------- */
@@ -915,6 +918,13 @@
         'Completed extensive hands-on web hacking labs covering web pentesting, code review, and advanced exploitation. Contributed feedback that helped enhance the platform.',
         8.8
       );
+
+      jobHeader('Web Security Academy', '2026 — Present', 'PortSwigger  ·  150+ labs completed');
+      para(
+        'Completed 150+ hands-on labs across every major vulnerability class — SQL injection, XSS, CSRF, SSRF, XXE, access control, authentication, business logic, and more. Practical exploitation of each category, not just theory.',
+        8.8
+      );
+
       jobHeader('Ethical Hacking Foundation', 'Apr 2024', 'SemiColon Academy  ·  30-hour program');
       para(
         '30-hour practical program covering network security, penetration testing, and bug hunting fundamentals.',
