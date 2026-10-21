@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
-  <meta name="description" content="Oussama Malass — Web Application Security Researcher. Penetration testing, bug bounty, and responsible vulnerability disclosure." />
-  <title>Oussama Malass — Web Application Security Researcher</title>
+  <meta name="description" content="Oussama Malass · Web Application Security Researcher. Penetration testing, bug bounty, and responsible vulnerability disclosure." />
+  <title>Oussama Malass · Web Application Security Researcher</title>
   <link rel="canonical" href="https://ouss-m.github.io/" />
 
   <!-- Open Graph / Social -->
-  <meta property="og:title" content="Oussama Malass — Web Application Security Researcher" />
+  <meta property="og:title" content="Oussama Malass · Web Application Security Researcher" />
   <meta property="og:description" content="Web application security research, penetration testing, and bug bounty." />
   <meta property="og:image" content="https://ouss-m.github.io/Profile2.webp" />
   <meta property="og:url" content="https://ouss-m.github.io/" />
@@ -17,7 +17,7 @@
 
   <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Oussama Malass — Web Application Security Researcher" />
+  <meta name="twitter:title" content="Oussama Malass · Web Application Security Researcher" />
   <meta name="twitter:description" content="Web application security research, penetration testing, and bug bounty." />
   <meta name="twitter:image" content="https://ouss-m.github.io/Profile2.webp" />
 
@@ -38,21 +38,22 @@
   }
   </script>
 
-  <link rel="icon" type="image/jpg" href="Profile2.webp">
+  <link rel="icon" type="image/webp" href="Profile2.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <a class="skip-link" href="#about">Skip to content</a>
   <div id="scroll-progress"></div>
 
   <header>
     <nav class="navbar" id="navbar">
       <div class="nav-container">
         <a href="#home" class="logo">
-          <span class="logo-mark">OM</span>
+          <span class="logo-mark">OM<span class="logo-spark"></span></span>
           <span class="logo-text">Oussama Malass</span>
         </a>
         <ul class="nav-menu" id="nav-menu">
@@ -76,7 +77,7 @@
   <!-- ============ HERO ============ -->
   <section id="home" class="hero">
     <div class="hero-bg" aria-hidden="true">
-      <div class="hero-grid"></div>
+      <div class="hero-grid"></div><canvas id="network-canvas" aria-hidden="true"></canvas><div class="horizon" aria-hidden="true"></div>
       <div class="hero-glow hero-glow-1"></div>
       <div class="hero-glow hero-glow-2"></div>
     </div>
@@ -89,7 +90,7 @@
         </div>
 
         <h1 class="hero-title">
-          Oussama <span class="grad">Malass</span>
+          Oussama<span class="grad">Malass<span class="name-dot">.</span></span>
         </h1>
 
         <p class="hero-role">
@@ -97,9 +98,7 @@
         </p>
 
         <p class="hero-desc">
-          I help companies find and eliminate security flaws attackers target.
-          Ready to apply hands-on penetration testing and web security expertise
-          to protect your organization, from the first recon step to the final fix.
+          I help companies find and eliminate security flaws attackers target. Ready to apply hands-on penetration testing and web security expertise to protect your organization, from the first recon step to the final fix.
         </p>
 
         <div class="hero-buttons">
@@ -111,20 +110,21 @@
           </button>
         </div>
 
-        <div class="hero-socials">
+        <div class="hero-socials"><span class="connect-label">CONNECT</span>
           <a href="https://www.linkedin.com/in/oussama-malass/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
           <a href="https://hackerone.com/o-m" target="_blank" rel="noopener" aria-label="HackerOne"><i class="fas fa-shield-halved"></i></a>
           <a href="mailto:malassouss@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
         </div>
       </div>
 
-      <div class="hero-image">
+      <div class="hero-visual"><div class="orbit orbit-one" aria-hidden="true"></div><div class="orbit orbit-two" aria-hidden="true"></div><div class="orbit orbit-three" aria-hidden="true"></div><div class="orbital-point" aria-hidden="true"></div><div class="hero-image" data-tilt>
+        <div class="portrait-top"><span>RESEARCHER PROFILE</span><span>OM-01</span></div>
         <div class="image-ring">
-          <img src="Profile2.webp" alt="Oussama Malass" class="profile-img" id="profile-img" />
+          <img src="Profile2.webp" alt="Oussama Malass" class="profile-img" id="profile-img" fetchpriority="high" />
         </div>
+        <div class="portrait-bottom"><span><b>Open to opportunities</b>Available worldwide</span><span class="portrait-cross">⌖</span></div>
       </div>
-    </div>
-
+      </div></div>
     <a href="#about" class="hero-scroll" aria-label="Scroll to about">
       <span>Scroll</span>
       <i class="fas fa-arrow-down"></i>
@@ -132,11 +132,12 @@
   </section>
 
   <main>
+    <div class="evidence-strip"><div class="container"><div class="evidence-heading"><span class="evidence-label">RESPONSIBLE DISCLOSURES<br>ACROSS GLOBAL PLATFORMS</span><a href="https://hackerone.com/o-m" target="_blank" rel="noopener">Explore my research ↗</a></div><div class="brand-grid"><a class="brand-card" href="https://hackerone.com/porsche" target="_blank" rel="noopener"><img src="assets/porsche.png" alt="Porsche program logo" width="96" height="96"><span>Porsche</span></a><a class="brand-card" href="https://hackerone.com/doordash" target="_blank" rel="noopener"><img src="assets/doordash.png" alt="DoorDash program logo" width="96" height="96"><span>DoorDash</span></a><a class="brand-card" href="https://hackerone.com/deriv" target="_blank" rel="noopener"><img src="assets/deriv.png" alt="Deriv program logo" width="96" height="96"><span>Deriv</span></a><a class="brand-card" href="https://hackerone.com/krisp" target="_blank" rel="noopener"><img src="assets/krisp.png" alt="Krisp program logo" width="96" height="96"><span>Krisp</span></a></div></div></div>
     <!-- ============ ABOUT ============ -->
     <section id="about" class="section">
       <div class="container">
         <div class="section-head">
-          <span class="section-label">01 — About</span>
+          <span class="section-label">01 / THE RESEARCHER</span>
           <h2 class="section-title">Web Application Security Researcher</h2>
           <p class="section-lede">
             Bug bounty research since 2024 · Responsible disclosures across global platforms
@@ -149,8 +150,8 @@
               I'm a Computer Science graduate from Beirut Arab University focused on web
               application security, penetration testing, and bug bounty research. Through HackerOne,
               I've responsibly disclosed vulnerabilities to global organizations including Porsche,
-              DoorDash, and Deriv. My work covers the OWASP Top 10 and beyond: broken access
-              control, injection flaws (XSS, SSTI, SSRF), security misconfigurations,
+              DoorDash, Deriv, and Krisp. My work covers the OWASP Top 10 and beyond: broken access
+              control, XSS, server-side template injection, SSRF, security misconfigurations,
               authentication and session issues, CSRF, caching problems, and business logic
               flaws. I keep my knowledge of these categories current as new techniques and
               classes emerge.
@@ -196,7 +197,7 @@
     <section id="experience" class="section section-alt">
       <div class="container">
         <div class="section-head">
-          <span class="section-label">02 — Experience</span>
+          <span class="section-label">02 · Experience</span>
           <h2 class="section-title">Where I've made an impact.</h2>
         </div>
 
@@ -204,14 +205,13 @@
           <article class="timeline-item">
             <span class="timeline-dot"></span>
             <div class="timeline-content">
-              <span class="timeline-period">Apr 2024 — Present</span>
+              <span class="timeline-period">Apr 2024 to present</span>
               <h3>Bug Bounty Hunter</h3>
               <p class="timeline-org">HackerOne · Independent</p>
               <p>
-                Identify and responsibly report security vulnerabilities in web applications
-                for global companies. My work spans testing attack surfaces, writing
-                professional vulnerability reports, and helping engineering teams remediate
-                issues quickly.
+                I test web applications, validate security flaws, and report them responsibly.
+                My reports explain how to reproduce each issue, why it matters, and
+                what engineering teams can do to fix it.
               </p>
               <div class="tags">
                 <span class="tag">Web Security</span>
@@ -225,13 +225,13 @@
           <article class="timeline-item">
             <span class="timeline-dot"></span>
             <div class="timeline-content">
-              <span class="timeline-period">2025 — Present</span>
+              <span class="timeline-period">2025 to present</span>
               <h3>AI-Assisted Security Research</h3>
               <p class="timeline-org">Independent Research</p>
               <p>
-                Researching AI-assisted workflows for reconnaissance, vulnerability
-                discovery, and security testing. Work is scoped to agreed boundaries, with
-                privacy controls built into each workflow.
+                I explore how AI can help with reconnaissance, vulnerability discovery,
+                and security testing, while keeping the work within the agreed scope
+                and protecting private data.
               </p>
               <div class="tags">
                 <span class="tag">AI-Assisted Recon</span>
@@ -248,7 +248,7 @@
     <section id="projects" class="section">
       <div class="container">
         <div class="section-head">
-          <span class="section-label">03 — Projects &amp; Research</span>
+          <span class="section-label">03 / RESEARCH &amp; DEVELOPMENT</span>
           <h2 class="section-title">Selected work.</h2>
         </div>
 
@@ -258,7 +258,7 @@
             <h3>HackerOne Bug Bounty Portfolio</h3>
             <p>
               Responsible disclosure of vulnerabilities in global platforms including
-              Porsche, DoorDash, and Deriv. Reports cover IDOR, XSS, CSRF, authentication
+              Porsche, DoorDash, Deriv, and Krisp. Reports cover IDOR, XSS, CSRF, authentication
               bypass, and business logic flaws.
             </p>
             <a class="link-arrow" href="https://hackerone.com/o-m" target="_blank" rel="noopener">
@@ -270,9 +270,8 @@
             <div class="project-icon"><i class="fas fa-robot"></i></div>
             <h3>AI-Assisted Security Research</h3>
             <p>
-              Researching scoped AI-assisted workflows for reconnaissance, vulnerability
-              discovery, and security research. Focused on keeping testing within agreed
-              boundaries with privacy-preserving controls.
+              Exploring AI tools for reconnaissance and vulnerability discovery,
+              with a focus on staying within scope and protecting private data.
             </p>
             <div class="tags">
               <span class="tag">Research</span>
@@ -286,7 +285,7 @@
             <h3>Custom Security Tooling</h3>
             <p>
               Python-based tooling for reconnaissance, request analysis, and automated
-              web-security testing — inspired by open-source projects such as the Web
+              web security testing, inspired by open-source projects such as the Web
               Cache Vulnerability Scanner.
             </p>
             <div class="tags">
@@ -303,8 +302,8 @@
     <section id="skills" class="section section-alt">
       <div class="container">
         <div class="section-head">
-          <span class="section-label">04 — Skills</span>
-          <h2 class="section-title">What I bring to the table.</h2>
+          <span class="section-label">04 · Skills</span>
+          <h2 class="section-title">Skills I use in my work.</h2>
         </div>
 
         <div class="skills-grid">
@@ -363,8 +362,8 @@
     <section id="education" class="section">
       <div class="container">
         <div class="section-head">
-          <span class="section-label">05 — Education &amp; Certifications</span>
-          <h2 class="section-title">Foundations &amp; credentials.</h2>
+          <span class="section-label">05 · Education &amp; Certifications</span>
+          <h2 class="section-title">Education and practical training.</h2>
         </div>
 
         <div class="edu-grid">
@@ -398,7 +397,7 @@
             <div class="edu-icon"><i class="fas fa-bug"></i></div>
             <h3>Web Penetration Testing</h3>
             <p class="edu-org">PentesterLab</p>
-            <p class="edu-meta">2024 — Present · 150+ exercises</p>
+            <p class="edu-meta">2024 to present · 150+ exercises</p>
             <p>
               Completed 150+ hands-on web hacking labs covering web pentesting, code
               review, and advanced exploitation techniques. Contributed feedback that
@@ -413,12 +412,11 @@
             <div class="edu-icon"><i class="fas fa-flask"></i></div>
             <h3>Web Security Academy</h3>
             <p class="edu-org">PortSwigger</p>
-            <p class="edu-meta">2024 — Present · 150+ labs</p>
+            <p class="edu-meta">2024 to present · 150+ labs</p>
             <p>
-              Completed 150+ hands-on labs across every major vulnerability class —
-              SQL injection, XSS, CSRF, SSRF, XXE, access control, authentication,
-              business logic, and more. Practical exploitation of each category, not
-              just theory.
+              Completed 150+ hands-on labs covering SQL injection, XSS, CSRF, SSRF,
+              XXE, access control, authentication, business logic, and other web
+              vulnerabilities.
             </p>
             <a class="link-arrow" href="https://portswigger.net/web-security" target="_blank" rel="noopener">
               View academy <i class="fas fa-arrow-up-right-from-square"></i>
@@ -432,8 +430,8 @@
     <section id="awards" class="section section-alt">
       <div class="container">
         <div class="section-head">
-          <span class="section-label">06 — Recognition</span>
-          <h2 class="section-title">Awards.</h2>
+          <span class="section-label">06 · Recognition</span>
+          <h2 class="section-title">Work that gets recognized.</h2>
         </div>
 
         <div class="award-card">
@@ -455,18 +453,17 @@
       </div>
     </section>
 
-    <!-- ============ CV ============ -->
+<section id="testimonials" class="section"><div class="container"><div class="section-head"><span class="section-label">PUBLIC FEEDBACK</span><h2 class="section-title">Trusted for the work.</h2></div><figure class="testimonial-card"><div class="testimonial-company"><img src="assets/krisp.png" alt="Krisp logo" width="64" height="64"><div><strong>Krisp</strong><span>Public HackerOne testimonial · September 2026</span></div></div><blockquote>“Great researcher to work with - super thorough, easy to communicate with, and always brings solid findings.”</blockquote><figcaption><a class="link-arrow" href="https://hackerone.com/o-m?type=user" target="_blank" rel="noopener">Read the original on HackerOne ↗</a></figcaption></figure><div class="badges-head"><h3>Earned through real reports.</h3><a class="link-arrow" href="https://hackerone.com/o-m/badges?type=user" target="_blank" rel="noopener">See my latest badges ↗</a></div><div class="badge-grid"><article class="badge-card"><img src="assets/bounty.png" alt="Bounty Hunter HackerOne badge" loading="lazy"><h4>Bounty Hunter</h4><p>10 bounties received</p></article><article class="badge-card"><img src="assets/greybeard.png" alt="Greybeard HackerOne badge" loading="lazy"><h4>Greybeard</h4><p>Valid reports in 3 consecutive months</p></article><article class="badge-card"><img src="assets/streaker.png" alt="Streaker HackerOne badge" loading="lazy"><h4>Streaker</h4><p>2 consecutive reports resolved</p></article><article class="badge-card"><img src="assets/trailblazer.png" alt="TrailBlazer HackerOne badge" loading="lazy"><h4>TrailBlazer</h4><p>First of multiple researchers to report a vulnerability</p></article></div><div class="vulnerability-badges"><span>Verified vulnerability badges</span><strong>A5 · Broken Access Control</strong><strong>A7 · Cross-Site Scripting (XSS)</strong><a href="https://hackerone.com/o-m/badges?type=user" target="_blank" rel="noopener">View on HackerOne ↗</a></div></div></section>    <!-- ============ CV ============ -->
     <section id="cv" class="section">
       <div class="container">
         <div class="section-head">
-          <span class="section-label">07 — Curriculum Vitae</span>
+          <span class="section-label">07 · Curriculum Vitae</span>
           <h2 class="section-title">Take the full picture with you.</h2>
         </div>
 
         <div class="cv-block">
           <p>
-            Download a print-ready PDF summary of my experience, education, skills, and
-            certifications — formatted for recruiters and hiring managers.
+            View or download my CV for details of my experience, education, skills, and training.
           </p>
           <div class="cv-buttons">
             <button id="view-cv-btn" class="btn btn-outline"><i class="fas fa-eye"></i> View CV</button>
@@ -480,8 +477,8 @@
     <section id="contact" class="section section-contact">
       <div class="container">
         <div class="contact-inner">
-          <span class="section-label contact-label">08 — Contact</span>
-          <h2 class="contact-title">Let's build something secure.</h2>
+          <span class="section-label contact-label">08 · Contact</span>
+          <h2 class="contact-title">Let’s talk.<br><em>I’m open to opportunities.</em></h2>
           <p class="contact-sub">
             Open to security roles, collaborations, and interesting conversations.
             The fastest way to reach me is by email.
@@ -510,431 +507,21 @@
     <div class="container">
       <div class="footer-inner">
         <span class="footer-logo">Oussama Malass</span>
-        <span class="footer-copy">© 2026 · All rights reserved</span>
+        <span class="footer-copy">© 2026 · All rights reserved</span><a href="#home">Back to top ↑</a>
       </div>
     </div>
   </footer>
 
+  <button id="motion-toggle" class="motion-toggle" aria-pressed="false" aria-label="Pause decorative animations"><span>Ⅱ</span> Motion</button>
+  <p id="action-status" role="status" aria-live="polite"></p>
   <!-- Lightbox -->
-  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" hidden>
     <button class="close-lightbox" aria-label="Close image">&times;</button>
     <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMCIgaGVpZ2h0PSIwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InRyYW5zcGFyZW50Ii8+PC9zdmc+" alt="Lightbox image" class="lightbox-content" id="lightbox-img" />
   </div>
 
-  <!-- jsPDF library -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-
-  <script>
-    /* ---------- Mobile menu ---------- */
-    const hamburger = document.getElementById('hamburger');
-    const navMenu   = document.getElementById('nav-menu');
-
-    function setMenuState(open) {
-      hamburger.classList.toggle('active', open);
-      navMenu.classList.toggle('active', open);
-      hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
-    }
-
-    hamburger.addEventListener('click', () => {
-      const isOpen = hamburger.getAttribute('aria-expanded') === 'true';
-      setMenuState(!isOpen);
-    });
-
-    document.querySelectorAll('.nav-menu a').forEach(link => {
-      link.addEventListener('click', () => setMenuState(false));
-    });
-
-    /* ---------- Navbar scroll state ---------- */
-    const navbar = document.getElementById('navbar');
-    const onScrollNav = () => {
-      if (window.scrollY > 40) navbar.classList.add('scrolled');
-      else navbar.classList.remove('scrolled');
-    };
-    window.addEventListener('scroll', onScrollNav, { passive: true });
-    onScrollNav();
-
-    /* ---------- Lightbox ---------- */
-    const lightbox    = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-    const closeBtn    = document.querySelector('.close-lightbox');
-
-    document.querySelectorAll('.lightbox-trigger').forEach(trigger => {
-      trigger.addEventListener('click', function (e) {
-        e.preventDefault();
-        const href = this.getAttribute('href');
-        lightboxImg.setAttribute('src', href);
-        const innerImg = this.querySelector('img');
-        lightboxImg.setAttribute('alt', innerImg ? innerImg.alt : '');
-        lightbox.classList.add('active');
-      });
-    });
-
-    closeBtn.addEventListener('click', () => lightbox.classList.remove('active'));
-    lightbox.addEventListener('click', (e) => {
-      if (e.target === lightbox) lightbox.classList.remove('active');
-    });
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && lightbox.classList.contains('active'))
-        lightbox.classList.remove('active');
-    });
-
-    /* ---------- Scroll progress ---------- */
-    const progress = document.getElementById('scroll-progress');
-    window.addEventListener('scroll', () => {
-      const scrollTop  = window.pageYOffset;
-      const docHeight  = document.body.offsetHeight - window.innerHeight;
-      const scrollPct  = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-      progress.style.width = scrollPct + '%';
-    }, { passive: true });
-
-    /* ---------- Scroll reveal ---------- */
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    /* =========================================================
-       PROFESSIONAL PDF CV GENERATION
-    ========================================================= */
-    async function generateCVPDF() {
-      const { jsPDF } = window.jspdf;
-      const doc = new jsPDF('p', 'mm', 'a4');
-
-      const pageW = 210;
-      const pageH = 297;
-      const sideW = 70;
-      const mainX = sideW + 12;
-      const mainW = pageW - mainX - 14;
-
-      /* ---- COLORS ---- */
-      const dark        = [15, 23, 42];
-      const accent      = [99, 102, 241];
-      const accentLight = [165, 180, 252];
-      const gray        = [148, 163, 184];
-      const white       = [255, 255, 255];
-      const ink         = [10, 10, 11];
-      const ink2        = [63, 63, 70];
-      const ink3        = [113, 113, 122];
-      const lineSoft    = [228, 228, 231];
-
-      /* ---- SIDEBAR BACKGROUND ---- */
-      doc.setFillColor(...dark);
-      doc.rect(0, 0, sideW, pageH, 'F');
-
-      /* ---- PROFILE PHOTO (square-cropped) ---- */
-      const profileImg = document.getElementById('profile-img');
-      let profileBase64 = '';
-      if (profileImg && profileImg.complete && profileImg.naturalWidth > 0) {
-        try {
-          const size = 320;
-          const canvas = document.createElement('canvas');
-          canvas.width = size;
-          canvas.height = size;
-          const ctx = canvas.getContext('2d');
-          const iw = profileImg.naturalWidth;
-          const ih = profileImg.naturalHeight;
-          const side = Math.min(iw, ih);
-          const sx = (iw - side) / 2;
-          const sy = (ih - side) / 2;
-          ctx.drawImage(profileImg, sx, sy, side, side, 0, 0, size, size);
-          profileBase64 = canvas.toDataURL('image/jpeg', 0.92);
-        } catch (e) { /* ignore */ }
-      }
-
-      let sY = 20;
-      if (profileBase64) {
-        doc.addImage(profileBase64, 'JPEG', sideW / 2 - 18, sY, 36, 36);
-        doc.setDrawColor(...accent);
-        doc.setLineWidth(0.8);
-        doc.rect(sideW / 2 - 18, sY, 36, 36);
-        sY += 44;
-      }
-
-      /* ---- NAME ---- */
-      doc.setFont('helvetica', 'bold');
-      doc.setFontSize(15);
-      doc.setTextColor(...white);
-      doc.text('OUSSAMA', sideW / 2, sY, { align: 'center', charSpace: 1.2 });
-      sY += 6.5;
-      doc.text('MALASS', sideW / 2, sY, { align: 'center', charSpace: 1.2 });
-      sY += 6;
-
-      doc.setDrawColor(...accent);
-      doc.setLineWidth(0.7);
-      doc.line(sideW / 2 - 8, sY, sideW / 2 + 8, sY);
-      sY += 5;
-
-      doc.setFont('helvetica', 'normal');
-      doc.setFontSize(8);
-      doc.setTextColor(...accentLight);
-      doc.text('Web Application Security', sideW / 2, sY, { align: 'center' });
-      sY += 4;
-      doc.text('Researcher & Bug Bounty Hunter', sideW / 2, sY, { align: 'center' });
-      sY += 12;
-
-      /* ---- SIDEBAR HELPERS ---- */
-      const sidePadding = 10;
-      const sideContentW = sideW - sidePadding * 2;
-
-      function sideHeading(text) {
-        doc.setFont('helvetica', 'bold');
-        doc.setFontSize(9);
-        doc.setTextColor(...white);
-        doc.text(text.toUpperCase(), sidePadding, sY, { charSpace: 0.6 });
-        sY += 2;
-        doc.setDrawColor(...accent);
-        doc.setLineWidth(0.5);
-        doc.line(sidePadding, sY, sidePadding + 14, sY);
-        sY += 6;
-      }
-
-      /* ---- CONTACT ---- */
-      sideHeading('Contact');
-
-      const contactData = [
-        ['EMAIL',    'malassouss@gmail.com'],
-        ['PHONE',    '+961 70 276 166'],
-        ['LOCATION', 'Tripoli, Lebanon'],
-        ['LINKEDIN', 'in/oussama-malass'],
-        ['HACKERONE','hackerone.com/o-m'],
-      ];
-
-      contactData.forEach(([label, value]) => {
-        doc.setFont('helvetica', 'bold');
-        doc.setFontSize(7);
-        doc.setTextColor(...gray);
-        doc.text(label, sidePadding, sY, { charSpace: 0.4 });
-        sY += 3.5;
-
-        doc.setFont('helvetica', 'normal');
-        doc.setFontSize(8.2);
-        doc.setTextColor(...white);
-        const lines = doc.splitTextToSize(value, sideContentW);
-        lines.forEach(line => {
-          doc.text(line, sidePadding, sY);
-          sY += 3.8;
-        });
-        sY += 2.2;
-      });
-
-      sY += 3;
-      sideHeading('Core Skills');
-
-      const skills = [
-        'Web Application Security',
-        'Vulnerability Assessment',
-        'Penetration Testing',
-        'Bug Bounty & Recon',
-        'AI-Assisted Security Research',
-        'Security Tooling',
-        'Burp Suite · Linux · Git',
-        'Python · JavaScript · SQL · C++',
-      ];
-
-      doc.setFont('helvetica', 'normal');
-      doc.setFontSize(8.2);
-      doc.setTextColor(230, 230, 230);
-      skills.forEach(s => {
-        doc.setFillColor(...accent);
-        doc.circle(sidePadding + 1, sY - 1, 0.6, 'F');
-        const lines = doc.splitTextToSize(s, sideContentW - 5);
-        lines.forEach((line, idx) => {
-          doc.text(line, sidePadding + 4, sY);
-          if (idx < lines.length - 1) sY += 3.8;
-        });
-        sY += 4.8;
-      });
-
-      /* ---- LANGUAGES ---- */
-      sY += 4;
-      sideHeading('Languages');
-      doc.setFont('helvetica', 'normal');
-      doc.setFontSize(8.2);
-      doc.setTextColor(230, 230, 230);
-      doc.text('Arabic  —  Native', sidePadding, sY);
-      sY += 4.8;
-      doc.text('English  —  Professional', sidePadding, sY);
-      sY += 4.8;
-      doc.text('French  —  Intermediate', sidePadding, sY);
-
-      /* =========================================================
-         MAIN COLUMN
-      ========================================================= */
-      let mY = 22;
-      let isFirstSection = true;
-
-      doc.setFont('helvetica', 'bold');
-      doc.setFontSize(22);
-      doc.setTextColor(...ink);
-      doc.text('Oussama Malass', mainX, mY, { charSpace: 0.2 });
-      mY += 7.5;
-
-      doc.setFont('helvetica', 'normal');
-      doc.setFontSize(10);
-      doc.setTextColor(...accent);
-      doc.text('Web Application Security Researcher  ·  Penetration Testing  ·  Bug Bounty', mainX, mY);
-      mY += 8;
-
-      doc.setDrawColor(...lineSoft);
-      doc.setLineWidth(0.4);
-      doc.line(mainX, mY, pageW - 14, mY);
-      mY += 10;
-
-      /* ---------- MAIN HELPERS ---------- */
-      function mainHeading(text) {
-        if (mY > 270) { doc.addPage(); mY = 22; isFirstSection = true; }
-        if (!isFirstSection) mY += 4.5;
-        isFirstSection = false;
-
-        doc.setFont('helvetica', 'bold');
-        doc.setFontSize(10.5);
-        doc.setTextColor(...ink);
-        doc.text(text.toUpperCase(), mainX, mY, { charSpace: 0.7 });
-        mY += 2;
-        doc.setDrawColor(...accent);
-        doc.setLineWidth(0.6);
-        doc.line(mainX, mY, mainX + 10, mY);
-        mY += 6.5;
-      }
-
-      function para(text, size = 9.2) {
-        doc.setFont('helvetica', 'normal');
-        doc.setFontSize(size);
-        doc.setTextColor(...ink2);
-        const lines = doc.splitTextToSize(text, mainW);
-        lines.forEach(line => {
-          if (mY > 282) { doc.addPage(); mY = 22; }
-          doc.text(line, mainX, mY);
-          mY += 4.4;
-        });
-        mY += 2.5;
-      }
-
-      function bullets(items) {
-        doc.setFont('helvetica', 'normal');
-        doc.setFontSize(9.2);
-        doc.setTextColor(...ink2);
-        items.forEach(item => {
-          const lines = doc.splitTextToSize(item, mainW - 5);
-          lines.forEach((line, idx) => {
-            if (mY > 282) { doc.addPage(); mY = 22; }
-            if (idx === 0) {
-              doc.setFillColor(...accent);
-              doc.circle(mainX + 1, mY - 1, 0.6, 'F');
-            }
-            doc.text(line, mainX + 4, mY);
-            mY += 4.4;
-          });
-          mY += 1.5;
-        });
-        mY += 1.5;
-      }
-
-      function jobHeader(title, date, org) {
-        doc.setFont('helvetica', 'bold');
-        doc.setFontSize(10);
-        doc.setTextColor(...ink);
-        doc.text(title, mainX, mY);
-
-        if (date) {
-          doc.setFont('helvetica', 'normal');
-          doc.setFontSize(8.5);
-          doc.setTextColor(...ink3);
-          doc.text(date, pageW - 14, mY, { align: 'right' });
-        }
-        mY += 5;
-
-        doc.setFont('helvetica', 'bold');
-        doc.setFontSize(8.8);
-        doc.setTextColor(...accent);
-        doc.text(org, mainX, mY);
-        mY += 6;
-      }
-
-      /* ---------- PROFILE ---------- */
-      mainHeading('Profile');
-      para(
-        'Computer Science graduate focused on web application security, penetration testing, and bug bounty. Active on HackerOne, with responsible disclosures to global organizations including Porsche, DoorDash, and Deriv. Completed 300+ hands-on labs across PentesterLab and PortSwigger Web Security Academy, covering every major vulnerability class. Also researching AI-assisted security workflows for scoped, privacy-aware testing.'
-      );
-
-      /* ---------- EXPERIENCE ---------- */
-      mainHeading('Experience');
-
-      jobHeader('Bug Bounty Hunter', 'Apr 2024 — Present', 'HackerOne  ·  Independent');
-      bullets([
-        'Responsibly disclosed security vulnerabilities in web applications for global companies including Porsche, DoorDash, and Deriv.',
-        'Covered IDOR, XSS, CSRF, authentication bypass, and complex business logic flaws.',
-        'Authored vulnerability reports with clear reproduction steps, impact analysis, and remediation guidance.',
-      ]);
-
-      jobHeader('AI-Assisted Security Research', '2025 — Present', 'Independent Research');
-      bullets([
-        'Researching AI-assisted workflows for reconnaissance, vulnerability discovery, and security testing.',
-        'Keeping testing scoped to agreed boundaries with privacy-preserving controls.',
-      ]);
-
-      /* ---------- EDUCATION ---------- */
-      mainHeading('Education');
-      jobHeader('BSc in Computer Science', 'Graduated 2026', 'Beirut Arab University (BAU)');
-      para(
-        'Coursework: Programming, Web Development, Databases, Computer Networks, Software Engineering, Operating Systems, Data Structures, and Cybersecurity fundamentals.',
-        8.8
-      );
-
-      /* ---------- PROJECTS ---------- */
-      mainHeading('Projects & Research');
-      jobHeader('Custom Security Tooling', '', 'Personal  ·  Ongoing');
-      bullets([
-        'Python-based tooling for reconnaissance, request analysis, and automated web-security testing — inspired by open-source projects such as the Web Cache Vulnerability Scanner.',
-        'Researching AI-assisted security workflows for scoped, privacy-aware testing.',
-      ]);
-
-      /* ---------- CERTIFICATIONS ---------- */
-      mainHeading('Certifications & Training');
-      jobHeader('Web Penetration Testing', '2024 — Present', 'PentesterLab  ·  150+ exercises completed');
-      para(
-        'Completed extensive hands-on web hacking labs covering web pentesting, code review, and advanced exploitation. Contributed feedback that helped enhance the platform.',
-        8.8
-      );
-
-      jobHeader('Web Security Academy', '2024 — Present', 'PortSwigger  ·  150+ labs completed');
-      para(
-        'Completed 150+ hands-on labs across every major vulnerability class — SQL injection, XSS, CSRF, SSRF, XXE, access control, authentication, business logic, and more. Practical exploitation of each category, not just theory.',
-        8.8
-      );
-
-      jobHeader('Ethical Hacking Foundation', 'Apr 2024', 'SemiColon Academy  ·  30-hour program');
-      para(
-        '30-hour practical program covering network security, penetration testing, and bug hunting fundamentals.',
-        8.8
-      );
-
-      return doc.output('blob');
-    }
-
-    /* ---- Download / View CV handlers ---- */
-    document.querySelectorAll('#download-cv-btn, #hero-download-cv').forEach(btn => {
-      btn.addEventListener('click', async () => {
-        const blob = await generateCVPDF();
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'Oussama_Malass_CV.pdf';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
-      });
-    });
-
-    document.getElementById('view-cv-btn').addEventListener('click', async () => {
-      const blob = await generateCVPDF();
-      const url = URL.createObjectURL(blob);
-      window.open(url, '_blank');
-    });
-  </script>
+  <script src="vendor/jspdf.umd.min.js" defer></script>
+  <script src="vendor/cv-fonts.js" defer></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
