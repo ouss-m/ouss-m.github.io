@@ -31,3 +31,9 @@ Badge cards are a manually maintained selection. The latest-badges link points t
 Desktop and 390px mobile layouts reviewed in Chrome. Mobile navigation, CV download, motion controls and award viewer checked. JavaScript syntax, local files, section anchors, unique IDs, image descriptions and structured data checked. The latest two-page CV was rendered and visually reviewed; 2024 training dates and the 2026 graduation year are retained. Checks do not constitute testing on every browser or physical device.
 
 The live GitHub repository has not been modified.
+
+## Mobile update
+
+Based on the latest user-supplied HTML and CSS, preserving the revised introduction and wider desktop layout. The mobile hero places a compact portrait beneath the name. Navigation now has a contrasting panel, animated hamburger/close button, backdrop and keyboard dismissal. Only the availability dot glows green. Mobile orbit motion is restored, with a darker background and more vivid name gradient. Motion controls and reduced-motion preferences remain supported.
+
+This update changes index.html, style.css and script.js. Publish all three together. The CSS and script URLs include a version tag to refresh cached assets. The latest reviewed CV is unchanged and included. Validated at 320px and 390px mobile widths plus desktop, including menu and motion controls and CV generation.

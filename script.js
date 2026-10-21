@@ -1,6 +1,14 @@
 'use strict';
 const hamburger=document.getElementById('hamburger'),navMenu=document.getElementById('nav-menu');
-function setMenuState(open){navMenu.classList.toggle('active',open);hamburger.classList.toggle('active',open);hamburger.setAttribute('aria-expanded',String(open));}
+const mobileMenuQuery=matchMedia('(max-width:760px)');
+function setMenuState(open){
+ open=Boolean(open)&&mobileMenuQuery.matches;
+ navMenu.classList.toggle('active',open);hamburger.classList.toggle('active',open);
+ hamburger.setAttribute('aria-expanded',String(open));hamburger.setAttribute('aria-label',open?'Close menu':'Open menu');
+ document.body.classList.toggle('menu-open',open);navMenu.inert=mobileMenuQuery.matches&&!open;
+}
+setMenuState(false);
+mobileMenuQuery.addEventListener('change',()=>setMenuState(false));
 hamburger.addEventListener('click',()=>setMenuState(hamburger.getAttribute('aria-expanded')!=='true'));
 navMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setMenuState(false)));
 document.addEventListener('click',e=>{if(!e.target.closest('.navbar'))setMenuState(false)});
