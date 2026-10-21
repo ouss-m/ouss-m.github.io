@@ -109,9 +109,14 @@ body{background:#fff}.navbar{background:#ffffffed;color:#10213d;border-color:#e0
   .hamburger,.bar,.nav-menu,.nav-menu a,.menu-backdrop{transition:none}
 }
 
-/* A contained highlight follows the portrait border at every screen size. */
-.portrait-trace{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;border-radius:inherit;overflow:hidden;z-index:3}
-.portrait-trace rect{width:calc(100% - 4px);height:calc(100% - 4px);fill:none;stroke:#83cfff;stroke-width:1.5;stroke-linecap:round;stroke-dasharray:12 88;animation:portrait-trace 7s linear infinite}
-.orbit-one{animation:none;transform:rotateX(25deg) rotateZ(-25deg)}
-@keyframes portrait-trace{to{stroke-dashoffset:-100}}
-@media(prefers-reduced-motion:reduce){.portrait-trace rect{animation:none;stroke-dasharray:none;opacity:.35}}
+/* Each electron and its track share identical SVG ellipse geometry. */
+.electron-orbits{position:absolute;width:min(100%,440px);height:auto;aspect-ratio:5/6;overflow:hidden;pointer-events:none;z-index:1}
+.electron-ring{fill:none;stroke:#6ca9ff;stroke-width:1;opacity:.26}
+.electron{fill:none;stroke:#80caff;stroke-width:4.5;stroke-linecap:round;stroke-dasharray:.12 99.88;animation:electron-travel 12s linear infinite}
+.electron-plane-2 .electron{stroke:#ac9aff;animation-duration:16s;animation-delay:-5s;animation-direction:reverse}
+.electron-plane-2 .electron-ring{stroke:#ab99ff}
+.electron-plane-3 .electron{stroke:#70ddec;animation-duration:20s;animation-delay:-12s}
+.electron-plane-3 .electron-ring{stroke:#70ddec}
+@keyframes electron-travel{to{stroke-dashoffset:-100}}
+@media screen and (max-width:760px){.hero-visual{min-height:320px}.electron-orbits{width:min(100%,310px)}}
+@media(prefers-reduced-motion:reduce){.electron{animation:none}.electron-plane-2 .electron{stroke-dashoffset:-33}.electron-plane-3 .electron{stroke-dashoffset:-66}}
