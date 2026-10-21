@@ -41,3 +41,7 @@ This update changes index.html, style.css and script.js. Publish all three toget
 ## Portrait motion refinement
 
 The orbiting dot is replaced with a subtle blue highlight following the inside of the portrait card border. It scales with the card, stays clipped within its rounded frame, and respects the Motion toggle and reduced-motion preferences. This refinement changes index.html and style.css.
+
+## Electron orbit update
+
+Replaced the portrait-border highlight with three elliptical electron tracks. Each moving electron uses the exact same SVG ellipse as its track, so the dot cannot drift away from the ring. The SVG scales as a single unit and stays within the portrait column. Pause and reduced-motion controls are preserved. Changed files: index.html and style.css.
