@@ -37,3 +37,7 @@ The live GitHub repository has not been modified.
 Based on the latest user-supplied HTML and CSS, preserving the revised introduction and wider desktop layout. The mobile hero places a compact portrait beneath the name. Navigation now has a contrasting panel, animated hamburger/close button, backdrop and keyboard dismissal. Only the availability dot glows green. Mobile orbit motion is restored, with a darker background and more vivid name gradient. Motion controls and reduced-motion preferences remain supported.
 
 This update changes index.html, style.css and script.js. Publish all three together. The CSS and script URLs include a version tag to refresh cached assets. The latest reviewed CV is unchanged and included. Validated at 320px and 390px mobile widths plus desktop, including menu and motion controls and CV generation.
+
+## Portrait motion refinement
+
+The orbiting dot is replaced with a subtle blue highlight following the inside of the portrait card border. It scales with the card, stays clipped within its rounded frame, and respects the Motion toggle and reduced-motion preferences. This refinement changes index.html and style.css.
