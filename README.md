@@ -45,3 +45,7 @@ The orbiting dot is replaced with a subtle blue highlight following the inside o
 ## Electron orbit update
 
 Replaced the portrait-border highlight with three elliptical electron tracks. Each moving electron uses the exact same SVG ellipse as its track, so the dot cannot drift away from the ring. The SVG scales as a single unit and stays within the portrait column. Pause and reduced-motion controls are preserved. Changed files: index.html and style.css.
+
+## Symmetric atom refinement
+
+Three identical elliptical tracks now share one center and are spaced at 0, 60 and 120 degrees. All electrons move together on a slow 24-second cycle, with matching muted blue styling to reduce distraction.
