@@ -109,10 +109,31 @@ body{background:#fff}.navbar{background:#ffffffed;color:#10213d;border-color:#e0
   .hamburger,.bar,.nav-menu,.nav-menu a,.menu-backdrop{transition:none}
 }
 
-/* Symmetric atom: three identical ellipses, spaced by 60 degrees. */
-.electron-orbits{position:absolute;width:min(440px,112%);height:auto;aspect-ratio:5/6;overflow:hidden;pointer-events:none;z-index:1}
-.electron-ring{fill:none;stroke:#7aa8e3;stroke-width:1;opacity:.22}
-.electron{fill:none;stroke:#92c6f5;opacity:.8;stroke-width:3.5;stroke-linecap:round;stroke-dasharray:.08 99.92;animation:electron-travel 24s linear infinite}
-@keyframes electron-travel{to{stroke-dashoffset:-100}}
-@media screen and (max-width:760px){.hero-visual{min-height:320px}.electron-orbits{width:min(100%,310px)}}
-@media(prefers-reduced-motion:reduce){.electron{animation:none}}
+/* Soft light source behind the portrait, contained within its own column. */
+.hero-visual{isolation:isolate}
+.portrait-backlight{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none;z-index:0;overflow:visible}
+.backlight-core,.backlight-halo{position:absolute;border-radius:45%;will-change:opacity,transform}
+.backlight-core{width:290px;height:380px;background:radial-gradient(ellipse at 30% 35%,#a18bffb3,transparent 65%),radial-gradient(ellipse at 70% 65%,#56bfffbd,transparent 68%);filter:blur(26px);animation:backlight-breathe 9s ease-in-out infinite}
+.backlight-halo{width:400px;height:460px;max-width:110%;background:radial-gradient(ellipse,#507cff38 10%,#4c7bff1c 45%,transparent 72%);filter:blur(20px);animation:backlight-breathe 9s ease-in-out -4.5s infinite}
+.hero-visual .hero-image{border-color:#96baff50;box-shadow:0 20px 50px #0005,0 0 24px #599bff20,inset 0 1px 0 #d4e4ff12}
+@keyframes backlight-breathe{0%,100%{opacity:.7;transform:scale(.97)}50%{opacity:1;transform:scale(1.05)}}
+@media screen and (max-width:760px){
+ .hero-visual{min-height:320px}
+ .backlight-core{width:205px;height:260px;filter:blur(22px)}
+ .backlight-halo{width:300px;height:330px;max-width:100%;filter:blur(18px)}
+}
+@media(prefers-reduced-motion:reduce){.backlight-core,.backlight-halo{animation:none;opacity:.85;will-change:auto}}
+
+/* Mobile reference layout: portrait, availability, name, introduction. */
+@media screen and (max-width:760px){
+ .hero{padding-top:104px}
+ .hero-visual{order:-1;min-height:270px;margin:0 0 15px}
+ .hero-visual .hero-image{width:230px;height:230px;padding:4px;border:0;border-radius:50%;background:linear-gradient(135deg,#9474f6,#5d8ff1 60%,#57c8e5);box-shadow:0 0 22px #699aff24,0 16px 40px #0005}
+ .hero-image .portrait-top,.hero-image .portrait-bottom{display:none}
+ .hero-image .image-ring{width:100%;height:100%;aspect-ratio:1;border:4px solid #080e1c;border-radius:50%;overflow:hidden}
+ .hero-image .profile-img{width:100%;height:100%;object-fit:cover;object-position:center 38%}
+ .backlight-core{width:245px;height:245px;border-radius:50%;filter:blur(24px);background:radial-gradient(ellipse at 25% 35%,#a18bffb3,transparent 68%),radial-gradient(ellipse at 75% 65%,#56bfffbd,transparent 68%)}
+ .backlight-halo{width:325px;height:325px;border-radius:50%;max-width:110%;background:radial-gradient(circle,#648bff38 10%,#5279ff20 42%,transparent 71%)}
+ .status-badge{order:0;margin:0 0 24px;padding:8px 14px}
+ .hero-title{order:1;margin:0 0 22px}
+}
