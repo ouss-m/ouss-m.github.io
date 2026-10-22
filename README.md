@@ -49,3 +49,10 @@ Replaced the portrait-border highlight with three elliptical electron tracks. Ea
 ## Symmetric atom refinement
 
 Three identical elliptical tracks now share one center and are spaced at 0, 60 and 120 degrees. All electrons move together on a slow 24-second cycle, with matching muted blue styling to reduce distraction.
+
+## Portrait backlight
+
+Atom tracks and electrons are replaced with a soft blue/violet light source behind the card. A diffused outer halo and restrained nine-second breathing motion keep the portrait in focus. Desktop and mobile layouts were visually checked. The Motion toggle and reduced-motion preference remain supported. Changed files: index.html and style.css.
+
+
+Mobile portrait update (22 October 2026): portrait first, followed by one availability badge, name, and introduction. Circular mobile portrait with a diffuse blue-violet animated backlight. Only the availability dot pulses green. Updated index.html and style.css; CV and scripts unchanged.
